@@ -1,6 +1,6 @@
 {
   "name": "@sohantalukder/react-native-boilerplate",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "A comprehensive React Native template with modern tools and best practices including TypeScript, Navigation, State Management, and UI components",
   "main": "template.config.js",
   "repository": {
@@ -46,4 +46,4 @@
   "engines": {
     "node": ">=18"
   }
-} 
+}
