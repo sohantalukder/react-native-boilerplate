@@ -1,0 +1,44 @@
+# Development files
+.DS_Store
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Testing
+test-template/
+scripts/test-template.js
+
+# Documentation (optional, you can remove these lines if you want to include docs)
+documentation/
+DEPLOYMENT.md
+
+# Git and GitHub
+.git/
+.github/
+
+# Template build artifacts that shouldn't be in the package
+template/node_modules/
+template/.DS_Store
+template/yarn.lock
+template/.bundle/
+template/vendor/
+template/Gemfile.lock
+
+# iOS build artifacts
+template/ios/Pods/
+template/ios/build/
+template/ios/Podfile.lock
+template/ios/.xcode.env.local
+
+# Android build artifacts
+template/android/build/
+template/android/.gradle/
+template/android/app/build/
+
+# IDE
+.vscode/
+.idea/
+
+# OS
+Thumbs.db 
