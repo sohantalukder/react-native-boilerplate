@@ -1,6 +1,26 @@
 {
-  "name": "ReactNativeTemplate",
-  "version": "0.0.1",
+  "name": "@sohantalukder/react-native-boilerplate",
+  "version": "1.0.0",
+  "description": "A comprehensive React Native template with modern tools and best practices",
+  "main": "template.config.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/sohantalukder/react-native-boilerplate.git"
+  },
+  "keywords": [
+    "react-native",
+    "template",
+    "boilerplate",
+    "typescript",
+    "navigation",
+    "state-management"
+  ],
+  "author": "Sohan Talukder",
+  "license": "MIT",
+  "files": [
+    "template",
+    "template.config.js"
+  ],
   "private": true,
   "scripts": {
     "android": "react-native run-android",
