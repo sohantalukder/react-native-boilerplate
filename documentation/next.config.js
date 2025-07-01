@@ -1,6 +1,9 @@
 /** @type {import('next').NextConfig} */
 const isProd = process.env.NODE_ENV === 'production'
-const isExport = process.env.NEXT_EXPORT === 'true'
+const isGitHubPages = process.env.GITHUB_PAGES === 'true'
+
+// Only use GitHub Pages configuration in production AND when explicitly building for GitHub Pages
+const useGitHubPages = isProd && isGitHubPages
 
 const nextConfig = {
   output: isProd ? 'export' : undefined,
@@ -8,8 +11,11 @@ const nextConfig = {
   images: {
     unoptimized: true,
   },
-  assetPrefix: isProd && isExport ? '/react-native-boilerplate' : '',
-  basePath: isProd && isExport ? '/react-native-boilerplate' : '',
+  // Only apply GitHub Pages paths when building for GitHub Pages
+  ...(useGitHubPages && {
+    assetPrefix: '/react-native-boilerplate',
+    basePath: '/react-native-boilerplate',
+  }),
 }
 
 module.exports = nextConfig 

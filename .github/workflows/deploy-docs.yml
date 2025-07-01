@@ -21,6 +21,9 @@ concurrency:
   group: "pages"
   cancel-in-progress: false
 
+env:
+  NODE_ENV: production
+
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -48,9 +51,9 @@ jobs:
       - name: Build with Next.js
         run: |
           cd documentation
-          yarn build
+          yarn build:github
         env:
-          NEXT_EXPORT: true
+          GITHUB_PAGES: true
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
