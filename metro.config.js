@@ -1,4 +1,9 @@
+/* eslint-disable @typescript-eslint/no-var-requires */
 const { getDefaultConfig, mergeConfig } = require('@react-native/metro-config');
+const path = require('path');
+
+const defaultConfig = getDefaultConfig(__dirname);
+const { assetExts, sourceExts } = defaultConfig.resolver;
 
 /**
  * Metro configuration
@@ -6,6 +11,26 @@ const { getDefaultConfig, mergeConfig } = require('@react-native/metro-config');
  *
  * @type {import('@react-native/metro-config').MetroConfig}
  */
-const config = {};
+const config = {
+  resolver: {
+    assetExts: assetExts.filter((extension) => extension !== 'svg'),
+    sourceExts: [...sourceExts, 'svg'],
+    // Fix for duplicate dependency resolution
+    unstable_enablePackageExports: true,
+    // Resolve node_modules dependencies properly
+    nodeModulesPaths: [path.resolve(__dirname, 'node_modules')],
+    // Block problematic nested node_modules
+    blockList: [
+      // Block nested @react-native packages that cause conflicts
+      /node_modules\/@react-native\/metro-config\/node_modules\/@react-native\/.*/,
+    ],
+  },
+  transformer: {
+    babelTransformerPath: require.resolve('react-native-svg-transformer'),
+    unstable_allowRequireContext: true,
+  },
+  // Ensure proper watching of node_modules
+  watchFolders: [path.resolve(__dirname, 'node_modules')],
+};
 
-module.exports = mergeConfig(getDefaultConfig(__dirname), config);
+module.exports = mergeConfig(defaultConfig, config);

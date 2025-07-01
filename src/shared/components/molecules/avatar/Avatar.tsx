@@ -1,0 +1,39 @@
+import { StyleProp, DimensionValue } from 'react-native';
+import Image from '@/shared/components/atoms/image/Image';
+import { ImageStyle } from 'react-native-fast-image';
+import { IconByVariant } from '@/shared/components/atoms';
+
+interface AvatarProps {
+  imageUrl: string;
+  style?: StyleProp<ImageStyle>;
+  height?: DimensionValue;
+  width?: DimensionValue;
+  borderRadius?: number;
+}
+
+const Avatar: React.FC<AvatarProps> = ({
+  imageUrl,
+  height,
+  width,
+  style,
+  borderRadius = 0,
+}) => {
+  const externalPhoto = imageUrl?.match(/https/gi);
+  return externalPhoto ? (
+    <Image
+      source={{ uri: externalPhoto ? imageUrl : '' }}
+      height={height}
+      width={width}
+      style={style}
+      borderRadius={borderRadius}
+    />
+  ) : (
+    <IconByVariant
+      path={'profile'}
+      height={Number(height) / 1.5}
+      width={Number(width) / 1.5}
+    />
+  );
+};
+
+export default Avatar;

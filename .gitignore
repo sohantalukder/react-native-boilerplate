@@ -35,12 +35,6 @@ local.properties
 !debug.keystore
 .kotlin/
 
-# node.js
-#
-node_modules/
-npm-debug.log
-yarn-error.log
-
 # fastlane
 #
 # It is recommended to not store the screenshots in the git repo. Instead, use fastlane to re-generate the
@@ -73,3 +67,32 @@ yarn-error.log
 !.yarn/releases
 !.yarn/sdks
 !.yarn/versions
+
+# eslint
+.eslintcache
+
+# vscode
+.vscode/*
+
+# node.js
+#
+node_modules/
+npm-debug.log
+yarn-error.log
+yarn.lock
+
+
+# testing
+/coverage
+Gemfile.lock
+Podfile.lock
+debug.keystore
+/coverage
+
+# react-native-config codegen
+ios/Config.xcconfig
+android/app/src/main/assets/env.txt
+ios/tmp.xcconfig
+
+# Build logs
+build-logs/
