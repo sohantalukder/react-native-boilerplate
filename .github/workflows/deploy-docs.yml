@@ -32,8 +32,8 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: '18'
-          cache: 'npm'
-          cache-dependency-path: documentation/package-lock.json
+          cache: 'yarn'
+          cache-dependency-path: documentation/yarn.lock
 
       - name: Setup Pages
         uses: actions/configure-pages@v4
@@ -43,12 +43,14 @@ jobs:
       - name: Install dependencies
         run: |
           cd documentation
-          npm ci
+          yarn install --frozen-lockfile
 
       - name: Build with Next.js
         run: |
           cd documentation
-          npm run build
+          yarn build
+        env:
+          NEXT_EXPORT: true
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3

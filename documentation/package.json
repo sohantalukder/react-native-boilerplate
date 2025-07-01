@@ -5,11 +5,11 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "next build",
+    "build": "NEXT_EXPORT=true next build",
     "start": "next start",
     "lint": "next lint",
-    "export": "next build",
-    "deploy": "npm run build && touch out/.nojekyll",
+    "export": "NEXT_EXPORT=true next build",
+    "deploy": "NEXT_EXPORT=true npm run build && touch out/.nojekyll",
     "serve": "npx serve out",
     "analyze": "ANALYZE=true npm run build"
   },
