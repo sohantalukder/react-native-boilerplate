@@ -178,6 +178,33 @@ Update `src/config/` files for:
 4. **Testing**: Write tests for critical business logic
 5. **Performance**: Use FlashList for large lists, optimize images
 
+## 📚 Documentation Deployment
+
+This template includes automated documentation deployment to GitHub Pages. To enable it:
+
+### Setup GitHub Pages
+
+1. **Run the setup helper**:
+   ```bash
+   npm run setup-pages
+   ```
+
+2. **Enable GitHub Pages**:
+   - Go to your repository Settings → Pages
+   - Under "Source", select "GitHub Actions"
+   - Save the settings
+
+3. **Deploy**:
+   ```bash
+   git add .
+   git commit -m "Enable GitHub Pages deployment"
+   git push origin main
+   ```
+
+4. **Access your docs**: `https://yourusername.github.io/your-repo-name/`
+
+The workflow automatically builds and deploys documentation when you push changes to the `documentation/` folder.
+
 ## 🤝 Contributing
 
 1. Fork the repository

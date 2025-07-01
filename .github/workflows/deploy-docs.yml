@@ -16,6 +16,7 @@ permissions:
   contents: read
   pages: write
   id-token: write
+  actions: read
 
 concurrency:
   group: "pages"
@@ -27,11 +28,30 @@ env:
 jobs:
   build:
     runs-on: ubuntu-latest
+    outputs:
+      pages-enabled: ${{ steps.check-pages.outputs.enabled }}
     steps:
       - name: Checkout
         uses: actions/checkout@v4
 
+      - name: Check if Pages is enabled
+        id: check-pages
+        run: |
+          # Check if Pages is enabled for this repository
+          response=$(curl -s -H "Authorization: token ${{ secrets.GITHUB_TOKEN }}" \
+            "https://api.github.com/repos/${{ github.repository }}/pages" || echo "failed")
+          
+          if [[ "$response" == *"Not Found"* ]] || [[ "$response" == "failed" ]]; then
+            echo "enabled=false" >> $GITHUB_OUTPUT
+            echo "⚠️ GitHub Pages is not enabled for this repository"
+            echo "Please enable GitHub Pages in repository settings before running this workflow"
+          else
+            echo "enabled=true" >> $GITHUB_OUTPUT
+            echo "✅ GitHub Pages is enabled"
+          fi
+
       - name: Setup Node.js
+        if: steps.check-pages.outputs.enabled == 'true'
         uses: actions/setup-node@v4
         with:
           node-version: '18'
@@ -39,16 +59,19 @@ jobs:
           cache-dependency-path: documentation/yarn.lock
 
       - name: Setup Pages
+        if: steps.check-pages.outputs.enabled == 'true'
         uses: actions/configure-pages@v4
         with:
           static_site_generator: next
 
       - name: Install dependencies
+        if: steps.check-pages.outputs.enabled == 'true'
         run: |
           cd documentation
           yarn install --frozen-lockfile
 
       - name: Build with Next.js
+        if: steps.check-pages.outputs.enabled == 'true'
         run: |
           cd documentation
           yarn build:github
@@ -56,9 +79,15 @@ jobs:
           GITHUB_PAGES: true
 
       - name: Upload artifact
+        if: steps.check-pages.outputs.enabled == 'true'
         uses: actions/upload-pages-artifact@v3
         with:
           path: ./documentation/out
+
+      - name: Pages not enabled notice
+        if: steps.check-pages.outputs.enabled == 'false'
+        run: |
+          echo "::notice title=GitHub Pages Not Enabled::GitHub Pages is not enabled for this repository. Please enable it in Settings > Pages to deploy documentation."
 
   deploy:
     environment:
@@ -68,6 +97,13 @@ jobs:
     needs: build
     if: github.ref == 'refs/heads/main' || github.ref == 'refs/heads/master'
     steps:
+      - name: Check Pages Status
+        if: needs.build.outputs.pages-enabled == 'false'
+        run: |
+          echo "::error title=Cannot Deploy::GitHub Pages is not enabled for this repository"
+          exit 1
+
       - name: Deploy to GitHub Pages
+        if: needs.build.outputs.pages-enabled == 'true'
         id: deployment
         uses: actions/deploy-pages@v4 
