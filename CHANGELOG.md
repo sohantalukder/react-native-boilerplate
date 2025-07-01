@@ -7,6 +7,18 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [1.0.1] - 2025-07-01
+
+- 2025-07-01
+
+### Added
+- Release notes automation system
+- Comprehensive changelog generation
+- GitHub workflow for automated releases
+- NPM publishing integration
+
+## [1.0.1] - 2025-07-01
+
 ### Added
 - Release notes automation system
 - Comprehensive changelog generation
