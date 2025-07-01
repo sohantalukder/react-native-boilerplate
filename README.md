@@ -1,97 +1,207 @@
-This is a new [**React Native**](https://reactnative.dev) project, bootstrapped using [`@react-native-community/cli`](https://github.com/react-native-community/cli).
+# 🚀 React Native Boilerplate Template
 
-# Getting Started
+![React Native Boilerplate Banner](https://user-images.githubusercontent.com/74038190/225813708-98b745f2-7d22-48cf-9150-083f1b00d6c9.gif)
 
-> **Note**: Make sure you have completed the [Set Up Your Environment](https://reactnative.dev/docs/set-up-your-environment) guide before proceeding.
+A modern, comprehensive React Native template with best practices, modern tools, and a clean architecture. This template provides everything you need to kickstart your React Native project with TypeScript, navigation, state management, and more.
 
-## Step 1: Start Metro
+## ✨ Features
 
-First, you will need to run **Metro**, the JavaScript build tool for React Native.
+### 🏗️ **Architecture & Structure**
+- **TypeScript** - Full type safety with latest TypeScript
+- **Modular Architecture** - Well-organized folder structure
+- **Atomic Design** - Component structure following atomic design principles
+- **Barrel Exports** - Clean and organized imports
 
-To start the Metro dev server, run the following command from the root of your React Native project:
+### 📱 **Navigation & UI**
+- **React Navigation v7** - Stack navigation with type safety
+- **React Native Screens** - Native screen optimization
+- **React Native Safe Area Context** - Safe area handling
+- **React Native Gesture Handler** - Smooth gesture handling
+- **React Native Reanimated v3** - Performant animations
 
-```sh
-# Using npm
-npm start
+### 🔄 **State Management & Data**
+- **Zustand** - Lightweight state management
+- **TanStack Query (React Query)** - Server state management
+- **MMKV Storage** - Fast key-value storage
+- **Axios** - HTTP client with interceptors
 
-# OR using Yarn
-yarn start
+### 🎨 **Styling & Theme**
+- **Custom Theme System** - Centralized theming
+- **Responsive Design** - Screen size adaptation
+- **Dark/Light Mode** - Theme switching support
+- **Custom Components** - Pre-built UI components
+
+### 🌍 **Internationalization**
+- **i18next** - Multi-language support
+- **React i18next** - React Native integration
+- **Fallback Languages** - Graceful language fallbacks
+
+### 🧪 **Developer Experience**
+- **ESLint** - Code linting with React Native rules
+- **Prettier** - Code formatting
+- **Husky** - Git hooks for code quality
+- **Jest** - Unit testing framework
+- **React Native Testing Library** - Component testing
+
+### 📦 **Additional Libraries**
+- **React Native SVG** - SVG support
+- **React Native Fast Image** - Optimized image loading
+- **React Native WebView** - Web content embedding
+- **React Native Device Info** - Device information
+- **FlashList** - Performant lists
+- **Zod** - Runtime type validation
+- **React Error Boundary** - Error handling
+
+## 🚀 Quick Start
+
+### Create a new project
+
+```bash
+npx @react-native-community/cli@latest init MyAwesomeApp --template @sohantalukder/react-native-boilerplate
 ```
 
-## Step 2: Build and run your app
+### Navigate to your project
 
-With Metro running, open a new terminal window/pane from the root of your React Native project, and use one of the following commands to build and run your Android or iOS app:
+```bash
+cd MyAwesomeApp
+```
 
-### Android
+The post-init script will automatically:
+- Install all dependencies
+- Set up iOS CocoaPods (if on macOS)
+- Configure Git hooks
+- Verify Android SDK setup
 
-```sh
-# Using npm
+### Run your app
+
+```bash
+# iOS
+npm run ios
+# or
+yarn ios
+
+# Android
 npm run android
-
-# OR using Yarn
+# or
 yarn android
 ```
 
-### iOS
+## 📁 Project Structure
 
-For iOS, remember to install CocoaPods dependencies (this only needs to be run on first clone or after updating native deps).
-
-The first time you create a new project, run the Ruby bundler to install CocoaPods itself:
-
-```sh
-bundle install
+```
+src/
+├── assets/           # Images, fonts, and other static assets
+├── config/           # App configuration (API, storage, etc.)
+├── modules/          # Feature modules
+├── navigation/       # Navigation configuration
+├── services/         # API services and external integrations
+├── shared/           # Shared components and utilities
+│   ├── components/   # Reusable UI components
+│   │   ├── atoms/    # Basic components (Button, Input, etc.)
+│   │   ├── molecules/# Composite components
+│   │   └── templates/# Layout components
+│   ├── contexts/     # React contexts
+│   ├── hooks/        # Custom hooks
+│   └── utils/        # Utility functions
+├── state/            # Global state management
+├── theme/            # Theme configuration and styles
+├── translations/     # Internationalization files
+└── types/            # TypeScript type definitions
 ```
 
-Then, and every time you update your native dependencies, run:
+## 🛠️ Available Scripts
 
-```sh
-bundle exec pod install
+```bash
+# Development
+npm start              # Start Metro bundler
+npm run android        # Run on Android
+npm run ios           # Run on iOS
+
+# Building
+npm run build:android  # Build Android APK
+npm run build:ios     # Build iOS app
+
+# Code Quality
+npm run lint          # Run ESLint + Prettier + TypeScript
+npm run lint:fix      # Fix linting issues
+npm run test          # Run tests
 ```
 
-For more information, please visit [CocoaPods Getting Started guide](https://guides.cocoapods.org/using/getting-started.html).
+## 🔧 Configuration
 
-```sh
-# Using npm
-npm run ios
+### Environment Setup
 
-# OR using Yarn
-yarn ios
-```
+1. **Development Environment**: Follow the [React Native environment setup guide](https://reactnative.dev/docs/environment-setup)
 
-If everything is set up correctly, you should see your new app running in the Android Emulator, iOS Simulator, or your connected device.
+2. **iOS Setup** (macOS only):
+   ```bash
+   # Install Ruby dependencies
+   bundle install
+   
+   # Install CocoaPods
+   cd ios && bundle exec pod install
+   ```
 
-This is one way to run your app — you can also build it directly from Android Studio or Xcode.
+3. **Android Setup**: 
+   - Set `ANDROID_HOME` environment variable
+   - Install Android SDK and required build tools
 
-## Step 3: Modify your app
+### Theme Customization
 
-Now that you have successfully run the app, let's make changes!
+Edit `src/theme/` files to customize:
+- Colors
+- Typography
+- Spacing
+- Component styles
 
-Open `App.tsx` in your text editor of choice and make some changes. When you save, your app will automatically update and reflect these changes — this is powered by [Fast Refresh](https://reactnative.dev/docs/fast-refresh).
+### API Configuration
 
-When you want to forcefully reload, for example to reset the state of your app, you can perform a full reload:
+Update `src/config/` files for:
+- API endpoints
+- Environment variables
+- App configuration
 
-- **Android**: Press the <kbd>R</kbd> key twice or select **"Reload"** from the **Dev Menu**, accessed via <kbd>Ctrl</kbd> + <kbd>M</kbd> (Windows/Linux) or <kbd>Cmd ⌘</kbd> + <kbd>M</kbd> (macOS).
-- **iOS**: Press <kbd>R</kbd> in iOS Simulator.
+## 📚 Documentation
 
-## Congratulations! :tada:
+### Key Concepts
 
-You've successfully run and modified your React Native App. :partying_face:
+- **Atomic Design**: Components are organized as atoms → molecules → organisms → templates
+- **Barrel Exports**: Use index files for clean imports
+- **Type Safety**: Leverage TypeScript for better development experience
+- **State Management**: Use Zustand for global state, React Query for server state
 
-### Now what?
+### Best Practices
 
-- If you want to add this new React Native code to an existing application, check out the [Integration guide](https://reactnative.dev/docs/integration-with-existing-apps).
-- If you're curious to learn more about React Native, check out the [docs](https://reactnative.dev/docs/getting-started).
+1. **Components**: Keep components small and focused
+2. **Styling**: Use the theme system for consistent styling
+3. **State**: Separate local, global, and server state appropriately
+4. **Testing**: Write tests for critical business logic
+5. **Performance**: Use FlashList for large lists, optimize images
 
-# Troubleshooting
+## 🤝 Contributing
 
-If you're having issues getting the above steps to work, see the [Troubleshooting](https://reactnative.dev/docs/troubleshooting) page.
+1. Fork the repository
+2. Create your feature branch (`git checkout -b feature/amazing-feature`)
+3. Commit your changes (`git commit -m 'Add some amazing feature'`)
+4. Push to the branch (`git push origin feature/amazing-feature`)
+5. Open a Pull Request
 
-# Learn More
+## 📄 License
 
-To learn more about React Native, take a look at the following resources:
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
-- [React Native Website](https://reactnative.dev) - learn more about React Native.
-- [Getting Started](https://reactnative.dev/docs/environment-setup) - an **overview** of React Native and how setup your environment.
-- [Learn the Basics](https://reactnative.dev/docs/getting-started) - a **guided tour** of the React Native **basics**.
-- [Blog](https://reactnative.dev/blog) - read the latest official React Native **Blog** posts.
-- [`@facebook/react-native`](https://github.com/facebook/react-native) - the Open Source; GitHub **repository** for React Native.
+## 🙏 Acknowledgments
+
+- [React Native Community](https://github.com/react-native-community)
+- [TheCodeingMachine Boilerplate](https://github.com/thecodingmachine/react-native-boilerplate) - Inspiration
+- All the amazing library authors and contributors
+
+## 📞 Support
+
+- 📧 Email: mdtalukder.sohan@gmail.com
+- 🐛 Issues: [GitHub Issues](https://github.com/sohantalukder/react-native-boilerplate/issues)
+- 💬 Discussions: [GitHub Discussions](https://github.com/sohantalukder/react-native-boilerplate/discussions)
+
+---
+
+**Happy coding! 🎉** 

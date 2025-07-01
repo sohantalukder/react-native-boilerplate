@@ -11,4 +11,4 @@ module.exports = {
 
   // Placeholder title that will be replaced in values
   titlePlaceholder: 'React Native Template',
-}; 
+};

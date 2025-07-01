@@ -1,0 +1,145 @@
+<!DOCTYPE html><html lang="en"><head><meta charSet="utf-8"/><title>Configuration | React Native Boilerplate</title><meta name="description" content="Learn how to configure themes, API endpoints, environment variables, and internationalization in the React Native Boilerplate."/><meta name="keywords" content="React Native, TypeScript, Mobile App, Boilerplate, Template, Navigation, State Management, iOS, Android"/><meta name="author" content="Sohan Talukder"/><meta name="viewport" content="width=device-width, initial-scale=1"/><meta name="robots" content="index, follow"/><meta name="language" content="English"/><meta name="revisit-after" content="7 days"/><link rel="canonical" href="https://sohantalukder.github.io/react-native-boilerplate/docs/configuration/"/><meta property="og:type" content="article"/><meta property="og:title" content="Configuration | React Native Boilerplate"/><meta property="og:description" content="Learn how to configure themes, API endpoints, environment variables, and internationalization in the React Native Boilerplate."/><meta property="og:image" content="https://sohantalukder.github.io/react-native-boilerplate/og-image.png"/><meta property="og:url" content="https://sohantalukder.github.io/react-native-boilerplate/docs/configuration/"/><meta property="og:site_name" content="React Native Boilerplate"/><meta property="og:locale" content="en_US"/><meta name="twitter:card" content="summary_large_image"/><meta name="twitter:title" content="Configuration | React Native Boilerplate"/><meta name="twitter:description" content="Learn how to configure themes, API endpoints, environment variables, and internationalization in the React Native Boilerplate."/><meta name="twitter:image" content="https://sohantalukder.github.io/react-native-boilerplate/og-image.png"/><meta name="twitter:creator" content="@sohantalukder"/><meta name="twitter:site" content="@sohantalukder"/><meta name="theme-color" content="#3b82f6"/><meta name="msapplication-TileColor" content="#3b82f6"/><meta name="apple-mobile-web-app-capable" content="yes"/><meta name="apple-mobile-web-app-status-bar-style" content="default"/><meta name="apple-mobile-web-app-title" content="RN Boilerplate"/><link rel="icon" type="image/svg+xml" href="/favicon.svg"/><link rel="icon" type="image/x-icon" href="/favicon.ico"/><link rel="manifest" href="/manifest.json"/><script type="application/ld+json">{"@context":"https://schema.org","@type":"SoftwareApplication","name":"React Native Boilerplate","description":"Learn how to configure themes, API endpoints, environment variables, and internationalization in the React Native Boilerplate.","url":"https://sohantalukder.github.io/react-native-boilerplate/docs/configuration/","image":"https://sohantalukder.github.io/react-native-boilerplate/og-image.png","author":{"@type":"Person","name":"Sohan Talukder","email":"mdtalukder.sohan@gmail.com"},"applicationCategory":"DeveloperApplication","operatingSystem":"iOS, Android","programmingLanguage":"TypeScript, JavaScript","keywords":"React Native, TypeScript, Mobile App, Boilerplate, Template, Navigation, State Management, iOS, Android","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}}</script><meta name="next-head-count" content="32"/><link rel="preload" href="/react-native-boilerplate/_next/static/media/e4af272ccee01ff0-s.p.woff2" as="font" type="font/woff2" crossorigin="anonymous" data-next-font="size-adjust"/><link rel="preload" href="/react-native-boilerplate/_next/static/media/bb3ef058b751a6ad-s.p.woff2" as="font" type="font/woff2" crossorigin="anonymous" data-next-font="size-adjust"/><link rel="preload" href="/react-native-boilerplate/_next/static/css/69d8bf583dfab677.css" as="style"/><link rel="stylesheet" href="/react-native-boilerplate/_next/static/css/69d8bf583dfab677.css" data-n-g=""/><noscript data-n-css=""></noscript><script defer="" nomodule="" src="/react-native-boilerplate/_next/static/chunks/polyfills-42372ed130431b0a.js"></script><script src="/react-native-boilerplate/_next/static/chunks/webpack-0029c45ab9080b41.js" defer=""></script><script src="/react-native-boilerplate/_next/static/chunks/framework-c94fd51fbc335f8e.js" defer=""></script><script src="/react-native-boilerplate/_next/static/chunks/main-23a383f64c95c663.js" defer=""></script><script src="/react-native-boilerplate/_next/static/chunks/pages/_app-ca41fd7122fa46fc.js" defer=""></script><script src="/react-native-boilerplate/_next/static/chunks/846-7f871ade1fcd1315.js" defer=""></script><script src="/react-native-boilerplate/_next/static/chunks/pages/docs/configuration-0e050623709114ed.js" defer=""></script><script src="/react-native-boilerplate/_next/static/Uur-rftGt9VaiRxPxYODg/_buildManifest.js" defer=""></script><script src="/react-native-boilerplate/_next/static/Uur-rftGt9VaiRxPxYODg/_ssgManifest.js" defer=""></script></head><body><div id="__next"><div class="__variable_099a87 __variable_4520e7 font-sans"><script>!function(){try{var d=document.documentElement,c=d.classList;c.remove('light','dark');var e=localStorage.getItem('theme');if('system'===e||(!e&&true)){var t='(prefers-color-scheme: dark)',m=window.matchMedia(t);if(m.media!==t||m.matches){d.style.colorScheme = 'dark';c.add('dark')}else{d.style.colorScheme = 'light';c.add('light')}}else if(e){c.add(e|| '')}if(e==='light'||e==='dark')d.style.colorScheme=e}catch(e){}}()</script><div class="min-h-screen bg-background"><header class="border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60"><div class="container mx-auto px-4 py-4"><div class="flex items-center justify-between"><a class="text-muted-foreground hover:text-foreground inline-flex items-center" href="/react-native-boilerplate/docs/"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-arrow-left mr-2 h-4 w-4"><path d="m12 19-7-7 7-7"></path><path d="M19 12H5"></path></svg>Back to Documentation</a><button class="inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 hover:bg-accent hover:text-accent-foreground h-10 w-10"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-sun h-[1.2rem] w-[1.2rem] rotate-0 scale-100 transition-all dark:-rotate-90 dark:scale-0"><circle cx="12" cy="12" r="4"></circle><path d="M12 2v2"></path><path d="M12 20v2"></path><path d="m4.93 4.93 1.41 1.41"></path><path d="m17.66 17.66 1.41 1.41"></path><path d="M2 12h2"></path><path d="M20 12h2"></path><path d="m6.34 17.66-1.41 1.41"></path><path d="m19.07 4.93-1.41 1.41"></path></svg><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-moon absolute h-[1.2rem] w-[1.2rem] rotate-90 scale-0 transition-all dark:rotate-0 dark:scale-100"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"></path></svg><span class="sr-only">Toggle theme</span></button></div></div></header><div class="container mx-auto px-4 py-8"><div class="max-w-5xl mx-auto"><div class="mb-12 text-center"><h1 class="text-4xl font-bold tracking-tight mb-4">Configuration</h1><p class="text-xl text-muted-foreground max-w-3xl mx-auto">Configure your app settings, environment variables, and build configurations to customize your React Native application</p></div><div class="space-y-8"><div class="rounded-lg text-card-foreground border-0 shadow-sm bg-card/50"><div class="flex flex-col space-y-1.5 p-6 pb-4"><h3 class="font-semibold tracking-tight flex items-center text-xl"><div class="mr-3 p-2 bg-primary/10 text-primary rounded-lg"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-settings h-6 w-6"><path d="M12.22 2h-.44a2 2 0 0 0-2 2v.18a2 2 0 0 1-1 1.73l-.43.25a2 2 0 0 1-2 0l-.15-.08a2 2 0 0 0-2.73.73l-.22.38a2 2 0 0 0 .73 2.73l.15.1a2 2 0 0 1 1 1.72v.51a2 2 0 0 1-1 1.74l-.15.09a2 2 0 0 0-.73 2.73l.22.38a2 2 0 0 0 2.73.73l.15-.08a2 2 0 0 1 2 0l.43.25a2 2 0 0 1 1 1.73V20a2 2 0 0 0 2 2h.44a2 2 0 0 0 2-2v-.18a2 2 0 0 1 1-1.73l.43-.25a2 2 0 0 1 2 0l.15.08a2 2 0 0 0 2.73-.73l.22-.39a2 2 0 0 0-.73-2.73l-.15-.08a2 2 0 0 1-1-1.74v-.5a2 2 0 0 1 1-1.74l.15-.09a2 2 0 0 0 .73-2.73l-.22-.38a2 2 0 0 0-2.73-.73l-.15.08a2 2 0 0 1-2 0l-.43-.25a2 2 0 0 1-1-1.73V4a2 2 0 0 0-2-2z"></path><circle cx="12" cy="12" r="3"></circle></svg></div>Environment Variables</h3><p class="text-muted-foreground text-base">Configure environment-specific settings</p></div><div class="p-6 pt-0"><div class="space-y-6"><div><h4 class="font-semibold mb-3">Creating Environment Files</h4><p class="text-muted-foreground mb-4">Create different environment files for different stages:</p><div class="grid md:grid-cols-2 gap-4"><div class="bg-muted/50 p-4 rounded-lg"><h5 class="font-medium mb-2">.env.development</h5><pre class="text-sm bg-background p-3 rounded border">API_URL=http://localhost:3000/api
+APP_ENV=development
+DEBUG_MODE=true</pre></div><div class="bg-muted/50 p-4 rounded-lg"><h5 class="font-medium mb-2">.env.production</h5><pre class="text-sm bg-background p-3 rounded border">API_URL=https://api.yourapp.com
+APP_ENV=production
+DEBUG_MODE=false</pre></div></div></div><div><h4 class="font-semibold mb-3">Using Environment Variables</h4><pre class="text-sm bg-muted p-4 rounded-lg overflow-x-auto">// src/config/env.ts
+import Config from &#x27;react-native-config&#x27;;
+
+export const env = {
+  API_URL: Config.API_URL || &#x27;http://localhost:3000/api&#x27;,
+  APP_ENV: Config.APP_ENV || &#x27;development&#x27;,
+  DEBUG_MODE: Config.DEBUG_MODE === &#x27;true&#x27;,
+};</pre></div></div></div></div><div class="rounded-lg text-card-foreground border-0 shadow-sm bg-card/50"><div class="flex flex-col space-y-1.5 p-6 pb-4"><h3 class="font-semibold tracking-tight flex items-center text-xl"><div class="mr-3 p-2 bg-primary/10 text-primary rounded-lg"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-palette h-6 w-6"><circle cx="13.5" cy="6.5" r=".5"></circle><circle cx="17.5" cy="10.5" r=".5"></circle><circle cx="8.5" cy="7.5" r=".5"></circle><circle cx="6.5" cy="12.5" r=".5"></circle><path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10c.926 0 1.648-.746 1.648-1.688 0-.437-.18-.835-.437-1.125-.29-.289-.438-.652-.438-1.125a1.64 1.64 0 0 1 1.668-1.668h1.996c3.051 0 5.555-2.503 5.555-5.554C21.965 6.012 17.461 2 12 2z"></path></svg></div>App Configuration</h3><p class="text-muted-foreground text-base">Basic app settings and metadata</p></div><div class="p-6 pt-0"><div class="space-y-6"><div><h4 class="font-semibold mb-3">App Config File</h4><pre class="text-sm bg-muted p-4 rounded-lg overflow-x-auto">// src/config/app.ts
+export const appConfig = {
+  name: &#x27;Your App Name&#x27;,
+  version: &#x27;1.0.0&#x27;,
+  bundleId: &#x27;com.yourcompany.yourapp&#x27;,
+  
+  // Navigation
+  initialRouteName: &#x27;Home&#x27;,
+  
+  // Theme
+  defaultTheme: &#x27;light&#x27;,
+  
+  // Features
+  features: {
+    darkMode: true,
+    biometricAuth: true,
+    pushNotifications: true,
+  },
+  
+  // API
+  api: {
+    timeout: 10000,
+    retries: 3,
+  },
+};</pre></div></div></div></div><div class="rounded-lg text-card-foreground border-0 shadow-sm bg-card/50"><div class="flex flex-col space-y-1.5 p-6 pb-4"><h3 class="font-semibold tracking-tight flex items-center text-xl"><div class="mr-3 p-2 bg-primary/10 text-primary rounded-lg"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-code h-6 w-6"><polyline points="16 18 22 12 16 6"></polyline><polyline points="8 6 2 12 8 18"></polyline></svg></div>Build Configuration</h3><p class="text-muted-foreground text-base">Metro, Babel, and build settings</p></div><div class="p-6 pt-0"><div class="space-y-6"><div><h4 class="font-semibold mb-3">Metro Configuration</h4><p class="text-muted-foreground mb-4">Configure Metro bundler for optimal performance:</p><pre class="text-sm bg-muted p-4 rounded-lg overflow-x-auto">// metro.config.js
+const {getDefaultConfig, mergeConfig} = require(&#x27;@react-native/metro-config&#x27;);
+
+const config = {
+  transformer: {
+    babelTransformerPath: require.resolve(&#x27;react-native-svg-transformer&#x27;),
+  },
+  resolver: {
+    assetExts: getDefaultConfig(__dirname).resolver.assetExts.filter(
+      ext =&gt; ext !== &#x27;svg&#x27;,
+    ),
+    sourceExts: [...getDefaultConfig(__dirname).resolver.sourceExts, &#x27;svg&#x27;],
+  },
+};
+
+module.exports = mergeConfig(getDefaultConfig(__dirname), config);</pre></div><div><h4 class="font-semibold mb-3">Babel Configuration</h4><pre class="text-sm bg-muted p-4 rounded-lg overflow-x-auto">// babel.config.js
+module.exports = {
+  presets: [&#x27;module:@react-native/babel-preset&#x27;],
+  plugins: [
+    [
+      &#x27;module-resolver&#x27;,
+      {
+        root: [&#x27;./src&#x27;],
+        alias: {
+          &#x27;@&#x27;: &#x27;./src&#x27;,
+          &#x27;@components&#x27;: &#x27;./src/components&#x27;,
+          &#x27;@modules&#x27;: &#x27;./src/modules&#x27;,
+          &#x27;@services&#x27;: &#x27;./src/services&#x27;,
+          &#x27;@utils&#x27;: &#x27;./src/utils&#x27;,
+        },
+      },
+    ],
+    &#x27;react-native-reanimated/plugin&#x27;,
+  ],
+};</pre></div></div></div></div><div class="rounded-lg text-card-foreground border-0 shadow-sm bg-card/50"><div class="flex flex-col space-y-1.5 p-6 pb-4"><h3 class="font-semibold tracking-tight flex items-center text-xl"><div class="mr-3 p-2 bg-primary/10 text-primary rounded-lg"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-globe h-6 w-6"><circle cx="12" cy="12" r="10"></circle><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"></path><path d="M2 12h20"></path></svg></div>Internationalization</h3><p class="text-muted-foreground text-base">Multi-language support configuration</p></div><div class="p-6 pt-0"><div class="space-y-6"><div><h4 class="font-semibold mb-3">i18n Setup</h4><pre class="text-sm bg-muted p-4 rounded-lg overflow-x-auto">// src/translations/index.ts
+import i18n from &#x27;i18next&#x27;;
+import { initReactI18next } from &#x27;react-i18next&#x27;;
+import en from &#x27;./en&#x27;;
+import es from &#x27;./es&#x27;;
+
+i18n.use(initReactI18next).init({
+  resources: {
+    en: { translation: en },
+    es: { translation: es },
+  },
+  lng: &#x27;en&#x27;,
+  fallbackLng: &#x27;en&#x27;,
+  interpolation: {
+    escapeValue: false,
+  },
+});
+
+export default i18n;</pre></div><div><h4 class="font-semibold mb-3">Translation Files</h4><div class="grid md:grid-cols-2 gap-4"><div class="bg-muted/50 p-4 rounded-lg"><h5 class="font-medium mb-2">translations/en.ts</h5><pre class="text-xs bg-background p-3 rounded border">export default {
+  common: {
+    save: &#x27;Save&#x27;,
+    cancel: &#x27;Cancel&#x27;,
+    loading: &#x27;Loading...&#x27;,
+  },
+  modules: {
+    home: {
+      title: &#x27;Welcome&#x27;,
+      subtitle: &#x27;Get started&#x27;,
+    },
+  },
+};</pre></div><div class="bg-muted/50 p-4 rounded-lg"><h5 class="font-medium mb-2">translations/es.ts</h5><pre class="text-xs bg-background p-3 rounded border">export default {
+  common: {
+    save: &#x27;Guardar&#x27;,
+    cancel: &#x27;Cancelar&#x27;,
+    loading: &#x27;Cargando...&#x27;,
+  },
+  modules: {
+    home: {
+      title: &#x27;Bienvenido&#x27;,
+      subtitle: &#x27;Comenzar&#x27;,
+    },
+  },
+};</pre></div></div></div></div></div></div><div class="rounded-lg text-card-foreground border-0 shadow-sm bg-card/50"><div class="flex flex-col space-y-1.5 p-6 pb-4"><h3 class="font-semibold tracking-tight flex items-center text-xl"><div class="mr-3 p-2 bg-primary/10 text-primary rounded-lg"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-palette h-6 w-6"><circle cx="13.5" cy="6.5" r=".5"></circle><circle cx="17.5" cy="10.5" r=".5"></circle><circle cx="8.5" cy="7.5" r=".5"></circle><circle cx="6.5" cy="12.5" r=".5"></circle><path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10c.926 0 1.648-.746 1.648-1.688 0-.437-.18-.835-.437-1.125-.29-.289-.438-.652-.438-1.125a1.64 1.64 0 0 1 1.668-1.668h1.996c3.051 0 5.555-2.503 5.555-5.554C21.965 6.012 17.461 2 12 2z"></path></svg></div>Security Configuration</h3><p class="text-muted-foreground text-base">Security settings and best practices</p></div><div class="p-6 pt-0"><div class="space-y-6"><div><h4 class="font-semibold mb-3">Secure Storage</h4><pre class="text-sm bg-muted p-4 rounded-lg overflow-x-auto">// src/services/storage/secureStorage.ts
+import EncryptedStorage from &#x27;react-native-encrypted-storage&#x27;;
+
+export const secureStorage = {
+  async setItem(key: string, value: string): Promise&lt;void&gt; {
+    try {
+      await EncryptedStorage.setItem(key, value);
+    } catch (error) {
+      console.error(&#x27;Secure storage setItem error:&#x27;, error);
+    }
+  },
+
+  async getItem(key: string): Promise&lt;string | null&gt; {
+    try {
+      return await EncryptedStorage.getItem(key);
+    } catch (error) {
+      console.error(&#x27;Secure storage getItem error:&#x27;, error);
+      return null;
+    }
+  },
+
+  async removeItem(key: string): Promise&lt;void&gt; {
+    try {
+      await EncryptedStorage.removeItem(key);
+    } catch (error) {
+      console.error(&#x27;Secure storage removeItem error:&#x27;, error);
+    }
+  },
+};</pre></div><div><h4 class="font-semibold mb-3">Network Security</h4><div class="bg-muted/50 p-4 rounded-lg"><h5 class="font-medium mb-2">Android Network Security Config</h5><p class="text-sm text-muted-foreground mb-2">Add to android/app/src/main/res/xml/network_security_config.xml:</p><pre class="text-xs bg-background p-3 rounded border overflow-x-auto">&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;
+&lt;network-security-config&gt;
+    &lt;domain-config cleartextTrafficPermitted=&quot;false&quot;&gt;
+        &lt;domain includeSubdomains=&quot;true&quot;&gt;your-api-domain.com&lt;/domain&gt;
+    &lt;/domain-config&gt;
+&lt;/network-security-config&gt;</pre></div></div></div></div></div></div><div class="mt-16 text-center p-8 bg-gradient-to-r from-primary/5 to-primary/10 rounded-lg border"><h2 class="text-2xl font-semibold mb-4">Next Steps</h2><p class="text-muted-foreground mb-6 max-w-2xl mx-auto">With your configuration set up, you&#x27;re ready to start developing your app. Learn about the development workflow and best practices.</p><div class="flex flex-col sm:flex-row gap-4 justify-center"><a class="inline-flex items-center justify-center px-6 py-3 border border-transparent text-base font-medium rounded-md text-primary-foreground bg-primary hover:bg-primary/90 transition-colors" href="/react-native-boilerplate/docs/development/">Development Guide</a><a class="inline-flex items-center justify-center px-6 py-3 border border-input bg-background hover:bg-accent hover:text-accent-foreground transition-colors rounded-md" href="/react-native-boilerplate/docs/project-structure/">Project Structure</a></div></div></div></div></div></div></div><script id="__NEXT_DATA__" type="application/json">{"props":{"pageProps":{}},"page":"/docs/configuration","query":{},"buildId":"Uur-rftGt9VaiRxPxYODg","assetPrefix":"/react-native-boilerplate","nextExport":true,"autoExport":true,"isFallback":false,"scriptLoader":[]}</script></body></html>
