@@ -259,7 +259,7 @@ export default function Home() {
               </div>
 
               <div className="border-t pt-8 mt-8 text-center text-sm text-muted-foreground">
-                <p>&copy; 2024 React Native Boilerplate. Built with ❤️ for the React Native community.</p>
+                <p>&copy; 2024 React Native Boilerplate. Built with ❤️ by <Link href="https://github.com/sohantalukder" target="_blank" rel="noopener noreferrer" className="text-primary hover:text-primary/80 transition-colors font-medium">Sohan Talukder</Link> for the React Native community.</p>
               </div>
             </div>
           </div>
