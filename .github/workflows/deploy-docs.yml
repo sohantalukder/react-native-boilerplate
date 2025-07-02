@@ -107,7 +107,7 @@ jobs:
           echo "📄 Index file check:"
           if [ -f "documentation/out/index.html" ]; then
             echo "✅ index.html found"
-            echo "📊 File size: $(stat -f%z documentation/out/index.html) bytes"
+            echo "📊 File size: $(stat -c%s documentation/out/index.html) bytes"
           else
             echo "❌ index.html not found"
             exit 1
