@@ -6,64 +6,25 @@ on:
     paths:
       - 'documentation/**'
       - '.github/workflows/deploy-docs.yml'
-  pull_request:
-    branches: [ main, master ]
-    paths:
-      - 'documentation/**'
   workflow_dispatch:
-    inputs:
-      force_deploy:
-        description: 'Force deploy documentation'
-        required: false
-        default: 'false'
 
 permissions:
   contents: read
   pages: write
   id-token: write
-  actions: read
 
 concurrency:
   group: "pages"
   cancel-in-progress: false
 
-env:
-  NODE_ENV: production
-
 jobs:
   build:
     runs-on: ubuntu-latest
-    outputs:
-      pages-enabled: ${{ steps.check-pages.outputs.enabled }}
     steps:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Check if Pages is enabled
-        id: check-pages
-        run: |
-          # Check if Pages is enabled for this repository
-          response=$(curl -s -H "Authorization: token ${{ secrets.GITHUB_TOKEN }}" \
-            "https://api.github.com/repos/${{ github.repository }}/pages" || echo "failed")
-          
-          if [[ "$response" == *"Not Found"* ]] || [[ "$response" == "failed" ]]; then
-            echo "enabled=false" >> $GITHUB_OUTPUT
-            echo "⚠️ GitHub Pages is not enabled for this repository"
-            echo "Please enable GitHub Pages in repository settings before running this workflow"
-          else
-            echo "enabled=true" >> $GITHUB_OUTPUT
-            echo "✅ GitHub Pages is enabled"
-            # Check if source is set to GitHub Actions
-            if [[ "$response" == *'"source":{"branch":null,"path":null}'* ]]; then
-              echo "✅ GitHub Pages source is correctly set to GitHub Actions"
-            else
-              echo "⚠️ GitHub Pages source should be set to 'GitHub Actions' in repository settings"
-              echo "Current source detected from API response"
-            fi
-          fi
-
       - name: Setup Node.js
-        if: steps.check-pages.outputs.enabled == 'true'
         uses: actions/setup-node@v4
         with:
           node-version: '18'
@@ -71,73 +32,22 @@ jobs:
           cache-dependency-path: documentation/yarn.lock
 
       - name: Setup Pages
-        if: steps.check-pages.outputs.enabled == 'true'
         uses: actions/configure-pages@v4
-        with:
-          static_site_generator: next
 
       - name: Install dependencies
-        if: steps.check-pages.outputs.enabled == 'true'
         run: |
           cd documentation
           yarn install --frozen-lockfile
 
       - name: Build with Next.js
-        if: steps.check-pages.outputs.enabled == 'true'
         run: |
           cd documentation
-          yarn build:github
-        env:
-          GITHUB_PAGES: true
-
-      - name: Ensure .nojekyll file exists
-        if: steps.check-pages.outputs.enabled == 'true'
-        run: |
-          cd documentation
-          # Ensure .nojekyll file exists to prevent Jekyll processing
-          touch out/.nojekyll
-          echo "✅ .nojekyll file created/verified"
-
-      - name: Verify build output
-        if: steps.check-pages.outputs.enabled == 'true'
-        run: |
-          echo "📁 Checking build output..."
-          ls -la documentation/out/
-          echo ""
-          echo "📄 Index file check:"
-          if [ -f "documentation/out/index.html" ]; then
-            echo "✅ index.html found"
-            echo "📊 File size: $(stat -c%s documentation/out/index.html) bytes"
-          else
-            echo "❌ index.html not found"
-            exit 1
-          fi
-          echo ""
-          echo "🚫 Checking for problematic files:"
-          if [ -f "documentation/out/CNAME" ]; then
-            echo "⚠️  CNAME file found (this might cause issues for project sites)"
-            cat documentation/out/CNAME
-          else
-            echo "✅ No CNAME file found (correct for project sites)"
-          fi
-          echo ""
-          echo "📋 Jekyll bypass check:"
-          if [ -f "documentation/out/.nojekyll" ]; then
-            echo "✅ .nojekyll file found"
-          else
-            echo "❌ .nojekyll file missing"
-          fi
+          GITHUB_PAGES=true yarn build:github
 
       - name: Upload artifact
-        if: steps.check-pages.outputs.enabled == 'true'
         uses: actions/upload-pages-artifact@v3
         with:
           path: ./documentation/out
-
-      - name: Pages not enabled notice
-        if: steps.check-pages.outputs.enabled == 'false'
-        run: |
-          echo "::notice title=GitHub Pages Not Enabled::GitHub Pages is not enabled for this repository. Please enable it in Settings > Pages to deploy documentation."
 
   deploy:
     environment:
@@ -147,20 +57,6 @@ jobs:
     needs: build
     if: github.ref == 'refs/heads/main' || github.ref == 'refs/heads/master'
     steps:
-      - name: Check Pages Status
-        if: needs.build.outputs.pages-enabled == 'false'
-        run: |
-          echo "::error title=Cannot Deploy::GitHub Pages is not enabled for this repository"
-          exit 1
-
       - name: Deploy to GitHub Pages
-        if: needs.build.outputs.pages-enabled == 'true'
         id: deployment
-        uses: actions/deploy-pages@v4
-
-      - name: Deployment Summary
-        if: needs.build.outputs.pages-enabled == 'true'
-        run: |
-          echo "🚀 Documentation deployed successfully!"
-          echo "📍 URL: ${{ steps.deployment.outputs.page_url }}"
-          echo "📝 Note: It may take a few minutes for changes to be visible" 
+        uses: actions/deploy-pages@v4 
