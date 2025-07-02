@@ -58,7 +58,7 @@ export default function Home() {
                   Apps Faster
                 </h1>
                 <p className="text-xl text-muted-foreground mb-8 max-w-2xl mx-auto">
-                  A professional, scalable boilerplate with TypeScript, navigation, state management, and modern development tools. Start building your next mobile app in minutes.
+                  A professional, scalable boilerplate with TypeScript, navigation, state management, and modern development tools. Start building your next mobile app in minutes, not days.
                 </p>
               </div>
 
