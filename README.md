@@ -2,7 +2,24 @@
 
 ![React Native Boilerplate Banner](https://user-images.githubusercontent.com/74038190/225813708-98b745f2-7d22-48cf-9150-083f1b00d6c9.gif)
 
+[![Documentation](https://img.shields.io/badge/📖-Documentation-blue?style=for-the-badge)](https://sohantalukder.github.io/react-native-boilerplate/)
+[![NPM](https://img.shields.io/badge/📦-NPM_Package-red?style=for-the-badge)](https://www.npmjs.com/package/@sohantalukder/react-native-boilerplate)
+[![GitHub](https://img.shields.io/badge/⭐-Star_on_GitHub-black?style=for-the-badge)](https://github.com/sohantalukder/react-native-boilerplate)
+
 A modern, comprehensive React Native template with best practices, modern tools, and a clean architecture. This template provides everything you need to kickstart your React Native project with TypeScript, navigation, state management, and more.
+
+## 📖 Complete Documentation
+
+🌟 **[Visit our comprehensive documentation website](https://sohantalukder.github.io/react-native-boilerplate/)** for detailed guides, examples, and best practices.
+
+The documentation includes:
+- 📚 **Setup Guides** - Step-by-step installation and configuration
+- 🏗️ **Architecture Guide** - Understanding the project structure
+- 🎨 **Theming System** - Customizing colors, typography, and styles
+- 🔧 **Configuration** - API setup, environment variables, and more
+- 📱 **Component Library** - Pre-built components and usage examples
+- 🧪 **Testing Guide** - Unit testing and best practices
+- 🚀 **Deployment** - Build and release your app
 
 ## ✨ Features
 
@@ -163,6 +180,8 @@ Update `src/config/` files for:
 
 ## 📚 Documentation
 
+> 💡 **Tip**: For the most up-to-date and comprehensive documentation, visit our [**Documentation Website**](https://sohantalukder.github.io/react-native-boilerplate/)
+
 ### Key Concepts
 
 - **Atomic Design**: Components are organized as atoms → molecules → organisms → templates
@@ -178,11 +197,23 @@ Update `src/config/` files for:
 4. **Testing**: Write tests for critical business logic
 5. **Performance**: Use FlashList for large lists, optimize images
 
+### 📖 Additional Resources
+
+- 🌐 **[Live Documentation](https://sohantalukder.github.io/react-native-boilerplate/)** - Interactive guides and examples
+- 📋 **[API Reference](https://sohantalukder.github.io/react-native-boilerplate/docs/api)** - Complete API documentation
+- 🎯 **[Best Practices](https://sohantalukder.github.io/react-native-boilerplate/docs/best-practices)** - Recommended patterns and practices
+- 🏗️ **[Architecture Guide](https://sohantalukder.github.io/react-native-boilerplate/docs/architecture)** - Understanding the project structure
+- 🎨 **[Theming Guide](https://sohantalukder.github.io/react-native-boilerplate/docs/theming)** - Customization and styling
+
 ## 📚 Documentation Deployment
 
-This template includes automated documentation deployment to GitHub Pages. To enable it:
+This template includes automated documentation deployment to GitHub Pages. The documentation website is automatically updated when changes are pushed to the `documentation/` folder.
 
-### Setup GitHub Pages
+### 🌐 Live Documentation
+
+Our documentation is live at: **[https://sohantalukder.github.io/react-native-boilerplate/](https://sohantalukder.github.io/react-native-boilerplate/)**
+
+### Setup GitHub Pages for Your Fork
 
 1. **Run the setup helper**:
    ```bash
@@ -225,9 +256,10 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ## 📞 Support
 
-- 📧 Email: mdtalukder.sohan@gmail.com
-- 🐛 Issues: [GitHub Issues](https://github.com/sohantalukder/react-native-boilerplate/issues)
-- 💬 Discussions: [GitHub Discussions](https://github.com/sohantalukder/react-native-boilerplate/discussions)
+- 🌐 **Documentation**: [https://sohantalukder.github.io/react-native-boilerplate/](https://sohantalukder.github.io/react-native-boilerplate/)
+- 📧 **Email**: mdtalukder.sohan@gmail.com
+- 🐛 **Issues**: [GitHub Issues](https://github.com/sohantalukder/react-native-boilerplate/issues)
+- 💬 **Discussions**: [GitHub Discussions](https://github.com/sohantalukder/react-native-boilerplate/discussions)
 
 ---
 
