@@ -1,0 +1,243 @@
+<!DOCTYPE html><html lang="en"><head><meta charSet="utf-8"/><title>Best Practices | React Native Boilerplate</title><meta name="description" content="Development guidelines, coding standards, performance optimization, and testing best practices for React Native Boilerplate."/><meta name="keywords" content="React Native, TypeScript, Mobile App, Boilerplate, Template, Navigation, State Management, iOS, Android"/><meta name="author" content="Sohan Talukder"/><meta name="viewport" content="width=device-width, initial-scale=1"/><meta name="robots" content="index, follow"/><meta name="language" content="English"/><meta name="revisit-after" content="7 days"/><link rel="canonical" href="https://sohantalukder.github.io/react-native-boilerplate"/><meta property="og:type" content="website"/><meta property="og:title" content="Best Practices | React Native Boilerplate"/><meta property="og:description" content="Development guidelines, coding standards, performance optimization, and testing best practices for React Native Boilerplate."/><meta property="og:image" content="https://sohantalukder.github.io/react-native-boilerplate/og-image.png"/><meta property="og:url" content="https://sohantalukder.github.io/react-native-boilerplate"/><meta property="og:site_name" content="React Native Boilerplate"/><meta property="og:locale" content="en_US"/><meta name="twitter:card" content="summary_large_image"/><meta name="twitter:title" content="Best Practices | React Native Boilerplate"/><meta name="twitter:description" content="Development guidelines, coding standards, performance optimization, and testing best practices for React Native Boilerplate."/><meta name="twitter:image" content="https://sohantalukder.github.io/react-native-boilerplate/og-image.png"/><meta name="twitter:creator" content="@sohantalukder"/><meta name="twitter:site" content="@sohantalukder"/><meta name="theme-color" content="#3b82f6"/><meta name="msapplication-TileColor" content="#3b82f6"/><meta name="apple-mobile-web-app-capable" content="yes"/><meta name="apple-mobile-web-app-status-bar-style" content="default"/><meta name="apple-mobile-web-app-title" content="RN Boilerplate"/><link rel="icon" type="image/svg+xml" href="/favicon.svg"/><link rel="icon" type="image/x-icon" href="/favicon.ico"/><link rel="manifest" href="/manifest.json"/><script type="application/ld+json">{"@context":"https://schema.org","@type":"SoftwareApplication","name":"React Native Boilerplate","description":"Development guidelines, coding standards, performance optimization, and testing best practices for React Native Boilerplate.","url":"https://sohantalukder.github.io/react-native-boilerplate","image":"https://sohantalukder.github.io/react-native-boilerplate/og-image.png","author":{"@type":"Person","name":"Sohan Talukder","email":"mdtalukder.sohan@gmail.com"},"applicationCategory":"DeveloperApplication","operatingSystem":"iOS, Android","programmingLanguage":"TypeScript, JavaScript","keywords":"React Native, TypeScript, Mobile App, Boilerplate, Template, Navigation, State Management, iOS, Android","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}}</script><meta name="next-head-count" content="32"/><link rel="preload" href="/react-native-boilerplate/_next/static/media/e4af272ccee01ff0-s.p.woff2" as="font" type="font/woff2" crossorigin="anonymous" data-next-font="size-adjust"/><link rel="preload" href="/react-native-boilerplate/_next/static/media/bb3ef058b751a6ad-s.p.woff2" as="font" type="font/woff2" crossorigin="anonymous" data-next-font="size-adjust"/><link rel="preload" href="/react-native-boilerplate/_next/static/css/bfd1d253e9fb0bc0.css" as="style"/><link rel="stylesheet" href="/react-native-boilerplate/_next/static/css/bfd1d253e9fb0bc0.css" data-n-g=""/><noscript data-n-css=""></noscript><script defer="" nomodule="" src="/react-native-boilerplate/_next/static/chunks/polyfills-42372ed130431b0a.js"></script><script src="/react-native-boilerplate/_next/static/chunks/webpack-5c83755492361cc9.js" defer=""></script><script src="/react-native-boilerplate/_next/static/chunks/framework-64ad27b21261a9ce.js" defer=""></script><script src="/react-native-boilerplate/_next/static/chunks/main-cf111d8562e6094e.js" defer=""></script><script src="/react-native-boilerplate/_next/static/chunks/pages/_app-2fafb704485d03f1.js" defer=""></script><script src="/react-native-boilerplate/_next/static/chunks/741-08fdff8c7042ed9c.js" defer=""></script><script src="/react-native-boilerplate/_next/static/chunks/pages/docs/best-practices-73a2ac67314c94c0.js" defer=""></script><script src="/react-native-boilerplate/_next/static/McNqP2tHBD2Hnzq0agbff/_buildManifest.js" defer=""></script><script src="/react-native-boilerplate/_next/static/McNqP2tHBD2Hnzq0agbff/_ssgManifest.js" defer=""></script></head><body><div id="__next"><div class="__variable_099a87 __variable_4520e7 font-sans"><script>!function(){try{var d=document.documentElement,c=d.classList;c.remove('light','dark');var e=localStorage.getItem('theme');if('system'===e||(!e&&true)){var t='(prefers-color-scheme: dark)',m=window.matchMedia(t);if(m.media!==t||m.matches){d.style.colorScheme = 'dark';c.add('dark')}else{d.style.colorScheme = 'light';c.add('light')}}else if(e){c.add(e|| '')}if(e==='light'||e==='dark')d.style.colorScheme=e}catch(e){}}()</script><div class="min-h-screen bg-background"><div class="border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60 sticky top-0 z-50"><div class="container mx-auto px-4 py-4"><div class="flex items-center space-x-4"><a class="text-muted-foreground hover:text-foreground transition-colors" href="/react-native-boilerplate/docs/"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-arrow-left h-5 w-5"><path d="m12 19-7-7 7-7"></path><path d="M19 12H5"></path></svg></a><div><h1 class="text-2xl font-bold">Best Practices</h1><p class="text-muted-foreground">Development guidelines and coding standards</p></div></div></div></div><div class="container mx-auto px-4 py-8"><div class="max-w-4xl mx-auto space-y-8"><div class="rounded-lg border bg-card text-card-foreground shadow-sm"><div class="flex flex-col space-y-1.5 p-6"><h3 class="text-2xl font-semibold leading-none tracking-tight flex items-center"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-target mr-2 h-6 w-6"><circle cx="12" cy="12" r="10"></circle><circle cx="12" cy="12" r="6"></circle><circle cx="12" cy="12" r="2"></circle></svg>Development Guidelines</h3><p class="text-sm text-muted-foreground">Follow these best practices to maintain code quality, performance, and maintainability in your React Native application.</p></div><div class="p-6 pt-0"><div class="grid md:grid-cols-2 lg:grid-cols-4 gap-4"><div class="p-4 bg-blue-50 dark:bg-blue-950/20 rounded-lg border border-blue-200 dark:border-blue-800"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-code h-8 w-8 text-blue-600 dark:text-blue-400 mb-2"><polyline points="16 18 22 12 16 6"></polyline><polyline points="8 6 2 12 8 18"></polyline></svg><h4 class="font-semibold text-blue-800 dark:text-blue-200">Code Quality</h4><p class="text-sm text-blue-700 dark:text-blue-300">Clean, readable code</p></div><div class="p-4 bg-green-50 dark:bg-green-950/20 rounded-lg border border-green-200 dark:border-green-800"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-zap h-8 w-8 text-green-600 dark:text-green-400 mb-2"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon></svg><h4 class="font-semibold text-green-800 dark:text-green-200">Performance</h4><p class="text-sm text-green-700 dark:text-green-300">Optimized for speed</p></div><div class="p-4 bg-purple-50 dark:bg-purple-950/20 rounded-lg border border-purple-200 dark:border-purple-800"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-shield h-8 w-8 text-purple-600 dark:text-purple-400 mb-2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10"></path></svg><h4 class="font-semibold text-purple-800 dark:text-purple-200">Security</h4><p class="text-sm text-purple-700 dark:text-purple-300">Secure by design</p></div><div class="p-4 bg-orange-50 dark:bg-orange-950/20 rounded-lg border border-orange-200 dark:border-orange-800"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-check-circle h-8 w-8 text-orange-600 dark:text-orange-400 mb-2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><path d="m9 11 3 3L22 4"></path></svg><h4 class="font-semibold text-orange-800 dark:text-orange-200">Testing</h4><p class="text-sm text-orange-700 dark:text-orange-300">Comprehensive testing</p></div></div></div></div><div class="rounded-lg border bg-card text-card-foreground shadow-sm"><div class="flex flex-col space-y-1.5 p-6"><h3 class="text-2xl font-semibold leading-none tracking-tight">Code Quality Standards</h3><p class="text-sm text-muted-foreground">Writing clean, maintainable, and readable code</p></div><div class="p-6 pt-0"><div class="space-y-6"><div><h4 class="font-semibold mb-3">TypeScript Best Practices</h4><div class="grid gap-4"><div class="p-4 bg-green-50 dark:bg-green-950/20 rounded-lg border border-green-200 dark:border-green-800"><h5 class="font-medium text-green-800 dark:text-green-200 mb-2">✅ Good Practices</h5><pre class="text-sm text-green-700 dark:text-green-300 overflow-x-auto">// Define clear interfaces
+interface User {
+  id: string
+  name: string
+  email: string
+  avatar?: string
+}
+
+// Use strict typing for props
+interface ButtonProps {
+  title: string
+  onPress: () =&gt; void
+  variant?: &#x27;primary&#x27; | &#x27;secondary&#x27;
+  disabled?: boolean
+}
+
+// Leverage union types
+type Status = &#x27;loading&#x27; | &#x27;success&#x27; | &#x27;error&#x27;
+
+// Use generics for reusable components
+interface ApiResponse&lt;T&gt; {
+  data: T
+  message: string
+  success: boolean
+}</pre></div><div class="p-4 bg-red-50 dark:bg-red-950/20 rounded-lg border border-red-200 dark:border-red-800"><h5 class="font-medium text-red-800 dark:text-red-200 mb-2">❌ Avoid</h5><pre class="text-sm text-red-700 dark:text-red-300 overflow-x-auto">// Don&#x27;t use &#x27;any&#x27; type
+const data: any = fetchUserData()
+
+// Don&#x27;t skip prop validation
+const Button = ({ title, onPress }) =&gt; { ... }
+
+// Don&#x27;t use unclear naming
+interface Props {
+  a: string
+  b: number
+  c: boolean
+}</pre></div></div></div><div><h4 class="font-semibold mb-3">Component Structure</h4><pre class="text-sm bg-muted p-4 rounded-lg overflow-x-auto">// Good component structure
+import React from &#x27;react&#x27;
+import { View, Text, TouchableOpacity } from &#x27;react-native&#x27;
+import { useTheme } from &#x27;@/hooks/useTheme&#x27;
+import { ButtonProps } from &#x27;./Button.types&#x27;
+import { styles } from &#x27;./Button.styles&#x27;
+
+export const Button: React.FC&lt;ButtonProps&gt; = ({
+  title,
+  onPress,
+  variant = &#x27;primary&#x27;,
+  disabled = false,
+  testID
+}) =&gt; {
+  const { colors } = useTheme()
+  
+  const buttonStyle = [
+    styles.button,
+    styles[variant],
+    disabled &amp;&amp; styles.disabled,
+    { borderColor: colors.border }
+  ]
+  
+  return (
+    &lt;TouchableOpacity
+      style={buttonStyle}
+      onPress={onPress}
+      disabled={disabled}
+      testID={testID}
+      accessibilityRole=&quot;button&quot;
+      accessibilityLabel={title}
+    &gt;
+      &lt;Text style={[styles.text, { color: colors.text }]}&gt;
+        {title}
+      &lt;/Text&gt;
+    &lt;/TouchableOpacity&gt;
+  )
+}
+
+Button.displayName = &#x27;Button&#x27;</pre></div><div><h4 class="font-semibold mb-3">File Organization</h4><pre class="text-sm bg-muted p-4 rounded-lg overflow-x-auto">components/atoms/Button/
+├── Button.tsx           # Main component
+├── Button.types.ts      # TypeScript interfaces
+├── Button.styles.ts     # Styles (if complex)
+├── Button.test.tsx      # Unit tests
+├── Button.stories.tsx   # Storybook stories (optional)
+└── index.ts            # Barrel export
+
+// index.ts
+export { Button } from &#x27;./Button&#x27;
+export type { ButtonProps } from &#x27;./Button.types&#x27;</pre></div></div></div></div><div class="rounded-lg border bg-card text-card-foreground shadow-sm"><div class="flex flex-col space-y-1.5 p-6"><h3 class="text-2xl font-semibold leading-none tracking-tight flex items-center"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-zap mr-2 h-6 w-6"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon></svg>Performance Optimization</h3><p class="text-sm text-muted-foreground">Techniques to ensure smooth and fast app performance</p></div><div class="p-6 pt-0"><div class="space-y-6"><div><h4 class="font-semibold mb-3">React Optimization</h4><pre class="text-sm bg-muted p-4 rounded-lg overflow-x-auto">// Use React.memo for expensive components
+export const ExpensiveComponent = React.memo&lt;Props&gt;(({ data, onAction }) =&gt; {
+  // Expensive rendering logic
+  return &lt;ComplexView data={data} onAction={onAction} /&gt;
+}, (prevProps, nextProps) =&gt; {
+  // Custom comparison function
+  return prevProps.data.id === nextProps.data.id
+})
+
+// Use useCallback for event handlers
+const MyComponent = () =&gt; {
+  const [count, setCount] = useState(0)
+  
+  const handlePress = useCallback(() =&gt; {
+    setCount(prev =&gt; prev + 1)
+  }, [])
+  
+  return &lt;Button onPress={handlePress} title={`Count: ${count}`} /&gt;
+}
+
+// Use useMemo for expensive calculations
+const MyComponent = ({ items }) =&gt; {
+  const expensiveValue = useMemo(() =&gt; {
+    return items.reduce((sum, item) =&gt; sum + item.value, 0)
+  }, [items])
+  
+  return &lt;Text&gt;{expensiveValue}&lt;/Text&gt;
+}</pre></div><div><h4 class="font-semibold mb-3">List Performance</h4><pre class="text-sm bg-muted p-4 rounded-lg overflow-x-auto">// Use FlashList for better performance
+import { FlashList } from &#x27;@shopify/flash-list&#x27;
+
+const ItemsList = ({ data }) =&gt; {
+  const renderItem = useCallback(({ item }) =&gt; (
+    &lt;ItemComponent key={item.id} item={item} /&gt;
+  ), [])
+  
+  return (
+    &lt;FlashList
+      data={data}
+      renderItem={renderItem}
+      estimatedItemSize={100}
+      keyExtractor={(item) =&gt; item.id}
+      // Optimize rendering
+      removeClippedSubviews={true}
+      maxToRenderPerBatch={10}
+      updateCellsBatchingPeriod={50}
+      windowSize={10}
+    /&gt;
+  )
+}</pre></div><div><h4 class="font-semibold mb-3">Image Optimization</h4><pre class="text-sm bg-muted p-4 rounded-lg overflow-x-auto">// Use FastImage for better image performance
+import FastImage from &#x27;react-native-fast-image&#x27;
+
+const OptimizedImage = ({ uri, style }) =&gt; (
+  &lt;FastImage
+    style={style}
+    source={{
+      uri,
+      priority: FastImage.priority.normal,
+      cache: FastImage.cacheControl.immutable,
+    }}
+    resizeMode={FastImage.resizeMode.cover}
+    fallback={true}
+  /&gt;
+)</pre></div><div><h4 class="font-semibold mb-3">Bundle Size Optimization</h4><div class="space-y-2"><div class="p-3 bg-blue-50 dark:bg-blue-950/20 rounded border border-blue-200 dark:border-blue-800"><strong class="text-blue-800 dark:text-blue-200">Tree Shaking:</strong><span class="text-blue-700 dark:text-blue-300 ml-2">Import only what you need</span></div><div class="p-3 bg-green-50 dark:bg-green-950/20 rounded border border-green-200 dark:border-green-800"><strong class="text-green-800 dark:text-green-200">Code Splitting:</strong><span class="text-green-700 dark:text-green-300 ml-2">Use dynamic imports for large modules</span></div><div class="p-3 bg-purple-50 dark:bg-purple-950/20 rounded border border-purple-200 dark:border-purple-800"><strong class="text-purple-800 dark:text-purple-200">Asset Optimization:</strong><span class="text-purple-700 dark:text-purple-300 ml-2">Compress images and use appropriate formats</span></div></div></div></div></div></div><div class="rounded-lg border bg-card text-card-foreground shadow-sm"><div class="flex flex-col space-y-1.5 p-6"><h3 class="text-2xl font-semibold leading-none tracking-tight">Testing Guidelines</h3><p class="text-sm text-muted-foreground">Comprehensive testing strategies for reliable applications</p></div><div class="p-6 pt-0"><div class="space-y-6"><div><h4 class="font-semibold mb-3">Testing Pyramid</h4><div class="grid md:grid-cols-3 gap-4"><div class="p-4 border rounded-lg text-center"><div class="text-2xl mb-2">🔼</div><h5 class="font-semibold mb-1">Unit Tests</h5><p class="text-sm text-muted-foreground">70% - Test individual functions and components</p></div><div class="p-4 border rounded-lg text-center"><div class="text-2xl mb-2">🔹</div><h5 class="font-semibold mb-1">Integration Tests</h5><p class="text-sm text-muted-foreground">20% - Test component interactions</p></div><div class="p-4 border rounded-lg text-center"><div class="text-2xl mb-2">🔸</div><h5 class="font-semibold mb-1">E2E Tests</h5><p class="text-sm text-muted-foreground">10% - Test complete user flows</p></div></div></div><div><h4 class="font-semibold mb-3">Unit Testing Example</h4><pre class="text-sm bg-muted p-4 rounded-lg overflow-x-auto">// Button.test.tsx
+import React from &#x27;react&#x27;
+import { render, fireEvent } from &#x27;@testing-library/react-native&#x27;
+import { Button } from &#x27;./Button&#x27;
+
+describe(&#x27;Button Component&#x27;, () =&gt; {
+  it(&#x27;renders correctly with title&#x27;, () =&gt; {
+    const { getByText } = render(
+      &lt;Button title=&quot;Click me&quot; onPress={() =&gt; {}} /&gt;
+    )
+    expect(getByText(&#x27;Click me&#x27;)).toBeTruthy()
+  })
+
+  it(&#x27;calls onPress when pressed&#x27;, () =&gt; {
+    const mockOnPress = jest.fn()
+    const { getByText } = render(
+      &lt;Button title=&quot;Click me&quot; onPress={mockOnPress} /&gt;
+    )
+    
+    fireEvent.press(getByText(&#x27;Click me&#x27;))
+    expect(mockOnPress).toHaveBeenCalledTimes(1)
+  })
+
+  it(&#x27;is disabled when disabled prop is true&#x27;, () =&gt; {
+    const mockOnPress = jest.fn()
+    const { getByText } = render(
+      &lt;Button title=&quot;Click me&quot; onPress={mockOnPress} disabled /&gt;
+    )
+    
+    fireEvent.press(getByText(&#x27;Click me&#x27;))
+    expect(mockOnPress).not.toHaveBeenCalled()
+  })
+})</pre></div><div><h4 class="font-semibold mb-3">Hook Testing</h4><pre class="text-sm bg-muted p-4 rounded-lg overflow-x-auto">// useAuth.test.ts
+import { renderHook, act } from &#x27;@testing-library/react-native&#x27;
+import { useAuth } from &#x27;./useAuth&#x27;
+
+describe(&#x27;useAuth Hook&#x27;, () =&gt; {
+  it(&#x27;should initialize with default values&#x27;, () =&gt; {
+    const { result } = renderHook(() =&gt; useAuth())
+    
+    expect(result.current.user).toBeNull()
+    expect(result.current.isAuthenticated).toBe(false)
+  })
+
+  it(&#x27;should login user correctly&#x27;, async () =&gt; {
+    const { result } = renderHook(() =&gt; useAuth())
+    
+    await act(async () =&gt; {
+      await result.current.login(&#x27;user@example.com&#x27;, &#x27;password&#x27;)
+    })
+    
+    expect(result.current.isAuthenticated).toBe(true)
+    expect(result.current.user).not.toBeNull()
+  })
+})</pre></div></div></div></div><div class="rounded-lg border bg-card text-card-foreground shadow-sm"><div class="flex flex-col space-y-1.5 p-6"><h3 class="text-2xl font-semibold leading-none tracking-tight flex items-center"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-shield mr-2 h-6 w-6"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10"></path></svg>Security Best Practices</h3><p class="text-sm text-muted-foreground">Protecting your application and user data</p></div><div class="p-6 pt-0"><div class="space-y-6"><div class="grid md:grid-cols-2 gap-6"><div><h4 class="font-semibold mb-3">Data Protection</h4><ul class="space-y-2 text-sm"><li class="flex items-start"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-check-circle h-4 w-4 text-green-500 mr-2 mt-0.5 flex-shrink-0"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><path d="m9 11 3 3L22 4"></path></svg>Encrypt sensitive data in storage</li><li class="flex items-start"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-check-circle h-4 w-4 text-green-500 mr-2 mt-0.5 flex-shrink-0"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><path d="m9 11 3 3L22 4"></path></svg>Use HTTPS for all API communications</li><li class="flex items-start"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-check-circle h-4 w-4 text-green-500 mr-2 mt-0.5 flex-shrink-0"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><path d="m9 11 3 3L22 4"></path></svg>Implement proper authentication flows</li><li class="flex items-start"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-check-circle h-4 w-4 text-green-500 mr-2 mt-0.5 flex-shrink-0"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><path d="m9 11 3 3L22 4"></path></svg>Validate all user inputs</li></ul></div><div><h4 class="font-semibold mb-3">Common Vulnerabilities</h4><ul class="space-y-2 text-sm"><li class="flex items-start"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-alert-triangle h-4 w-4 text-red-500 mr-2 mt-0.5 flex-shrink-0"><path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3Z"></path><path d="M12 9v4"></path><path d="M12 17h.01"></path></svg>Storing secrets in plain text</li><li class="flex items-start"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-alert-triangle h-4 w-4 text-red-500 mr-2 mt-0.5 flex-shrink-0"><path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3Z"></path><path d="M12 9v4"></path><path d="M12 17h.01"></path></svg>Insecure data transmission</li><li class="flex items-start"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-alert-triangle h-4 w-4 text-red-500 mr-2 mt-0.5 flex-shrink-0"><path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3Z"></path><path d="M12 9v4"></path><path d="M12 17h.01"></path></svg>Weak authentication mechanisms</li><li class="flex items-start"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-alert-triangle h-4 w-4 text-red-500 mr-2 mt-0.5 flex-shrink-0"><path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3Z"></path><path d="M12 9v4"></path><path d="M12 17h.01"></path></svg>Insufficient input validation</li></ul></div></div><div><h4 class="font-semibold mb-3">Secure Storage Example</h4><pre class="text-sm bg-muted p-4 rounded-lg overflow-x-auto">// services/secureStorage.ts
+import { MMKV } from &#x27;react-native-mmkv&#x27;
+
+// Create encrypted storage instance
+const secureStorage = new MMKV({
+  id: &#x27;secure-storage&#x27;,
+  encryptionKey: &#x27;your-encryption-key&#x27;
+})
+
+export const SecureStorage = {
+  setItem: (key: string, value: string) =&gt; {
+    secureStorage.set(key, value)
+  },
+  
+  getItem: (key: string): string | undefined =&gt; {
+    return secureStorage.getString(key)
+  },
+  
+  removeItem: (key: string) =&gt; {
+    secureStorage.delete(key)
+  },
+  
+  clear: () =&gt; {
+    secureStorage.clearAll()
+  }
+}</pre></div></div></div></div><div class="rounded-lg border bg-card text-card-foreground shadow-sm"><div class="flex flex-col space-y-1.5 p-6"><h3 class="text-2xl font-semibold leading-none tracking-tight">Development Workflow</h3><p class="text-sm text-muted-foreground">Efficient development processes and tools</p></div><div class="p-6 pt-0"><div class="space-y-6"><div><h4 class="font-semibold mb-3">Git Workflow</h4><div class="space-y-3"><div class="p-3 bg-blue-50 dark:bg-blue-950/20 rounded border border-blue-200 dark:border-blue-800"><strong class="text-blue-800 dark:text-blue-200">Branch Naming:</strong><span class="text-blue-700 dark:text-blue-300 ml-2">feature/user-authentication, fix/login-bug, chore/update-deps</span></div><div class="p-3 bg-green-50 dark:bg-green-950/20 rounded border border-green-200 dark:border-green-800"><strong class="text-green-800 dark:text-green-200">Commit Messages:</strong><span class="text-green-700 dark:text-green-300 ml-2">Use conventional commits (feat:, fix:, docs:, style:, refactor:, test:, chore:)</span></div><div class="p-3 bg-purple-50 dark:bg-purple-950/20 rounded border border-purple-200 dark:border-purple-800"><strong class="text-purple-800 dark:text-purple-200">Code Review:</strong><span class="text-purple-700 dark:text-purple-300 ml-2">All changes go through pull request review</span></div></div></div><div><h4 class="font-semibold mb-3">Quality Gates</h4><pre class="text-sm bg-muted p-4 rounded-lg overflow-x-auto"># Pre-commit hooks (Husky)
+&quot;husky&quot;: {
+  &quot;hooks&quot;: {
+    &quot;pre-commit&quot;: &quot;lint-staged&quot;,
+    &quot;pre-push&quot;: &quot;npm test&quot;
+  }
+}
+
+# Lint-staged configuration
+&quot;lint-staged&quot;: {
+  &quot;*.{ts,tsx}&quot;: [
+    &quot;eslint --fix&quot;,
+    &quot;prettier --write&quot;
+  ],
+  &quot;*.{json,md}&quot;: [
+    &quot;prettier --write&quot;
+  ]
+}</pre></div><div><h4 class="font-semibold mb-3">CI/CD Pipeline</h4><div class="grid md:grid-cols-3 gap-4"><div class="p-4 border rounded-lg"><h5 class="font-semibold mb-2">Build</h5><ul class="text-sm space-y-1"><li>• Install dependencies</li><li>• Type checking</li><li>• Build app bundle</li></ul></div><div class="p-4 border rounded-lg"><h5 class="font-semibold mb-2">Test</h5><ul class="text-sm space-y-1"><li>• Run unit tests</li><li>• Code coverage check</li><li>• Integration tests</li></ul></div><div class="p-4 border rounded-lg"><h5 class="font-semibold mb-2">Deploy</h5><ul class="text-sm space-y-1"><li>• Build release</li><li>• Deploy to stores</li><li>• Update documentation</li></ul></div></div></div></div></div></div><div class="rounded-lg border bg-card text-card-foreground shadow-sm"><div class="flex flex-col space-y-1.5 p-6"><h3 class="text-2xl font-semibold leading-none tracking-tight">Development Checklist</h3><p class="text-sm text-muted-foreground">Use this checklist before releasing new features</p></div><div class="p-6 pt-0"><div class="grid md:grid-cols-2 gap-6"><div><h4 class="font-semibold mb-3">Code Quality</h4><ul class="space-y-2 text-sm"><li class="flex items-center"><input type="checkbox" class="mr-2"/>TypeScript types are properly defined</li><li class="flex items-center"><input type="checkbox" class="mr-2"/>No ESLint warnings or errors</li><li class="flex items-center"><input type="checkbox" class="mr-2"/>Code is properly formatted</li><li class="flex items-center"><input type="checkbox" class="mr-2"/>Components have proper prop validation</li><li class="flex items-center"><input type="checkbox" class="mr-2"/>No unused imports or variables</li></ul></div><div><h4 class="font-semibold mb-3">Testing &amp; Performance</h4><ul class="space-y-2 text-sm"><li class="flex items-center"><input type="checkbox" class="mr-2"/>Unit tests are written and passing</li><li class="flex items-center"><input type="checkbox" class="mr-2"/>Performance is acceptable</li><li class="flex items-center"><input type="checkbox" class="mr-2"/>Memory leaks are checked</li><li class="flex items-center"><input type="checkbox" class="mr-2"/>Accessibility is implemented</li><li class="flex items-center"><input type="checkbox" class="mr-2"/>Error handling is proper</li></ul></div></div></div></div><div class="rounded-lg border bg-card text-card-foreground shadow-sm"><div class="flex flex-col space-y-1.5 p-6"><h3 class="text-2xl font-semibold leading-none tracking-tight">Next Steps</h3></div><div class="p-6 pt-0"><div class="grid md:grid-cols-2 gap-4"><a class="p-4 border rounded-lg hover:bg-muted/50 transition-colors" href="/react-native-boilerplate/docs/configuration/"><h4 class="font-semibold mb-2">Configuration</h4><p class="text-sm text-muted-foreground">Learn about app configuration and environment setup</p></a><a class="p-4 border rounded-lg hover:bg-muted/50 transition-colors" href="/react-native-boilerplate/docs/development/"><h4 class="font-semibold mb-2">Development Guide</h4><p class="text-sm text-muted-foreground">Detailed development workflow and tools</p></a></div></div></div></div></div></div></div></div><script id="__NEXT_DATA__" type="application/json">{"props":{"pageProps":{}},"page":"/docs/best-practices","query":{},"buildId":"McNqP2tHBD2Hnzq0agbff","assetPrefix":"/react-native-boilerplate","nextExport":true,"autoExport":true,"isFallback":false,"scriptLoader":[]}</script></body></html>
