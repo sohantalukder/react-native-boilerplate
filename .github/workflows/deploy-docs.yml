@@ -90,18 +90,42 @@ jobs:
         env:
           GITHUB_PAGES: true
 
+      - name: Ensure .nojekyll file exists
+        if: steps.check-pages.outputs.enabled == 'true'
+        run: |
+          cd documentation
+          # Ensure .nojekyll file exists to prevent Jekyll processing
+          touch out/.nojekyll
+          echo "✅ .nojekyll file created/verified"
+
       - name: Verify build output
         if: steps.check-pages.outputs.enabled == 'true'
         run: |
           echo "📁 Checking build output..."
           ls -la documentation/out/
+          echo ""
           echo "📄 Index file check:"
           if [ -f "documentation/out/index.html" ]; then
             echo "✅ index.html found"
-            head -20 documentation/out/index.html
+            echo "📊 File size: $(stat -f%z documentation/out/index.html) bytes"
           else
             echo "❌ index.html not found"
             exit 1
+          fi
+          echo ""
+          echo "🚫 Checking for problematic files:"
+          if [ -f "documentation/out/CNAME" ]; then
+            echo "⚠️  CNAME file found (this might cause issues for project sites)"
+            cat documentation/out/CNAME
+          else
+            echo "✅ No CNAME file found (correct for project sites)"
+          fi
+          echo ""
+          echo "📋 Jekyll bypass check:"
+          if [ -f "documentation/out/.nojekyll" ]; then
+            echo "✅ .nojekyll file found"
+          else
+            echo "❌ .nojekyll file missing"
           fi
 
       - name: Upload artifact
