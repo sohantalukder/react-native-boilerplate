@@ -1,11 +1,12 @@
 import React, { useCallback, useMemo, useRef, useState } from 'react';
-import {
+import type {
   NativeSyntheticEvent,
   StyleProp,
-  TextInput,
   TextInputKeyPressEventData,
+  ViewStyle} from 'react-native';
+import {
+  TextInput,
   View,
-  ViewStyle,
 } from 'react-native';
 
 import { useTheme } from '@/theme';

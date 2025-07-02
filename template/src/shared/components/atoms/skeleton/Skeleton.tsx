@@ -1,6 +1,7 @@
 import { useTheme } from '@/theme';
 import React, { useEffect, useRef } from 'react';
-import { Animated, DimensionValue, Platform, ViewStyle } from 'react-native';
+import type { DimensionValue, ViewStyle } from 'react-native';
+import { Animated, Platform } from 'react-native';
 
 /**
  * Properties for the Skeleton component.

@@ -19,3 +19,4 @@ export { default as Divider } from './divider/Divider';
 export { default as IconByVariant } from './icon-by-variant/IconByVariant';
 export { default as Badge } from './badge/Badge';
 export { default as Dialog } from './dialog/Dialog';
+export { default as Toast } from './toast/index';

@@ -10,9 +10,9 @@ import { WebView } from 'react-native-webview';
 
 import { SafeScreen } from '@/shared/components/templates';
 import { useTheme } from '@/theme';
-import { NavigationProp } from '@react-navigation/native';
-import { RouteProp } from '@react-navigation/native';
-import { RootStackParamList } from '@/navigation/types';
+import type { NavigationProp } from '@react-navigation/native';
+import type { RouteProp } from '@react-navigation/native';
+import type { RootStackParamList } from '@/navigation/types';
 import { IconButton, IconByVariant, Text } from '@/shared/components/atoms';
 import rs from '@/shared/utilities/responsiveSize';
 import { useNavigationHeader } from '@/shared/hooks/useNavigationHeader';

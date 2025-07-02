@@ -1,6 +1,6 @@
 import { useTheme } from '@/theme';
-import { Borders } from '@/theme/types/borders';
-import { Colors } from '@/theme/types/colors';
+import type { Borders } from '@/theme/types/borders';
+import type { Colors } from '@/theme/types/colors';
 import React, { useCallback, useEffect, useMemo } from 'react';
 import { StyleSheet, View } from 'react-native';
 import { Gesture, GestureDetector } from 'react-native-gesture-handler';

@@ -1,6 +1,6 @@
 import { StyleSheet } from 'react-native';
-import { ColorValue } from 'react-native';
-import { Colors } from '@/theme/types/colors';
+import type { ColorValue } from 'react-native';
+import type { Colors } from '@/theme/types/colors';
 import hexToRgbA from '@/shared/utilities/hexaToRgba';
 const config = {
   buttonHeight: 48,

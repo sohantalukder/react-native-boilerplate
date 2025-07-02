@@ -13,7 +13,7 @@ import Animated, {
 } from 'react-native-reanimated';
 
 import type { ToastConfig } from './toastManager';
-import { Toast } from '../../components/atoms/toast';
+import { Toast } from '../../components/atoms';
 
 const ANIMATION_CONFIG = {
   duration: 300,

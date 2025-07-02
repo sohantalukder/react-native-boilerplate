@@ -1,4 +1,4 @@
-import { DialogManagerProps } from './types';
+import type { DialogManagerProps } from './types';
 
 class DialogManager {
   private dialogQueue: DialogManagerProps[] = [];

@@ -1,9 +1,10 @@
-import { View, StyleProp, ViewStyle } from 'react-native';
+import type { StyleProp, ViewStyle } from 'react-native';
+import { View } from 'react-native';
 import React from 'react';
 
 import { Text, IconByVariant, Loader } from '@/shared/components/atoms';
-import { TextColor } from '@/shared/components/atoms/text/Text';
-import { TypographySize } from '@/theme/types/fonts';
+import type { TextColor } from '@/shared/components/atoms/text/Text';
+import type { TypographySize } from '@/theme/types/fonts';
 import { useTheme } from '@/theme';
 import { staticFontStyles } from '@/theme/fonts';
 

@@ -1,6 +1,6 @@
 import Dialog from '@/shared/components/atoms/dialog/Dialog';
 import React, { memo, useEffect, useState } from 'react';
-import { DialogManagerProps } from './types';
+import type { DialogManagerProps } from './types';
 import { setDialogManager } from './dialogManager';
 
 const DialogContainer: React.FC = memo(() => {

@@ -11,7 +11,7 @@ export type ToastProps = {
   title: string;
 };
 
-export const Toast: React.FC<ToastProps & { onDismiss?: () => void }> = ({
+const Toast: React.FC<ToastProps & { onDismiss?: () => void }> = ({  
   type,
   title,
   onDismiss,
@@ -67,8 +67,10 @@ export const Toast: React.FC<ToastProps & { onDismiss?: () => void }> = ({
 
       <IconButton
         icon="cancel"
-        onPress={onDismiss}
+        onPress={onDismiss || (() => {})}
       />
     </View>
   );
 };
+
+export default Toast;

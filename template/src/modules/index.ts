@@ -1,2 +1,2 @@
-export { default as Example } from './Example/Example';
-export { default as Startup } from './start-up/Startup';
+export { default as Example } from './example/Example';
+export { default as Splash } from './splash/SplashIndex';

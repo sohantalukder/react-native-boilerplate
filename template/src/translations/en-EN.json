@@ -7,8 +7,41 @@
     "common_error": "Oops! Something went wrong.",
     "screen_example": {
       "hello_user": "Hi, my name is {{name}}",
-      "title": "Welcome on The $t(common_appName.full)",
-      "description": "Do you want to discover some features? Just click on one of the three buttons at the bottom of the screen. The first allows you to call a REST API. The second lets you change the theme color. And the third allows you to change the language."
+      "title": "Welcome on The $t(boilerplate.common_appName.full)",
+      "description": "Do you want to discover some features? Just click on one of the three buttons at the bottom of the screen. The first allows you to call a REST API. The second lets you change the theme color. And the third allows you to change the language.",
+      "explore_features": "Explore Features",
+      "features": {
+        "api_integration": {
+          "title": "API Integration",
+          "description": "Fetch data from external APIs with error handling",
+          "button": "Try API Integration"
+        },
+        "theme_toggle": {
+          "title": "Theme Toggle",
+          "description": "Switch between light and dark themes",
+          "button": "Try Theme Toggle"
+        },
+        "language_switch": {
+          "title": "Language Switch",
+          "description": "Toggle between available languages",
+          "button": "Try Language Switch"
+        }
+      },
+      "api_messages": {
+        "success_title": "Success!",
+        "success_message": "Hello {{firstName}} {{lastName}}!",
+        "success_button": "OK",
+        "error_title": "Error",
+        "error_message": "Failed to fetch user data. Please try again.",
+        "error_button": "OK"
+      },
+      "stats": {
+        "title": "Boilerplate Stats",
+        "components": "Components",
+        "utilities": "Utilities",
+        "languages": "Languages",
+        "possibilities": "Possibilities"
+      }
     },
     "error_boundary": {
       "title": "Oops! Something went wrong.",

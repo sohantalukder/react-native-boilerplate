@@ -1,7 +1,7 @@
 import React, { useCallback, useEffect, useState } from 'react';
-import { View, InteractionManager } from 'react-native';
+import { View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
-import { ToastProps } from '../../components/atoms/toast';
+import type { ToastProps } from '../../components/atoms/toast';
 import { AnimatedToast } from './AnimatedToast';
 import styles from './styles';
 
@@ -21,10 +21,8 @@ class ToastManager {
     const newToast = { ...toast, key };
 
     if (this.currentSetToast) {
-      InteractionManager.runAfterInteractions(() => {
-        this.currentToasts = [...this.currentToasts, newToast];
-        this.currentSetToast!(this.currentToasts);
-      });
+      this.currentToasts = [...this.currentToasts, newToast];
+      this.currentSetToast(this.currentToasts);
     } else {
       this.toastQueue.push(toast);
     }
@@ -34,10 +32,8 @@ class ToastManager {
 
   hide(key: string) {
     if (this.currentSetToast) {
-      InteractionManager.runAfterInteractions(() => {
-        this.currentToasts = this.currentToasts.filter((t) => t.key !== key);
-        this.currentSetToast!(this.currentToasts);
-      });
+      this.currentToasts = this.currentToasts.filter((t) => t.key !== key);
+      this.currentSetToast(this.currentToasts);
     }
   }
 

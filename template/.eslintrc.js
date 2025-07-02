@@ -32,8 +32,9 @@ module.exports = {
     ecmaFeatures: {
       jsx: true,
     },
-    ecmaVersion: 2020,
+    ecmaVersion: 2022,
     sourceType: 'module',
+    project: './tsconfig.json',
   },
 
   /* Settings */
@@ -105,6 +106,13 @@ module.exports = {
         argsIgnorePattern: '^_',
       },
     ],
+    '@typescript-eslint/consistent-type-imports': [
+      'error',
+      {
+        prefer: 'type-imports',
+        disallowTypeAnnotations: false,
+      },
+    ],
 
     /* Common JavaScript Rules */
     'no-dupe-keys': 'error',
@@ -118,7 +126,7 @@ module.exports = {
 
     /* React Hooks Rules */
     'react-hooks/rules-of-hooks': 'error',
-    'react-hooks/exhaustive-deps': 'off',
+    'react-hooks/exhaustive-deps': 'warn',
 
     /* ESLint Rules */
     curly: 'off',

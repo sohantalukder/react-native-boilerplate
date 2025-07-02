@@ -2,9 +2,9 @@ import rs from '@/shared/utilities/responsiveSize';
 import withOpacity from '@/shared/utilities/withOpacity';
 import { StyleSheet } from 'react-native';
 
-import { Colors } from '@/theme/types/colors';
-import { Gutters } from '@/theme/types/gutters';
-import { Typographies } from '@/theme/types/typographies';
+import type { Colors } from '@/theme/types/colors';
+import type { Gutters } from '@/theme/types/gutters';
+import type { Typographies } from '@/theme/types/typographies';
 
 // Define constants to avoid magic numbers
 const INPUT_DIMENSIONS = {

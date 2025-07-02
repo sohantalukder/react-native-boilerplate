@@ -1,10 +1,12 @@
-import React, { PropsWithChildren } from 'react';
-import {
+import type { PropsWithChildren } from 'react';
+import React from 'react';
+import type {
   ColorValue,
   StyleProp,
-  View,
   ViewStyle,
-  ViewProps,
+  ViewProps} from 'react-native';
+import {
+  View,
 } from 'react-native';
 import { useTheme } from '@/theme';
 import { StatusBar } from '@/shared/components/atoms';

@@ -1,4 +1,4 @@
-import { StackNavigationOptions } from '@react-navigation/stack';
+import type { StackNavigationOptions } from '@react-navigation/stack';
 import { Platform } from 'react-native';
 
 const screenOptions: StackNavigationOptions = {

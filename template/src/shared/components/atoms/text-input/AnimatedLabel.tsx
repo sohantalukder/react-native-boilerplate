@@ -1,5 +1,6 @@
 import { useMemo, useRef, useEffect } from 'react';
-import { Animated, StyleProp, TextStyle } from 'react-native';
+import type { StyleProp, TextStyle } from 'react-native';
+import { Animated } from 'react-native';
 import { useTheme } from '@/theme';
 
 interface AnimatedLabelProps {

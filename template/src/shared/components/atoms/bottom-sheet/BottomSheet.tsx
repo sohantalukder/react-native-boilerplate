@@ -1,13 +1,17 @@
+import type {
+  PropsWithChildren} from 'react';
 import React, {
-  PropsWithChildren,
   useCallback,
   useEffect,
   useMemo,
   useState,
   memo,
 } from 'react';
-import {
+import type {
   LayoutChangeEvent,
+  StyleProp,
+  ViewStyle} from 'react-native';
+import {
   Modal,
   StyleSheet,
   TouchableWithoutFeedback,
@@ -15,25 +19,24 @@ import {
   View,
   BackHandler,
   Platform,
-  StyleProp,
-  ViewStyle,
   InteractionManager,
 } from 'react-native';
 import { Gesture, GestureDetector } from 'react-native-gesture-handler';
+import type {
+  WithTimingConfig} from 'react-native-reanimated';
 import Animated, {
   Easing,
   runOnJS,
   useAnimatedStyle,
   useSharedValue,
   withTiming,
-  WithTimingConfig,
   interpolate,
   Extrapolation,
 } from 'react-native-reanimated';
 import { useTheme } from '@/theme';
 import rs from '@/shared/utilities/responsiveSize';
 import withOpacity from '@/shared/utilities/withOpacity';
-import { Colors } from '@/theme/types/colors';
+import type { Colors } from '@/theme/types/colors';
 
 // Move configs outside component to prevent recreation
 const WITH_TIMING_CONFIG: WithTimingConfig = {

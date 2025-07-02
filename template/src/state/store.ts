@@ -1,5 +1,6 @@
 import { create } from 'zustand';
-import { AuthState, createAuthSlice } from './slices/authSlice';
+import type { AuthState} from './slices/authSlice';
+import { createAuthSlice } from './slices/authSlice';
 
 // Combine all state types
 export interface StoreState extends AuthState {}

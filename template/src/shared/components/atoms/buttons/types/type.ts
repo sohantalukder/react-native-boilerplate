@@ -1,4 +1,4 @@
-import { ColorValue, StyleProp, TextStyle, ViewStyle } from 'react-native';
+import type { ColorValue, StyleProp, TextStyle, ViewStyle } from 'react-native';
 
 /**
  * Button variant types that determine the visual style and behavior
@@ -46,6 +46,7 @@ type ButtonProps = {
 
   // Icon related
   icon?: string | React.ReactNode;
+  iconColor?: ColorValue;
   iconPosition?: IconPosition;
 
   // State

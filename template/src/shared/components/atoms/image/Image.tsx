@@ -1,12 +1,14 @@
 import React, { useState, useMemo, useCallback } from 'react';
+import type {
+  ViewStyle,
+  StyleProp,
+  DimensionValue} from 'react-native';
 import {
   StyleSheet,
   View,
-  ViewStyle,
-  StyleProp,
-  DimensionValue,
 } from 'react-native';
-import FastImage, { ResizeMode, FastImageProps } from 'react-native-fast-image';
+import type { ResizeMode, FastImageProps } from 'react-native-fast-image';
+import FastImage from 'react-native-fast-image';
 import PlaceholderImage from '@/assets/icons/Placeholder.icon';
 import isEmpty from '@/shared/utilities/isEmpty';
 import Skeleton from '../skeleton/Skeleton';
@@ -99,7 +101,7 @@ const ImagePreview: React.FC<Properties> = ({
         borderRadius={borderRadius}
       />
     </View>
-  ) : hasValidSource ? (
+  ) : hasValidSource && fastImageSource ? (
     <View style={[wrapperStyle, { height, width }]}>
       <FastImage
         source={fastImageSource}

@@ -1,5 +1,5 @@
 import { TextInput } from '@/shared/components/atoms';
-import { PasswordInputProps } from '@/shared/components/atoms/text-input/types/type';
+import type { PasswordInputProps } from '@/shared/components/atoms/text-input/types/type';
 import React, { memo, useCallback, useState } from 'react';
 import { IconByVariant } from '@/shared/components/atoms';
 

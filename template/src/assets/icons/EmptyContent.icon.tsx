@@ -1,5 +1,5 @@
 import { useTheme } from '@/theme';
-import { IconProps } from '@/types/iconProps';
+import type { IconProps } from '@/types/iconProps';
 import React from 'react';
 import Svg, { G, Path } from 'react-native-svg';
 

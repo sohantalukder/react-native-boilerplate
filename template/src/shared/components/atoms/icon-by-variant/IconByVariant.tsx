@@ -6,7 +6,7 @@ import { z } from 'zod';
 
 import { useTheme } from '@/theme';
 import { getIconsContext } from '@/assets/getAssetsContext';
-import { IconProps } from '@/types/iconProps';
+import type { IconProps } from '@/types/iconProps';
 
 type Properties = {
   /**
@@ -23,7 +23,7 @@ function IconByVariant({ height, path, width, color, ...props }: Properties) {
   const { variant } = useTheme();
 
   const iconProperties = { ...props, height, width, fill: color };
-  const iconName = `${path.split('')[0].toUpperCase()}${path.substring(1)}`;
+  const iconName = `${path?.[0]?.toUpperCase() || ''}${path?.substring(1) || ''}`;
   const extendPath = `./${iconName}.icon.${EXTENSION}`;
 
   const Icon = useMemo(() => {

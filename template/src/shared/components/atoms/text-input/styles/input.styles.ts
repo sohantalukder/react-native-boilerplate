@@ -1,7 +1,7 @@
 import { StyleSheet } from 'react-native';
 
-import { Colors } from '@/theme/types/colors';
-import { Variant } from '@/theme/types/config';
+import type { Colors } from '@/theme/types/colors';
+import type { Variant } from '@/theme/types/config';
 import { fontWeight } from '@/theme/fonts';
 
 /**

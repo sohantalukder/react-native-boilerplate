@@ -1,6 +1,7 @@
 import React from 'react';
 import Svg, { Path } from 'react-native-svg';
-import { View, ViewProps } from 'react-native';
+import type { ViewProps } from 'react-native';
+import { View } from 'react-native';
 import { useTheme } from '@/theme';
 import withOpacity from '@/shared/utilities/withOpacity';
 

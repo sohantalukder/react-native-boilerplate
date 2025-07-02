@@ -1,6 +1,6 @@
 import React from 'react';
 import Svg, { Path } from 'react-native-svg';
-import { IconProps } from '@/types/iconProps';
+import type { IconProps } from '@/types/iconProps';
 import { useTheme } from '@/theme';
 
 const LoaderIcon: React.FC<IconProps> = ({ width = 24, height = 24, fill }) => {

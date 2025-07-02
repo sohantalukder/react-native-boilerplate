@@ -1,8 +1,9 @@
 import { Ripple, Text } from '@/shared/components/atoms';
 import { useTheme } from '@/theme';
-import { View, StyleProp, ViewStyle, TextStyle, TextProps } from 'react-native';
-import { TextColor } from '@/shared/components/atoms/text/Text';
-import { TypographySize } from '@/theme/types/fonts';
+import type { StyleProp, ViewStyle, TextStyle, TextProps } from 'react-native';
+import { View } from 'react-native';
+import type { TextColor } from '@/shared/components/atoms/text/Text';
+import type { TypographySize } from '@/theme/types/fonts';
 
 type Properties = TextProps & {
   onPress?: () => void;

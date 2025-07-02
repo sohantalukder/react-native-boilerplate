@@ -1,6 +1,6 @@
 import withOpacity from '@/shared/utilities/withOpacity';
 import { useTheme } from '@/theme';
-import { Colors } from '@/theme/types/colors';
+import type { Colors } from '@/theme/types/colors';
 import React, { useEffect, useMemo, useRef, useState } from 'react';
 import { Animated, Pressable, StyleSheet } from 'react-native';
 

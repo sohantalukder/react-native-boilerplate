@@ -5,7 +5,7 @@ import { useTheme } from '@/theme';
 import Loader from '../loader/Loader';
 import { Ripple, Text, IconByVariant } from '@/shared/components/atoms';
 import { buttonStyles } from './styles/button.styles';
-import { ButtonProps } from './types/type';
+import type { ButtonProps } from './types/type';
 import { View } from 'react-native';
 
 const Button: React.FC<ButtonProps> = memo(
@@ -15,6 +15,7 @@ const Button: React.FC<ButtonProps> = memo(
     borderRadius = 8,
     disabled,
     icon,
+    iconColor,
     iconPosition = 'left',
     isLoading,
     onPress = () => {},
@@ -29,7 +30,11 @@ const Button: React.FC<ButtonProps> = memo(
 
     // Memoize styles to prevent recalculation on re-renders
     const styles = React.useMemo(
-      () => buttonStyles({ bgColor, borderRadius, colors }),
+      () => buttonStyles({
+        borderRadius,
+        colors,
+        ...(bgColor && { bgColor }),
+      }),
       [borderRadius, bgColor, colors]
     );
 
@@ -42,7 +47,7 @@ const Button: React.FC<ButtonProps> = memo(
     const renderButton = () => (
       <View style={styles.iconGap}>
         {iconPosition === 'left' && typeof icon === 'string' ? (
-          <IconByVariant path={icon} />
+          <IconByVariant path={icon} {...(iconColor && { color: iconColor })} />
         ) : (
           icon
         )}
@@ -62,7 +67,12 @@ const Button: React.FC<ButtonProps> = memo(
           </Text>
         ) : null}
         {iconPosition === 'right' &&
-          (typeof icon === 'string' ? <IconByVariant path={icon} /> : icon)}
+          (typeof icon === 'string' ? (
+            <IconByVariant
+              path={icon}
+              {...(iconColor && { color: iconColor })}
+            />
+          ) : icon)}
       </View>
     );
 
@@ -85,9 +95,9 @@ const Button: React.FC<ButtonProps> = memo(
     const buttonContent = (
       <Ripple
         borderRadius={borderRadius}
-        disabled={disabled || isLoading}
+        disabled={disabled || isLoading || false}
         onPress={() => handlePress()}
-        rippleColor={rippleColor}
+        {...(rippleColor && { rippleColor })}
       >
         <View style={[styles.container, styles[variant] ?? {}, wrapStyle]}>
           {isLoading ? <Loader color={loaderColor} /> : renderButton()}

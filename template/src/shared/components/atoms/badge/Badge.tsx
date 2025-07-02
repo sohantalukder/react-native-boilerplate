@@ -1,4 +1,5 @@
-import { StyleProp, TextStyle, View, ViewStyle } from 'react-native';
+import type { StyleProp, TextStyle, ViewStyle } from 'react-native';
+import { View } from 'react-native';
 import { useTheme } from '@/theme';
 import { Ripple, Text } from '@/shared/components/atoms';
 import { staticFontStyles } from '@/theme/fonts';

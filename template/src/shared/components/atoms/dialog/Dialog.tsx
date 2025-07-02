@@ -1,13 +1,14 @@
 import React, { memo, useMemo, useCallback } from 'react';
+import type {
+  GestureResponderEvent,
+  ViewStyle} from 'react-native';
 import {
   Modal,
   View,
   Pressable,
-  GestureResponderEvent,
-  ViewStyle,
 } from 'react-native';
 
-import { ButtonVariant } from '../buttons/types/type';
+import type { ButtonVariant } from '../buttons/types/type';
 import Text from '../text/Text';
 import { useTheme } from '@/theme';
 import IconByVariant from '../icon-by-variant/IconByVariant';
@@ -46,9 +47,11 @@ interface DialogIconProps {
 const DialogIcon: React.FC<DialogIconProps> = memo(({ icon, iconConfig }) => (
   <IconByVariant
     path={icon}
-    width={iconConfig?.size}
-    height={iconConfig?.size}
-    color={iconConfig?.color}
+    {...(iconConfig?.size !== undefined && { 
+      width: iconConfig.size, 
+      height: iconConfig.size 
+    })}
+    {...(iconConfig?.color && { color: iconConfig.color })}
   />
 ));
 
@@ -70,7 +73,7 @@ const DialogContent: React.FC<DialogContentProps> = memo(
         {icon && (
           <DialogIcon
             icon={icon}
-            iconConfig={iconConfig}
+            {...(iconConfig && { iconConfig })}
           />
         )}
         {title && (
@@ -123,8 +126,8 @@ const DialogButtons: React.FC<DialogButtonsProps> = memo(({ buttons }) => {
           key={`dialog-btn-${index}`}
           onPress={button.onPress}
           text={button.label}
-          variant={button.type}
-          isLoading={button.isLoading}
+          variant={button.type || 'primary'}
+          isLoading={button.isLoading || false}
           wrapStyle={{ height: rs(44) }}
         />
       ))}
@@ -207,13 +210,13 @@ const Dialog: React.FC<DialogProps> = memo(
             style={styles.dialogStyle}
             onPress={stopPropagation}
             accessible
-            accessibilityLabel={title}
+            accessibilityLabel={title || 'Dialog'}
           >
             <DialogContent
-              title={title}
-              description={description}
-              icon={icon}
-              iconConfig={iconConfig}
+              {...(title && { title })}
+              {...(description && { description })}
+              {...(icon && { icon })}
+              {...(iconConfig && { iconConfig })}
             />
             <DialogButtons buttons={buttons} />
           </Pressable>

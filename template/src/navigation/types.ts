@@ -1,4 +1,4 @@
-import routes from '@/navigation/routes';
+import type routes from '@/navigation/routes';
 import type {
   StackScreenProps,
   StackNavigationProp,
@@ -9,7 +9,7 @@ export type RootScreenProps<
 > = StackScreenProps<RootStackParamList, S>;
 
 export type RootStackParamList = {
-  [routes.startup]: undefined;
+  [routes.splash]: undefined;
   [routes.example]: undefined;
 };
 

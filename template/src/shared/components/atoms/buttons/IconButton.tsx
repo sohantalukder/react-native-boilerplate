@@ -6,7 +6,7 @@ import { useTheme } from '@/theme';
 
 import { Ripple, IconByVariant } from '@/shared/components/atoms';
 import { iconButtonStyles } from './styles/button.styles';
-import { IconButtonProps } from './types/type';
+import type { IconButtonProps } from './types/type';
 
 const IconButton = React.memo(
   ({
@@ -24,8 +24,8 @@ const IconButton = React.memo(
     return (
       <Ripple
         borderRadius={borderRadius}
-        disabled={disabled}
-        onPress={onPress}
+        disabled={disabled || false}
+        onPress={onPress || (() => {})}
         testID="icon-button"
       >
         <View
@@ -41,10 +41,9 @@ const IconButton = React.memo(
         >
           {typeof icon === 'string' ? (
             <IconByVariant
-              color={iconColor}
-              height={iconSize}
-              width={iconSize}
               path={icon}
+              {...(iconColor && { color: iconColor })}
+              {...(iconSize !== undefined && { height: iconSize, width: iconSize })}
             />
           ) : (
             icon

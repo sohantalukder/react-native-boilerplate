@@ -3,7 +3,7 @@ enum routes {
    * @param {string} routes
    * @returns {string}
    */
-  startup = 'STARTUP',
+  splash = 'SPLASH',
   example = 'EXAMPLE',
 }
 

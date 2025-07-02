@@ -1,11 +1,12 @@
 import React, { useLayoutEffect, useMemo } from 'react';
 import { useRef } from 'react';
+import type {
+  StyleProp,
+  ViewStyle,
+  ColorValue} from 'react-native';
 import {
   Animated,
   Easing,
-  StyleProp,
-  ViewStyle,
-  ColorValue,
 } from 'react-native';
 
 import { useTheme } from '@/theme';

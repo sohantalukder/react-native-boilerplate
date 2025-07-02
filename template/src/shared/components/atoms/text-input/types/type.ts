@@ -1,5 +1,5 @@
-import React from 'react';
-import {
+import type React from 'react';
+import type {
   KeyboardTypeOptions,
   StyleProp,
   TextInput,
@@ -7,7 +7,7 @@ import {
   TextStyle,
   ViewStyle,
 } from 'react-native';
-import { z } from 'zod';
+import type { z } from 'zod';
 
 // Validation rule types
 export type ValidationRule = ValidationRuleKey | z.ZodType;

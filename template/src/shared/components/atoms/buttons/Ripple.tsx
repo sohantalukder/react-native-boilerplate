@@ -1,5 +1,6 @@
 import * as React from 'react';
-import { Platform, Pressable, View, ViewProps } from 'react-native';
+import type { ViewProps } from 'react-native';
+import { Platform, Pressable, View } from 'react-native';
 import { Gesture, GestureDetector } from 'react-native-gesture-handler';
 import Animated, {
   Easing,
@@ -11,7 +12,7 @@ import Animated, {
 } from 'react-native-reanimated';
 import { useTheme } from '@/theme';
 import { createRippleStyles } from './styles/button.styles';
-import { RippleButtonProps } from './types/type';
+import type { RippleButtonProps } from './types/type';
 import layout from '@/theme/layout';
 import withOpacity from '@/shared/utilities/withOpacity';
 
@@ -134,7 +135,9 @@ const Ripple = React.memo<RippleButtonProps>(
           .onTouchesDown((event) => {
             // Start ripple immediately on touch down for better responsiveness
             const touch = event.changedTouches[0];
-            startRipple(touch.x, touch.y);
+            if (touch) {
+              startRipple(touch.x, touch.y);
+            }
           })
           .onEnd(() => {
             runOnJS(handlePress)();

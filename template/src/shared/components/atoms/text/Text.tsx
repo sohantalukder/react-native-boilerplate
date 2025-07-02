@@ -1,7 +1,8 @@
 import React from 'react';
-import { Text as RNText, TextProps, TextStyle } from 'react-native';
+import type { TextProps, TextStyle } from 'react-native';
+import { Text as RNText } from 'react-native';
 import { useTheme } from '@/theme';
-import { TypographySize } from '@/theme/types/fonts';
+import type { TypographySize } from '@/theme/types/fonts';
 import { fontWeight } from '@/theme/fonts';
 import withOpacity from '@/shared/utilities/withOpacity';
 export type TextColor =

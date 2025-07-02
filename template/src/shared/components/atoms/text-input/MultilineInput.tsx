@@ -4,7 +4,7 @@ import { Text, TextInput, View } from 'react-native';
 
 import { useTheme } from '@/theme';
 
-import { MultilineInputProps } from './types/type';
+import type { MultilineInputProps } from './types/type';
 import { inputStyles } from './styles/input.styles';
 
 const MultilineInput: React.FC<MultilineInputProps> = ({

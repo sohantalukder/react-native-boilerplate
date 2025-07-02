@@ -2,7 +2,7 @@ import { useNavigation } from '@react-navigation/native';
 import React, { useLayoutEffect, useRef } from 'react';
 import { Animated, Platform } from 'react-native';
 import { IconButton } from '@/shared/components/atoms';
-import { StackNavigationOptions } from '@react-navigation/stack';
+import type { StackNavigationOptions } from '@react-navigation/stack';
 import { useTheme } from '@/theme';
 import { fontWeight } from '@/theme/fonts';
 import withOpacity from '@/shared/utilities/withOpacity';

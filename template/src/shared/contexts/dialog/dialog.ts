@@ -1,5 +1,5 @@
-import { ButtonVariant } from '@/shared/components/atoms/buttons/types/type';
-import { DialogManagerProps } from './types';
+import type { ButtonVariant } from '@/shared/components/atoms/buttons/types/type';
+import type { DialogManagerProps } from './types';
 import { getDialogManager } from './dialogManager';
 
 export const dialog = {

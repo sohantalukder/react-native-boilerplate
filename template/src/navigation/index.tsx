@@ -1,11 +1,10 @@
 import { createStackNavigator } from '@react-navigation/stack';
 import { NavigationContainer } from '@react-navigation/native';
 import { useTheme } from '@/theme';
-import { RootStackParamList } from './types';
+import type { RootStackParamList } from './types';
 import routes from './routes';
 import { screenOptions } from './screenOptions';
-import { Startup } from '@/modules';
-import { Example } from '@/modules';
+import { Example, Splash } from '@/modules';
 const Stack = createStackNavigator<RootStackParamList>();
 
 const Navigation = () => {
@@ -14,13 +13,13 @@ const Navigation = () => {
   return (
     <NavigationContainer theme={navigationTheme}>
       <Stack.Navigator
-        initialRouteName={routes.startup}
+        initialRouteName={routes.splash}
         key={variant}
         screenOptions={screenOptions}
       >
         <Stack.Screen
-          component={Startup}
-          name={routes.startup}
+          component={Splash}
+          name={routes.splash}
         />
         <Stack.Screen
           component={Example}

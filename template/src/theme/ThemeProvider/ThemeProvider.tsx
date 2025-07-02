@@ -39,11 +39,11 @@ import generateConfig from '@/theme/ThemeProvider/generateConfig';
 import { typographies } from '../typographies';
 import localStore from '@/services/storage/localStore.service';
 import { getAssetsContext } from '@/assets/getAssetsContext';
-import { Colors } from '../types/colors';
-import { FontColors } from '../types/fonts';
-import { BorderColors } from '../types/borders';
-import { Gutters } from '../types/gutters';
-import { Backgrounds } from '../types/backgrounds';
+import type { Colors } from '../types/colors';
+import type { FontColors } from '../types/fonts';
+import type { BorderColors } from '../types/borders';
+import type { Gutters } from '../types/gutters';
+import type { Backgrounds } from '../types/backgrounds';
 
 type Context = {
   changeTheme: (variant: VariantWithSystem) => void;

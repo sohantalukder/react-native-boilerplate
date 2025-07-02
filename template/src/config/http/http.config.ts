@@ -3,13 +3,14 @@
  * Supports multiple instances with shared interceptors for microservices architecture
  */
 
-import axios, {
+import type {
   AxiosInstance,
   AxiosRequestConfig,
   AxiosResponse,
   InternalAxiosRequestConfig,
   AxiosError,
 } from 'axios';
+import axios from 'axios';
 import localStore from '@/services/storage/localStore.service';
 
 export const CONTENT_TYPE = {
