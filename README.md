@@ -200,41 +200,10 @@ Update `src/config/` files for:
 ### 📖 Additional Resources
 
 - 🌐 **[Live Documentation](https://sohantalukder.github.io/react-native-boilerplate/)** - Interactive guides and examples
-- 📋 **[API Reference](https://sohantalukder.github.io/react-native-boilerplate/docs/api)** - Complete API documentation
-- 🎯 **[Best Practices](https://sohantalukder.github.io/react-native-boilerplate/docs/best-practices)** - Recommended patterns and practices
-- 🏗️ **[Architecture Guide](https://sohantalukder.github.io/react-native-boilerplate/docs/architecture)** - Understanding the project structure
-- 🎨 **[Theming Guide](https://sohantalukder.github.io/react-native-boilerplate/docs/theming)** - Customization and styling
-
-## 📚 Documentation Deployment
-
-This template includes automated documentation deployment to GitHub Pages. The documentation website is automatically updated when changes are pushed to the `documentation/` folder.
-
-### 🌐 Live Documentation
-
-Our documentation is live at: **[https://sohantalukder.github.io/react-native-boilerplate/](https://sohantalukder.github.io/react-native-boilerplate/)**
-
-### Setup GitHub Pages for Your Fork
-
-1. **Run the setup helper**:
-   ```bash
-   npm run setup-pages
-   ```
-
-2. **Enable GitHub Pages**:
-   - Go to your repository Settings → Pages
-   - Under "Source", select "GitHub Actions"
-   - Save the settings
-
-3. **Deploy**:
-   ```bash
-   git add .
-   git commit -m "Enable GitHub Pages deployment"
-   git push origin main
-   ```
-
-4. **Access your docs**: `https://yourusername.github.io/your-repo-name/`
-
-The workflow automatically builds and deploys documentation when you push changes to the `documentation/` folder.
+- 📋 **[Getting Started](https://sohantalukder.github.io/react-native-boilerplate/docs/getting-started)** - Quick setup guide
+- 🏗️ **[Project Structure](https://sohantalukder.github.io/react-native-boilerplate/docs/project-structure)** - Understanding the codebase
+- ⚙️ **[Configuration](https://sohantalukder.github.io/react-native-boilerplate/docs/configuration)** - Customization options
+- 🛠️ **[Development](https://sohantalukder.github.io/react-native-boilerplate/docs/development)** - Development workflow
 
 ## 🤝 Contributing
 
@@ -259,7 +228,6 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 - 🌐 **Documentation**: [https://sohantalukder.github.io/react-native-boilerplate/](https://sohantalukder.github.io/react-native-boilerplate/)
 - 📧 **Email**: mdtalukder.sohan@gmail.com
 - 🐛 **Issues**: [GitHub Issues](https://github.com/sohantalukder/react-native-boilerplate/issues)
-- 💬 **Discussions**: [GitHub Discussions](https://github.com/sohantalukder/react-native-boilerplate/discussions)
 
 ---
 

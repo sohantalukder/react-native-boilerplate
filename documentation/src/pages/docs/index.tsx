@@ -1,6 +1,6 @@
 import Link from "next/link"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
-import { Book, Rocket, Settings, Code, ArrowRight, Github } from "lucide-react"
+import { Book, Rocket, Settings, Code, ArrowRight, Github, Palette, Layers, Target, Globe } from "lucide-react"
 import { ThemeToggle } from "@/components/theme-toggle"
 import { SEO } from "@/components/seo"
 
@@ -44,7 +44,7 @@ export default function DocsIndex() {
             </div>
 
             {/* Main Documentation Cards */}
-            <div className="grid md:grid-cols-2 gap-8 mb-12">
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
               <DocCard
                 href="/docs/getting-started"
                 icon={<Rocket className="h-8 w-8" />}
@@ -52,12 +52,12 @@ export default function DocsIndex() {
                 description="Set up your development environment and create your first React Native app with our boilerplate"
                 estimatedTime="10 min read"
                 badge="Start Here"
-                badgeColor="bg-green-100 text-green-800"
+                badgeColor="bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-200"
               />
 
               <DocCard
                 href="/docs/project-structure"
-                icon={<Rocket className="h-8 w-8" />}
+                icon={<Code className="h-8 w-8" />}
                 title="Project Structure"
                 description="Understand the folder organization, file naming conventions, and architectural patterns"
                 estimatedTime="8 min read"
@@ -72,8 +72,40 @@ export default function DocsIndex() {
               />
 
               <DocCard
+                href="/docs/architecture"
+                icon={<Layers className="h-8 w-8" />}
+                title="Architecture Guide"
+                description="Learn about modular architecture, atomic design principles, and structural patterns"
+                estimatedTime="12 min read"
+              />
+
+              <DocCard
+                href="/docs/theming"
+                icon={<Palette className="h-8 w-8" />}
+                title="Theming System"
+                description="Customize colors, typography, implement dark/light mode, and create consistent styling"
+                estimatedTime="10 min read"
+              />
+
+              <DocCard
+                href="/docs/api"
+                icon={<Globe className="h-8 w-8" />}
+                title="API Integration"
+                description="API setup, authentication, data fetching with TanStack Query, and error handling"
+                estimatedTime="18 min read"
+              />
+
+              <DocCard
+                href="/docs/best-practices"
+                icon={<Target className="h-8 w-8" />}
+                title="Best Practices"
+                description="Development guidelines, coding standards, performance optimization, and testing strategies"
+                estimatedTime="20 min read"
+              />
+
+              <DocCard
                 href="/docs/development"
-                icon={<Rocket className="h-8 w-8" />}
+                icon={<Code className="h-8 w-8" />}
                 title="Development Guide"
                 description="Learn the development workflow, debugging techniques, testing strategies, and performance optimization"
                 estimatedTime="20 min read"
