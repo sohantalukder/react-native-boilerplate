@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useMemo } from 'react';
 import { View, StyleSheet } from 'react-native';
 import Animated, {
   useSharedValue,
@@ -10,10 +10,11 @@ import Animated, {
 } from 'react-native-reanimated';
 import { useTheme } from '@/theme';
 import { Image } from '@/shared/components/atoms';
+import type { Colors } from '@/theme/types/colors';
 
 const AnimatedLogo = () => {
-  const { logo, gutters, layout } = useTheme();
-  
+  const { logo, gutters, layout, colors } = useTheme();
+
   // Animated values
   const scale = useSharedValue(0.8);
   const rotation = useSharedValue(-15);
@@ -46,13 +47,17 @@ const AnimatedLogo = () => {
   }, [opacity, scale, rotation]);
 
   // Animated styles
-  const animatedStyle = useAnimatedStyle(() => ({
-    transform: [
-      { scale: scale.value },
-      { rotate: `${rotation.value}deg` },
-    ],
-    opacity: opacity.value,
-  }), []);
+  const animatedStyle = useAnimatedStyle(
+    () => ({
+      transform: [{ scale: scale.value }, { rotate: `${rotation.value}deg` }],
+      opacity: opacity.value,
+    }),
+    []
+  );
+
+  const styles = useMemo(() => {
+    return animatedLogoStyles(colors);
+  }, [colors]);
 
   return (
     <View
@@ -76,20 +81,21 @@ const AnimatedLogo = () => {
 
 export default AnimatedLogo;
 
-const styles = StyleSheet.create({
-  logo: {
-    height: 120,
-    width: 200,
-  },
-  logoContainer: {
-    // Add shadow for better visual appeal
-    shadowColor: '#000',
-    shadowOffset: {
-      width: 0,
-      height: 4,
+const animatedLogoStyles = (colors: Colors) =>
+  StyleSheet.create({
+    logo: {
+      height: 200,
+      width: 200,
     },
-    shadowOpacity: 0.3,
-    shadowRadius: 8,
-    elevation: 8, // Android shadow
-  },
-});
+    logoContainer: {
+      // Add shadow for better visual appeal
+      elevation: 8, // Android shadow
+      shadowColor: colors.gray9,
+      shadowOffset: {
+        width: 0,
+        height: 4,
+      },
+      shadowOpacity: 0.3,
+      shadowRadius: 8,
+    },
+  });

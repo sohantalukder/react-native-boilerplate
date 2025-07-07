@@ -14,7 +14,7 @@ type Properties = TextProps & {
 };
 
 const ClickableText: React.FC<Properties> = ({
-  onPress,
+  onPress = () => {},
   style,
   textColor = 'default',
   variant = 'body3',

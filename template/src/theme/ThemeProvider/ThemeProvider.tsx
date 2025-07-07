@@ -96,14 +96,14 @@ function ThemeProvider({ children }: Properties) {
       setVariant(systemTheme);
     }
     initialized.current = true;
-  }, []); // Empty dependency array since we only want this to run once
+  }, [storage, systemTheme]); // Empty dependency array since we only want this to run once
 
   // Update theme variant when system theme changes
   useEffect(() => {
     if (storage.getTheme() === 'system') {
       setVariant(systemTheme);
     }
-  }, [systemTheme]); // Changed from colorScheme to systemTheme
+  }, [systemTheme, storage]); // Changed from colorScheme to systemTheme
 
   const changeTheme = useCallback(
     (nextVariant: VariantWithSystem) => {
@@ -111,7 +111,7 @@ function ThemeProvider({ children }: Properties) {
       setVariant(newVariant);
       storage.setTheme(nextVariant);
     },
-    [systemTheme] // Removed storage from dependencies as it's stable
+    [systemTheme, storage] // Removed storage from dependencies as it's stable
   );
 
   // Memoized config generation with caching
@@ -184,8 +184,11 @@ function ThemeProvider({ children }: Properties) {
 
   // Memoized logo selection
   const logos = useMemo(
-    () => ({
-      logo: images('./logo.png') as number,
+    (): { logo: number } => ({
+      logo:
+        variant === 'dark'
+          ? (images('./whiteLogo.png') as number)
+          : (images('./blackLogo.png') as number),
     }),
     [variant, images]
   );
@@ -199,7 +202,7 @@ function ThemeProvider({ children }: Properties) {
         layout,
         variant,
         ...logos,
-      } satisfies ComponentTheme),
+      }) satisfies ComponentTheme,
     [themeStyles, fullConfig.colors, variant, logos]
   );
 

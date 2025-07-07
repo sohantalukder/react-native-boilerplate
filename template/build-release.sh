@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# Creolytix Enterprise Release Build Script
+# React Native Enterprise Release Build Script
 # Version: 2.0.0
 # Description: React Native build automation script
 # Author: DevOps Team
@@ -32,7 +32,7 @@ DEFAULT_IOS_BUILD_TYPE="Release"
 DEFAULT_ENABLE_PROGUARD="true"
 DEFAULT_ENABLE_HERMES="true"
 DEFAULT_SPLIT_APKS="true"
-DEFAULT_KEYSTORE_PATH="android/app/creolytix-release-key.keystore"
+DEFAULT_KEYSTORE_PATH="android/app/release-key.keystore"
 
 # Initialize logging
 init_logging() {
@@ -110,7 +110,7 @@ load_config() {
 create_default_config() {
     log_info "Creating default configuration file"
     cat > "$CONFIG_FILE" << EOF
-# Creolytix Build Configuration
+# React Native Build Configuration
 # This file contains build settings and can be customized per environment
 
 # Android Configuration
@@ -122,8 +122,8 @@ SPLIT_APKS="$DEFAULT_SPLIT_APKS"
 
 # iOS Configuration
 IOS_BUILD_TYPE="$DEFAULT_IOS_BUILD_TYPE"
-IOS_SCHEME="Creolytix"
-IOS_WORKSPACE="ios/Creolytix.xcworkspace"
+IOS_SCHEME="App"
+IOS_WORKSPACE="ios/App.xcworkspace"
 
 # Notification Configuration (optional)
 SLACK_WEBHOOK_URL=""
@@ -230,7 +230,7 @@ security_checks() {
     log_info "🔒 Performing security checks..."
     
     # Check for sensitive files
-    local sensitive_files=(".env" "android/app/my-upload-key.keystore" "ios/Creolytix/GoogleService-Info.plist")
+    local sensitive_files=(".env" "android/app/my-upload-key.keystore" "ios/App/GoogleService-Info.plist")
     for file in "${sensitive_files[@]}"; do
         if [[ -f "$file" ]]; then
             log_warning "Sensitive file detected: $file"
@@ -379,10 +379,10 @@ validate_ios_prerequisites() {
     log_info "CocoaPods version: $(pod --version)"
     
     # Validate workspace/project
-    if [[ -f "${IOS_WORKSPACE:-ios/Creolytix.xcworkspace}" ]]; then
-        log_info "Using Xcode workspace: ${IOS_WORKSPACE:-ios/Creolytix.xcworkspace}"
-    elif [[ -f "ios/Creolytix.xcodeproj" ]]; then
-        log_info "Using Xcode project: ios/Creolytix.xcodeproj"
+    if [[ -f "${IOS_WORKSPACE:-ios/App.xcworkspace}" ]]; then
+        log_info "Using Xcode workspace: ${IOS_WORKSPACE:-ios/App.xcworkspace}"
+    elif [[ -f "ios/App.xcodeproj" ]]; then
+        log_info "Using Xcode project: ios/App.xcodeproj"
     else
         log_error "No Xcode workspace or project found"
         exit 1
@@ -530,7 +530,7 @@ build_ios() {
     yarn build:ios
     
     # Verify build
-    local archive_path="ios/Creolytix.xcarchive"
+    local archive_path="ios/App.xcarchive"
     if [[ -d "$archive_path" ]]; then
         log_success "iOS archive built successfully"
         log_info "Archive location: $archive_path"

@@ -48,8 +48,9 @@ const Switch: React.FC<Properties> = ({
   const translateRef = useRef(new Animated.Value(0)).current;
   const styles = useMemo(() => styleSheet(colors), [colors]);
   useEffect(() => {
-    value ? handleSwitch(true) : handleSwitch(false);
+    handleSwitch(value);
     setShow(value);
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [value]);
 
   const handleSwitch = (flag = false) => {
@@ -93,8 +94,8 @@ const Switch: React.FC<Properties> = ({
   });
   const handlePress = () => {
     setShow(!show);
-    onPress && onPress(!show, name ? name?.trim() : '');
-    !show ? handleSwitch(true) : handleSwitch(false);
+    onPress?.(!show, name ? name?.trim() : '');
+    handleSwitch(!show);
   };
   return (
     <Pressable

@@ -11,7 +11,7 @@ export type ToastProps = {
   title: string;
 };
 
-const Toast: React.FC<ToastProps & { onDismiss?: () => void }> = ({  
+const Toast: React.FC<ToastProps & { onDismiss?: () => void }> = ({
   type,
   title,
   onDismiss,

@@ -75,7 +75,7 @@ export const AnimatedToast: React.FC<{
         clearTimeout(timeoutRef.current);
       }
     };
-  }, [toast.timeout, onDismiss]);
+  }, [toast.timeout, onDismiss, opacity, translateY, scale]);
 
   // Optimized pan gesture
   const pan = Gesture.Pan()

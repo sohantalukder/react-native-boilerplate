@@ -62,11 +62,15 @@ function Example() {
           setUserData(user);
           Alert.alert(
             t('boilerplate.screen_example.api_messages.success_title'),
-            t('boilerplate.screen_example.api_messages.success_message', { 
-              firstName: user.firstName, 
-              lastName: user.lastName 
+            t('boilerplate.screen_example.api_messages.success_message', {
+              firstName: user.firstName,
+              lastName: user.lastName,
             }),
-            [{ text: t('boilerplate.screen_example.api_messages.success_button') }]
+            [
+              {
+                text: t('boilerplate.screen_example.api_messages.success_button'),
+              },
+            ]
           );
         }
       }

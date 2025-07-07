@@ -1,12 +1,6 @@
 import React, { memo, useMemo, useCallback } from 'react';
-import type {
-  GestureResponderEvent,
-  ViewStyle} from 'react-native';
-import {
-  Modal,
-  View,
-  Pressable,
-} from 'react-native';
+import type { GestureResponderEvent, ViewStyle } from 'react-native';
+import { Modal, View, Pressable } from 'react-native';
 
 import type { ButtonVariant } from '../buttons/types/type';
 import Text from '../text/Text';
@@ -47,9 +41,9 @@ interface DialogIconProps {
 const DialogIcon: React.FC<DialogIconProps> = memo(({ icon, iconConfig }) => (
   <IconByVariant
     path={icon}
-    {...(iconConfig?.size !== undefined && { 
-      width: iconConfig.size, 
-      height: iconConfig.size 
+    {...(iconConfig?.size !== undefined && {
+      width: iconConfig.size,
+      height: iconConfig.size,
     })}
     {...(iconConfig?.color && { color: iconConfig.color })}
   />
@@ -116,7 +110,7 @@ const DialogButtons: React.FC<DialogButtonsProps> = memo(({ buttons }) => {
     }
 
     return styles;
-  }, [buttons]);
+  }, [buttons, layout]);
   if (!buttons?.length) return null;
 
   return (

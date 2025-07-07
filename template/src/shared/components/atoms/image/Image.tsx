@@ -1,12 +1,6 @@
 import React, { useState, useMemo, useCallback } from 'react';
-import type {
-  ViewStyle,
-  StyleProp,
-  DimensionValue} from 'react-native';
-import {
-  StyleSheet,
-  View,
-} from 'react-native';
+import type { ViewStyle, StyleProp, DimensionValue } from 'react-native';
+import { StyleSheet, View } from 'react-native';
 import type { ResizeMode, FastImageProps } from 'react-native-fast-image';
 import FastImage from 'react-native-fast-image';
 import PlaceholderImage from '@/assets/icons/Placeholder.icon';
@@ -59,8 +53,10 @@ const ImagePreview: React.FC<Properties> = ({
         ) {
           imageCopy.uri = JSON.parse(imageCopy.uri);
         }
-      } catch (e) {
-        // Keep original URI if parsing fails
+      } catch (_error: unknown) {
+        if (__DEV__) {
+          console.error(_error);
+        }
       }
     }
 

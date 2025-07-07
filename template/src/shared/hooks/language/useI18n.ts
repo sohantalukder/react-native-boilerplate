@@ -1,3 +1,4 @@
+/* eslint-disable no-void */
 import i18next from 'i18next';
 
 import { SupportedLanguages } from './schema';

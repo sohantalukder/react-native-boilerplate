@@ -98,7 +98,7 @@ const TextInput: React.FC<CustomInputProps> = ({
         return true;
       } catch (error_) {
         if (error_ instanceof z.ZodError) {
-          setError(error_.errors[0].message);
+          setError(error_.errors[0]?.message ?? 'Invalid input');
         } else {
           setError('Invalid input');
         }
@@ -188,7 +188,7 @@ const TextInput: React.FC<CustomInputProps> = ({
     <View style={[layout.fullWidth, layout.flexShrink_1, wrapperStyle]}>
       <AnimatedLabel
         labelStyle={computedLabelStyle}
-        label={required ? `${label} *` : label ?? ''}
+        label={required ? `${label} *` : (label ?? '')}
         value={currentValue}
         isFocused={isFocused}
       />

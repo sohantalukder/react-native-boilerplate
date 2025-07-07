@@ -131,4 +131,26 @@ module.exports = {
     /* ESLint Rules */
     curly: 'off',
   },
+
+  /* File-specific configurations */
+  overrides: [
+    {
+      files: ['*.ts', '*.tsx'],
+      parser: '@typescript-eslint/parser',
+      plugins: ['@typescript-eslint'],
+      extends: [
+        'plugin:@typescript-eslint/recommended',
+      ],
+      parserOptions: {
+        project: './tsconfig.json',
+      },
+    },
+    {
+      files: ['*.js', '*.jsx'],
+      parser: '@babel/eslint-parser',
+      parserOptions: {
+        requireConfigFile: false,
+      },
+    },
+  ],
 };

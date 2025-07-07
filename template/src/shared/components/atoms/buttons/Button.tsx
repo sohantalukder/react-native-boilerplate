@@ -12,7 +12,7 @@ const Button: React.FC<ButtonProps> = memo(
   ({
     activityColor,
     bgColor,
-    borderRadius = 8,
+    borderRadius = 14,
     disabled,
     icon,
     iconColor,
@@ -30,11 +30,12 @@ const Button: React.FC<ButtonProps> = memo(
 
     // Memoize styles to prevent recalculation on re-renders
     const styles = React.useMemo(
-      () => buttonStyles({
-        borderRadius,
-        colors,
-        ...(bgColor && { bgColor }),
-      }),
+      () =>
+        buttonStyles({
+          borderRadius,
+          colors,
+          ...(bgColor && { bgColor }),
+        }),
       [borderRadius, bgColor, colors]
     );
 
@@ -47,7 +48,10 @@ const Button: React.FC<ButtonProps> = memo(
     const renderButton = () => (
       <View style={styles.iconGap}>
         {iconPosition === 'left' && typeof icon === 'string' ? (
-          <IconByVariant path={icon} {...(iconColor && { color: iconColor })} />
+          <IconByVariant
+            path={icon}
+            {...(iconColor && { color: iconColor })}
+          />
         ) : (
           icon
         )}
@@ -72,7 +76,9 @@ const Button: React.FC<ButtonProps> = memo(
               path={icon}
               {...(iconColor && { color: iconColor })}
             />
-          ) : icon)}
+          ) : (
+            icon
+          ))}
       </View>
     );
 
@@ -90,7 +96,7 @@ const Button: React.FC<ButtonProps> = memo(
         return activityColor ?? color[variant as keyof typeof color];
       }
       return color[variant as keyof typeof color];
-    }, [isLoading, activityColor, colors.white, variant]);
+    }, [isLoading, activityColor, colors.white,colors.text, variant]);
 
     const buttonContent = (
       <Ripple

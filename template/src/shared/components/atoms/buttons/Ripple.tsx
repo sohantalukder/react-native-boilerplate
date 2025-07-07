@@ -113,7 +113,7 @@ const Ripple = React.memo<RippleButtonProps>(
           }
         );
       },
-      [disabled, rippleScale, duration]
+      [disabled, rippleScale, duration, positionX, positionY, scale, isAnimating]
     );
 
     // End ripple animation
@@ -125,7 +125,7 @@ const Ripple = React.memo<RippleButtonProps>(
         duration: duration * 0.8, // Slightly longer fade out
         easing: Easing.bezier(0.25, 0.46, 0.45, 0.94), // Consistent easing
       });
-    }, [disabled, duration]);
+    }, [disabled, duration, scale]);
 
     // Create tap gesture
     const tapGesture = React.useMemo(

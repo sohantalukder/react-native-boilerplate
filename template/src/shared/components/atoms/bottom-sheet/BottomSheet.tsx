@@ -1,16 +1,6 @@
-import type {
-  PropsWithChildren} from 'react';
-import React, {
-  useCallback,
-  useEffect,
-  useMemo,
-  useState,
-  memo,
-} from 'react';
-import type {
-  LayoutChangeEvent,
-  StyleProp,
-  ViewStyle} from 'react-native';
+import type { PropsWithChildren } from 'react';
+import React, { useCallback, useEffect, useMemo, useState, memo } from 'react';
+import type { LayoutChangeEvent, StyleProp, ViewStyle } from 'react-native';
 import {
   Modal,
   StyleSheet,
@@ -22,8 +12,7 @@ import {
   InteractionManager,
 } from 'react-native';
 import { Gesture, GestureDetector } from 'react-native-gesture-handler';
-import type {
-  WithTimingConfig} from 'react-native-reanimated';
+import type { WithTimingConfig } from 'react-native-reanimated';
 import Animated, {
   Easing,
   runOnJS,
@@ -110,7 +99,7 @@ const BottomSheet: React.FC<Properties> = memo(
   ({
     visible,
     onRequestClose,
-    onClose,
+    onClose = () => {},
     children,
     maxHeight,
     enableSwipeToClose = true,
@@ -186,7 +175,7 @@ const BottomSheet: React.FC<Properties> = memo(
             if (!visible) {
               runOnJS(setShowModal)(false);
               runOnJS(setContentHeight)(undefined);
-              onClose && runOnJS(onClose)();
+              runOnJS(onClose)();
             }
           }
         );

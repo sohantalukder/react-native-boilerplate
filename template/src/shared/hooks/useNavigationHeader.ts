@@ -67,7 +67,7 @@ const useNavigationHeader = ({
       headerTitle: title ? title : () => headerTitle,
       headerRight: () => headerRight,
     } as StackNavigationOptions);
-  }, [navigation, headerTitle, headerRight, colors.text]);
+  }, [navigation, headerTitle, headerRight, colors.text, fadeAnim, typographies.body1, headerTitleAlign, title]);
 };
 
 export { useNavigationHeader };

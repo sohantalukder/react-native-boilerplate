@@ -1,17 +1,17 @@
 {
   "images": [
     {
-      "filename": "Creolytix_white_Icon@1x.png",
+      "filename": "Logo@1x.png",
       "idiom": "iphone",
       "scale": "1x"
     },
     {
-      "filename": "Creolytix_white_Icon@2x.png",
+      "filename": "Logo@2x.png",
       "idiom": "iphone",
       "scale": "2x"
     },
     {
-      "filename": "Creolytix_white_Icon@3x.png",
+      "filename": "Logo@3x.png",
       "idiom": "iphone",
       "scale": "3x"
     }

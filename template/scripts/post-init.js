@@ -1,6 +1,5 @@
 #!/usr/bin/env node
 /* eslint-disable no-console */
-/* eslint-disable @typescript-eslint/no-var-requires */
 
 const fs = require('fs');
 const path = require('path');
@@ -13,7 +12,7 @@ const projectRoot = process.cwd();
 // Function to execute commands
 function execCommand(command, options = {}) {
   try {
-    console.log(`📦 Running: ${command}`);
+    console.warn(`📦 Running: ${command}`);
     execSync(command, {
       stdio: 'inherit',
       cwd: projectRoot,
@@ -41,11 +40,11 @@ function isAndroidAvailable() {
   return androidHome && fs.existsSync(androidHome);
 }
 
-console.log('✅ Project initialized successfully!');
-console.log('\n📋 Next steps:');
+console.warn('✅ Project initialized successfully!');
+console.warn('\n📋 Next steps:');
 
 // Install dependencies
-console.log('\n1️⃣ Installing dependencies...');
+console.warn('\n1️⃣ Installing dependencies...');
 if (fs.existsSync(path.join(projectRoot, 'yarn.lock'))) {
   execCommand('yarn install');
 } else {
@@ -54,7 +53,7 @@ if (fs.existsSync(path.join(projectRoot, 'yarn.lock'))) {
 
 // iOS setup
 if (isIOSAvailable()) {
-  console.log('\n2️⃣ Setting up iOS...');
+  console.warn('\n2️⃣ Setting up iOS...');
   try {
     // Install Ruby gems
     if (fs.existsSync(path.join(projectRoot, 'Gemfile'))) {
@@ -63,37 +62,37 @@ if (isIOSAvailable()) {
 
     // Install CocoaPods
     execCommand('cd ios && bundle exec pod install');
-    console.log('✅ iOS setup completed');
+    console.warn('✅ iOS setup completed');
   } catch (error) {
-    console.log('⚠️  iOS setup skipped - run "cd ios && bundle exec pod install" manually');
+    console.warn('⚠️  iOS setup skipped - run "cd ios && bundle exec pod install" manually', error);
   }
 } else {
-  console.log('\n⚠️  Xcode not found - iOS setup skipped');
+  console.warn('\n⚠️  Xcode not found - iOS setup skipped');
 }
 
 // Android setup check
 if (isAndroidAvailable()) {
-  console.log('\n✅ Android SDK detected');
+  console.warn('\n✅ Android SDK detected');
 } else {
-  console.log('\n⚠️  Android SDK not found - please set ANDROID_HOME environment variable');
+  console.warn('\n⚠️  Android SDK not found - please set ANDROID_HOME environment variable');
 }
 
 // Husky setup
-console.log('\n3️⃣ Setting up Git hooks...');
+console.warn('\n3️⃣ Setting up Git hooks...');
 try {
   if (fs.existsSync(path.join(projectRoot, '.git'))) {
     execCommand('npx husky init');
-    console.log('✅ Git hooks setup completed');
+    console.warn('✅ Git hooks setup completed');
   } else {
-    console.log('⚠️  Git repository not found - initialize git first with "git init"');
+    console.warn('⚠️  Git repository not found - initialize git first with "git init"');
   }
 } catch (error) {
-  console.log('⚠️  Git hooks setup skipped');
+  console.warn('⚠️  Git hooks setup skipped', error);
 }
 
-console.log('\n🎉 Setup completed! Your React Native project is ready.');
-console.log('\n📱 To run your app:');
-console.log('   iOS:     yarn ios     or  npm run ios');
-console.log('   Android: yarn android or  npm run android');
-console.log('\n📖 For more information, check the README.md file.');
-console.log('\n🐛 Happy coding! 🚀');
+console.warn('\n🎉 Setup completed! Your React Native project is ready.');
+console.warn('\n📱 To run your app:');
+console.warn('   iOS:     yarn ios     or  npm run ios');
+console.warn('   Android: yarn android or  npm run android');
+console.warn('\n📖 For more information, check the README.md file.');
+console.warn('\n🐛 Happy coding! 🚀');
