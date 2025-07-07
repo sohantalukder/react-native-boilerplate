@@ -33,27 +33,30 @@ export const generateBorderColors = (configuration: UnionConfiguration) => {
 export const generateBorderRadius = () => {
   return config.borders.radius.reduce<
     BorderBottomRadius & BorderRadius & BorderTopRadius
-  >((accumulator, radius) => {
-    return Object.assign(accumulator, {
-      [`rounded_${radius}`]: {
-        borderRadius: radius,
-      },
-      [`roundedBottom_${radius}`]: {
-        borderBottomLeftRadius: radius,
-        borderBottomRightRadius: radius,
-      },
-      [`roundedBottomRight_${radius}`]: {
-        borderBottomRightRadius: radius,
-      },
-      [`roundedTop_${radius}`]: {
-        borderTopLeftRadius: radius,
-        borderTopRightRadius: radius,
-      },
-      [`roundedTopLeft_${radius}`]: {
-        borderTopLeftRadius: radius,
-      },
-    });
-  }, {} as BorderBottomRadius & BorderRadius & BorderTopRadius);
+  >(
+    (accumulator, radius) => {
+      return Object.assign(accumulator, {
+        [`rounded_${radius}`]: {
+          borderRadius: radius,
+        },
+        [`roundedBottom_${radius}`]: {
+          borderBottomLeftRadius: radius,
+          borderBottomRightRadius: radius,
+        },
+        [`roundedBottomRight_${radius}`]: {
+          borderBottomRightRadius: radius,
+        },
+        [`roundedTop_${radius}`]: {
+          borderTopLeftRadius: radius,
+          borderTopRightRadius: radius,
+        },
+        [`roundedTopLeft_${radius}`]: {
+          borderTopLeftRadius: radius,
+        },
+      });
+    },
+    {} as BorderBottomRadius & BorderRadius & BorderTopRadius
+  );
 };
 
 /**

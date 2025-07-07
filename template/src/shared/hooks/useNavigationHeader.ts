@@ -42,8 +42,8 @@ const useNavigationHeader = ({
       headerTitleAlign: headerTitleAlign
         ? headerTitleAlign
         : title
-        ? 'center'
-        : 'left',
+          ? 'center'
+          : 'left',
       headerStyle: {
         height: Platform.OS === 'ios' ? 110 : 80,
         borderBottomWidth: 1,
@@ -67,7 +67,16 @@ const useNavigationHeader = ({
       headerTitle: title ? title : () => headerTitle,
       headerRight: () => headerRight,
     } as StackNavigationOptions);
-  }, [navigation, headerTitle, headerRight, colors.text, fadeAnim, typographies.body1, headerTitleAlign, title]);
+  }, [
+    navigation,
+    headerTitle,
+    headerRight,
+    colors.text,
+    fadeAnim,
+    typographies.body1,
+    headerTitleAlign,
+    title,
+  ]);
 };
 
 export { useNavigationHeader };

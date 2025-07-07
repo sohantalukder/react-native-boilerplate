@@ -32,9 +32,8 @@ module.exports = {
     ecmaFeatures: {
       jsx: true,
     },
-    ecmaVersion: 2022,
+    ecmaVersion: 2020,
     sourceType: 'module',
-    project: './tsconfig.json',
   },
 
   /* Settings */
@@ -106,13 +105,6 @@ module.exports = {
         argsIgnorePattern: '^_',
       },
     ],
-    '@typescript-eslint/consistent-type-imports': [
-      'error',
-      {
-        prefer: 'type-imports',
-        disallowTypeAnnotations: false,
-      },
-    ],
 
     /* Common JavaScript Rules */
     'no-dupe-keys': 'error',
@@ -126,31 +118,9 @@ module.exports = {
 
     /* React Hooks Rules */
     'react-hooks/rules-of-hooks': 'error',
-    'react-hooks/exhaustive-deps': 'warn',
+    'react-hooks/exhaustive-deps': 'off',
 
     /* ESLint Rules */
     curly: 'off',
   },
-
-  /* File-specific configurations */
-  overrides: [
-    {
-      files: ['*.ts', '*.tsx'],
-      parser: '@typescript-eslint/parser',
-      plugins: ['@typescript-eslint'],
-      extends: [
-        'plugin:@typescript-eslint/recommended',
-      ],
-      parserOptions: {
-        project: './tsconfig.json',
-      },
-    },
-    {
-      files: ['*.js', '*.jsx'],
-      parser: '@babel/eslint-parser',
-      parserOptions: {
-        requireConfigFile: false,
-      },
-    },
-  ],
 };

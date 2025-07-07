@@ -1,5 +1,5 @@
 import React from 'react';
-import type { ViewProps, ViewStyle} from 'react-native';
+import type { ViewProps, ViewStyle } from 'react-native';
 import { StyleSheet, View, Pressable } from 'react-native';
 import { useTheme } from '@/theme';
 import type { Colors } from '@/theme/types/colors';
@@ -24,69 +24,69 @@ export type CardProps = Pick<ViewProps, 'children' | 'style' | 'testID'> & {
    * @default 'default'
    */
   variant?: CardVariant;
-  
+
   /**
    * Border radius of the card
    * @default 12
    */
   borderRadius?: number;
-  
+
   /**
    * Shadow elevation level (0-5)
    * @default 2
    */
   elevation?: CardElevation;
-  
+
   /**
    * Whether to show shadow
    * @default true
    */
   shadow?: boolean;
-  
+
   /**
    * Custom padding inside the card
    * @default 16
    */
   padding?: number;
-  
+
   /**
    * Custom margin around the card
    * @default 0
    */
   margin?: number;
-  
+
   /**
    * Background color override
    */
   backgroundColor?: string;
-  
+
   /**
    * Border color for outlined variant
    */
   borderColor?: string;
-  
+
   /**
    * Border width for outlined variant
    * @default 1
    */
   borderWidth?: number;
-  
+
   /**
    * Custom width
    */
   width?: ViewStyle['width'];
-  
+
   /**
    * Custom height
    */
   height?: ViewStyle['height'];
-  
+
   /**
    * Whether the card is pressable (adds subtle pressed state)
    * @default false
    */
   pressable?: boolean;
-  
+
   /**
    * Callback when card is pressed (only if pressable is true)
    */

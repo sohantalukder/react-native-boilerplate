@@ -10,7 +10,7 @@ export type ArrayValue<T extends readonly unknown[]> = T[number];
 
 export type HasProperty<
   Config,
-  KeyPath extends string
+  KeyPath extends string,
 > = KeyPath extends `${infer Key}.${infer Rest}`
   ? Key extends keyof typeof config
     ? {
@@ -23,10 +23,10 @@ export type HasProperty<
       }
     : never
   : KeyPath extends KeysOfUnion<Config>
-  ? Readonly<
-      Record<KeyPath, Extract<Config, Record<KeyPath, unknown>>[KeyPath]>
-    >
-  : Readonly<Record<KeyPath, never>>;
+    ? Readonly<
+        Record<KeyPath, Extract<Config, Record<KeyPath, unknown>>[KeyPath]>
+      >
+    : Readonly<Record<KeyPath, never>>;
 
 export type RemoveAfterSeparator<S extends string> =
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
@@ -38,7 +38,7 @@ export type RemoveBeforeSeparator<S extends string> =
 
 export type ToNumber<
   S extends string,
-  T extends unknown[] = []
+  T extends unknown[] = [],
 > = S extends `${T['length']}` ? T['length'] : ToNumber<S, [...T, '']>;
 
 type KeysOfUnion<T> = T extends T ? keyof T : never;

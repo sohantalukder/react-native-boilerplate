@@ -32,15 +32,8 @@ function Example() {
   const [isLoading, setIsLoading] = useState(false);
   const [userData, setUserData] = useState<User | null>(null);
 
-  const {
-    changeTheme,
-    colors,
-    gutters,
-    layout,
-    variant,
-    logo,
-    typographies,
-  } = useTheme();
+  const { changeTheme, colors, gutters, layout, variant, logo, typographies } =
+    useTheme();
 
   const styles = {
     centerText: { textAlign: 'center' as const },
@@ -55,7 +48,9 @@ function Example() {
     try {
       setIsLoading(true);
       // Using the configured API instance to fetch a random user
-      const response = await apiInstances.businessService.get<{ users: User[] }>('users?limit=1');
+      const response = await apiInstances.businessService.get<{
+        users: User[];
+      }>('users?limit=1');
       if (response.users && response.users.length > 0) {
         const user = response.users[0];
         if (user) {
@@ -68,7 +63,9 @@ function Example() {
             }),
             [
               {
-                text: t('boilerplate.screen_example.api_messages.success_button'),
+                text: t(
+                  'boilerplate.screen_example.api_messages.success_button'
+                ),
               },
             ]
           );
@@ -89,15 +86,21 @@ function Example() {
   const features = [
     {
       title: t('boilerplate.screen_example.features.api_integration.title'),
-      description: t('boilerplate.screen_example.features.api_integration.description'),
+      description: t(
+        'boilerplate.screen_example.features.api_integration.description'
+      ),
       icon: 'send',
       onPress: fetchRandomUser,
       isLoading,
-      buttonText: t('boilerplate.screen_example.features.api_integration.button'),
+      buttonText: t(
+        'boilerplate.screen_example.features.api_integration.button'
+      ),
     },
     {
       title: t('boilerplate.screen_example.features.theme_toggle.title'),
-      description: t('boilerplate.screen_example.features.theme_toggle.description'),
+      description: t(
+        'boilerplate.screen_example.features.theme_toggle.description'
+      ),
       icon: 'theme',
       onPress: onChangeTheme,
       isLoading: false,
@@ -105,11 +108,15 @@ function Example() {
     },
     {
       title: t('boilerplate.screen_example.features.language_switch.title'),
-      description: t('boilerplate.screen_example.features.language_switch.description'),
+      description: t(
+        'boilerplate.screen_example.features.language_switch.description'
+      ),
       icon: 'language',
       onPress: toggleLanguage,
       isLoading: false,
-      buttonText: t('boilerplate.screen_example.features.language_switch.button'),
+      buttonText: t(
+        'boilerplate.screen_example.features.language_switch.button'
+      ),
     },
   ];
 
@@ -151,14 +158,11 @@ function Example() {
           >
             {t('boilerplate.screen_example.title')}
           </Text>
-          
+
           <Text
             variant="body1"
             color="secondary"
-            style={[
-              gutters.marginTop_16,
-              styles.centerTextWithLineHeight,
-            ]}
+            style={[gutters.marginTop_16, styles.centerTextWithLineHeight]}
           >
             {t('boilerplate.screen_example.description')}
           </Text>
@@ -183,13 +187,22 @@ function Example() {
                   }}
                 />
                 <View style={layout.flex_1}>
-                  <Text variant="body1" weight="semibold">
+                  <Text
+                    variant="body1"
+                    weight="semibold"
+                  >
                     {userData.firstName} {userData.lastName}
                   </Text>
-                  <Text variant="body2" color="secondary">
+                  <Text
+                    variant="body2"
+                    color="secondary"
+                  >
                     @{userData.username}
                   </Text>
-                  <Text variant="body3" color="secondary">
+                  <Text
+                    variant="body3"
+                    color="secondary"
+                  >
                     {userData.email}
                   </Text>
                 </View>
@@ -238,9 +251,12 @@ function Example() {
                       height={24}
                     />
                   </View>
-                  
+
                   <View style={layout.flex_1}>
-                    <Text variant="body1" weight="semibold">
+                    <Text
+                      variant="body1"
+                      weight="semibold"
+                    >
                       {feature.title}
                     </Text>
                     <Text
@@ -265,7 +281,7 @@ function Example() {
                   />
                 </View>
               </Card>
-              
+
               {index < features.length - 1 && (
                 <View style={gutters.marginBottom_8}>
                   <Divider />
@@ -291,40 +307,68 @@ function Example() {
             >
               {t('boilerplate.screen_example.stats.title')}
             </Text>
-            
+
             <View style={[layout.row, layout.justifyBetween]}>
               <View style={layout.itemsCenter}>
-                <Text variant="heading2" weight="bold" color="primary">
+                <Text
+                  variant="heading2"
+                  weight="bold"
+                  color="primary"
+                >
                   5+
                 </Text>
-                <Text variant="body3" color="secondary">
+                <Text
+                  variant="body3"
+                  color="secondary"
+                >
                   {t('boilerplate.screen_example.stats.components')}
                 </Text>
               </View>
-              
+
               <View style={layout.itemsCenter}>
-                <Text variant="heading2" weight="bold" color="primary">
+                <Text
+                  variant="heading2"
+                  weight="bold"
+                  color="primary"
+                >
                   10+
                 </Text>
-                <Text variant="body3" color="secondary">
+                <Text
+                  variant="body3"
+                  color="secondary"
+                >
                   {t('boilerplate.screen_example.stats.utilities')}
                 </Text>
               </View>
-              
+
               <View style={layout.itemsCenter}>
-                <Text variant="heading2" weight="bold" color="primary">
+                <Text
+                  variant="heading2"
+                  weight="bold"
+                  color="primary"
+                >
                   2
                 </Text>
-                <Text variant="body3" color="secondary">
+                <Text
+                  variant="body3"
+                  color="secondary"
+                >
                   {t('boilerplate.screen_example.stats.languages')}
                 </Text>
               </View>
-              
+
               <View style={layout.itemsCenter}>
-                <Text variant="heading2" weight="bold" color="primary">
+                <Text
+                  variant="heading2"
+                  weight="bold"
+                  color="primary"
+                >
                   ∞
                 </Text>
-                <Text variant="body3" color="secondary">
+                <Text
+                  variant="body3"
+                  color="secondary"
+                >
                   {t('boilerplate.screen_example.stats.possibilities')}
                 </Text>
               </View>

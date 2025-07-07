@@ -22,8 +22,8 @@ const Avatar: React.FC<AvatarProps> = ({
   return externalPhoto ? (
     <Image
       source={{ uri: externalPhoto ? imageUrl : '' }}
-      height={height}
-      width={width}
+      height={height ?? 20}
+      width={width ?? 20}
       style={style}
       borderRadius={borderRadius}
     />

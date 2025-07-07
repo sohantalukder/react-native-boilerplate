@@ -1,13 +1,8 @@
 // StatusBar.tsx
 import type { PropsWithChildren } from 'react';
 import React, { memo } from 'react';
-import type {
-  ColorValue} from 'react-native';
-import {
-  View,
-  Platform,
-  StatusBar as RNStatusBar,
-} from 'react-native';
+import type { ColorValue } from 'react-native';
+import { View, Platform, StatusBar as RNStatusBar } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { useTheme } from '@/theme';
 

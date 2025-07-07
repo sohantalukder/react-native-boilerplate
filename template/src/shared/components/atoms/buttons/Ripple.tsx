@@ -113,7 +113,15 @@ const Ripple = React.memo<RippleButtonProps>(
           }
         );
       },
-      [disabled, rippleScale, duration, positionX, positionY, scale, isAnimating]
+      [
+        disabled,
+        rippleScale,
+        duration,
+        positionX,
+        positionY,
+        scale,
+        isAnimating,
+      ]
     );
 
     // End ripple animation

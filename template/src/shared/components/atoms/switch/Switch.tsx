@@ -50,7 +50,6 @@ const Switch: React.FC<Properties> = ({
   useEffect(() => {
     handleSwitch(value);
     setShow(value);
-  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [value]);
 
   const handleSwitch = (flag = false) => {

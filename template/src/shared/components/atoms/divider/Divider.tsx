@@ -1,11 +1,5 @@
-import type {
-  ViewProps,
-  DimensionValue,
-  ColorValue} from 'react-native';
-import {
-  View,
-  StyleSheet,
-} from 'react-native';
+import type { ViewProps, DimensionValue, ColorValue } from 'react-native';
+import { View, StyleSheet } from 'react-native';
 import type { Colors } from '@/theme/types/colors';
 import { useTheme } from '@/theme';
 

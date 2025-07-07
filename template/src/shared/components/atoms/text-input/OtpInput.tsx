@@ -3,11 +3,9 @@ import type {
   NativeSyntheticEvent,
   StyleProp,
   TextInputKeyPressEventData,
-  ViewStyle} from 'react-native';
-import {
-  TextInput,
-  View,
+  ViewStyle,
 } from 'react-native';
+import { TextInput, View } from 'react-native';
 
 import { useTheme } from '@/theme';
 
@@ -105,7 +103,7 @@ const OTPInput: React.FC<OTPInputProps> = ({ callback, length = 6, style }) => {
         index++
       ) {
         const targetIndex = currentIndex + index;
-        newValues[targetIndex] = cleanText[index];
+        newValues[targetIndex] = cleanText[index] ?? '';
       }
 
       setOtpValues(newValues);

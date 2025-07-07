@@ -13,7 +13,7 @@ type Properties = {
 const ErrorBoundary: React.FC<Properties> = ({
   fallback = undefined,
   onError,
-  onReset = undefined,
+  onReset = () => {},
   ...props
 }) => {
   const onErrorReport = (error: Error, info: ErrorInfo) => {

@@ -43,7 +43,10 @@ const IconButton = React.memo(
             <IconByVariant
               path={icon}
               {...(iconColor && { color: iconColor })}
-              {...(iconSize !== undefined && { height: iconSize, width: iconSize })}
+              {...(iconSize !== undefined && {
+                height: iconSize,
+                width: iconSize,
+              })}
             />
           ) : (
             icon

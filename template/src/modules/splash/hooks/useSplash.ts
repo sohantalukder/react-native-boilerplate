@@ -32,7 +32,7 @@ const useSplash = () => {
     // - Onboarding completion check
     // - Deep link handling
     // - Feature flags
-    
+
     return routes.example;
   }, []);
 
@@ -43,7 +43,7 @@ const useSplash = () => {
     if (hasNavigated.current) return;
 
     hasNavigated.current = true;
-    
+
     const routeName = getInitialRoute();
 
     // Reset navigation stack to prevent back navigation to splash
@@ -51,7 +51,7 @@ const useSplash = () => {
       index: 0,
       routes: [{ name: routeName }],
     });
-    
+
     setIsLoading(false);
   }, [navigation, getInitialRoute]);
 
@@ -60,7 +60,10 @@ const useSplash = () => {
    */
   const completeSplash = useCallback(() => {
     const elapsedTime = Date.now() - startTime.current;
-    const remainingTime = Math.max(0, SPLASH_CONFIG.MIN_DISPLAY_TIME - elapsedTime);
+    const remainingTime = Math.max(
+      0,
+      SPLASH_CONFIG.MIN_DISPLAY_TIME - elapsedTime
+    );
 
     if (remainingTime > 0) {
       // Ensure splash is shown for minimum time
@@ -99,7 +102,9 @@ const useSplash = () => {
     // Safety timeout to prevent infinite loading
     const safetyTimeout = setTimeout(() => {
       if (isMounted && !hasNavigated.current) {
-        console.warn('Splash screen exceeded maximum timeout, forcing navigation');
+        console.warn(
+          'Splash screen exceeded maximum timeout, forcing navigation'
+        );
         navigateToApp();
       }
     }, SPLASH_CONFIG.MAX_TIMEOUT);
@@ -107,12 +112,12 @@ const useSplash = () => {
     // Cleanup function
     return () => {
       isMounted = false;
-      
+
       if (timeoutRef.current) {
         clearTimeout(timeoutRef.current);
         timeoutRef.current = null;
       }
-      
+
       clearTimeout(safetyTimeout);
     };
   }, [completeSplash, navigateToApp]);

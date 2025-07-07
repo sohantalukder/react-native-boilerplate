@@ -46,8 +46,8 @@ const Badge: React.FC<Properties> = ({
   textStyle,
   textColor,
   bgColor,
-  onPress,
-  disabled,
+  onPress = () => {},
+  disabled = false,
 }) => {
   const { colors, gutters, borders } = useTheme();
   const paddingHorizontal = {
@@ -88,8 +88,8 @@ const Badge: React.FC<Properties> = ({
               color: textColor
                 ? textColor
                 : bgColor
-                ? colors.white
-                : colors.text,
+                  ? colors.white
+                  : colors.text,
             },
             staticFontStyles.alignCenter,
             textStyle,

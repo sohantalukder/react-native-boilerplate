@@ -96,7 +96,7 @@ const Button: React.FC<ButtonProps> = memo(
         return activityColor ?? color[variant as keyof typeof color];
       }
       return color[variant as keyof typeof color];
-    }, [isLoading, activityColor, colors.white,colors.text, variant]);
+    }, [isLoading, activityColor, colors.white, colors.text, variant]);
 
     const buttonContent = (
       <Ripple

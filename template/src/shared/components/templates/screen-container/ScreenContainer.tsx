@@ -1,13 +1,7 @@
 import type { PropsWithChildren } from 'react';
 import React from 'react';
-import type {
-  ColorValue,
-  StyleProp,
-  ViewStyle,
-  ViewProps} from 'react-native';
-import {
-  View,
-} from 'react-native';
+import type { ColorValue, StyleProp, ViewStyle, ViewProps } from 'react-native';
+import { View } from 'react-native';
 import { useTheme } from '@/theme';
 import { StatusBar } from '@/shared/components/atoms';
 import { StatusBarStyle } from '@/shared/components/atoms/status-bar/StatusBar';
@@ -63,7 +57,7 @@ const ScreenContainer: React.FC<BaseScreenProps> = ({
   bgColor,
   showHeader = true,
   useErrorBoundary = false,
-  onResetError,
+  onResetError = () => {},
   style,
   barBackgroundColor,
   ...props

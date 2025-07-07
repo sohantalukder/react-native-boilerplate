@@ -1,13 +1,7 @@
 import React, { useLayoutEffect, useMemo } from 'react';
 import { useRef } from 'react';
-import type {
-  StyleProp,
-  ViewStyle,
-  ColorValue} from 'react-native';
-import {
-  Animated,
-  Easing,
-} from 'react-native';
+import type { StyleProp, ViewStyle, ColorValue } from 'react-native';
+import { Animated, Easing } from 'react-native';
 
 import { useTheme } from '@/theme';
 import { IconByVariant } from '@/shared/components/atoms';
@@ -35,7 +29,7 @@ type Properties = {
 
 const Loader: React.FC<Properties> = ({ style, color }) => {
   const spinAnim = useRef(new Animated.Value(0));
-  const { layout } = useTheme();
+  const { layout, colors } = useTheme();
   const interpolateRotation = useMemo(
     () =>
       spinAnim.current.interpolate({
@@ -63,7 +57,7 @@ const Loader: React.FC<Properties> = ({ style, color }) => {
     >
       <IconByVariant
         path="loader"
-        color={color}
+        color={color ?? colors.text}
       />
     </Animated.View>
   );

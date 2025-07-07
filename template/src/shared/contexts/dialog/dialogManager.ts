@@ -37,12 +37,12 @@ class DialogManager {
                 ? isLoading
                 : button.isLoading
               : index === (this.currentDialog?.buttons?.length || 0) - 1
-              ? isLoading
-              : button.isLoading,
+                ? isLoading
+                : button.isLoading,
         })),
       };
-      this.currentDialog = updatedDialog;
-      this.currentSetDialog(updatedDialog);
+      this.currentDialog = updatedDialog as DialogManagerProps;
+      this.currentSetDialog(updatedDialog as DialogManagerProps);
     }
   }
 
