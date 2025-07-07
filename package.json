@@ -1,11 +1,12 @@
 {
   "name": "@sohantalukder/react-native-boilerplate",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "A comprehensive React Native template with modern tools and best practices including TypeScript, Navigation, State Management, and UI components",
   "private": false,
   "publishConfig": {
     "access": "public"
   },
+  "homepage": "https://sohantalukder.github.io/react-native-boilerplate/",
   "main": "template.config.js",
   "repository": {
     "type": "git",
