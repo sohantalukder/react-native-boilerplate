@@ -7,6 +7,19 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [1.0.5] - 2025-09-04
+
+### Fixed
+- Add missing post-init.js script to template/scripts/ directory
+- Replace react-native-fast-image with expo-image for React 19 compatibility
+- Update Image component to use expo-image instead of react-native-fast-image
+- Fix TypeScript errors and ESLint warnings in Image and PhotoCarousel components
+- Ensure template works correctly with React Native CLI initialization
+
+### Changed
+- Updated Image component to use expo-image for better React 19 support
+- Improved template initialization process with proper cleanup
+
 ## [1.0.3] - 2025-07-07
 
 
