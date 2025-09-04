@@ -155,7 +155,7 @@ const PhotoCarousel = memo<Properties>(
             source={{ uri: item.uri }}
             style={{ width: carouselWidth, height: carouselHeight }}
             resizeMode="cover"
-            accessibilityLabel={item.accessibilityLabel}
+            accessibilityLabel={item.accessibilityLabel || `Photo ${index + 1}`}
           />
         </View>
       ),

@@ -1,18 +1,17 @@
 import React, { useState, useMemo, useCallback } from 'react';
 import type { ViewStyle, StyleProp, DimensionValue } from 'react-native';
 import { StyleSheet, View } from 'react-native';
-import type { ResizeMode, FastImageProps } from 'react-native-fast-image';
-import FastImage from 'react-native-fast-image';
+import { Image as ExpoImage, type ImageProps as ExpoImageProps, type ImageContentFit } from 'expo-image';
 import PlaceholderImage from '@/assets/icons/Placeholder.icon';
 import isEmpty from '@/shared/utilities/isEmpty';
 import Skeleton from '../skeleton/Skeleton';
 
 type ImageSource = { uri?: string; require?: number } | number;
 
-type Properties = FastImageProps & {
+type Properties = Omit<ExpoImageProps, 'source' | 'contentFit'> & {
   source: ImageSource;
   borderRadius?: number;
-  resizeMode?: ResizeMode;
+  resizeMode?: ImageContentFit;
   cacheControl?: 'immutable' | 'web' | 'cacheOnly';
   priority?: 'low' | 'normal' | 'high';
   height?: DimensionValue;
@@ -24,8 +23,8 @@ const ImagePreview: React.FC<Properties> = ({
   source,
   resizeMode = 'cover',
   borderRadius = 0,
-  cacheControl = 'immutable',
-  priority = 'normal',
+  cacheControl: _cacheControl = 'immutable',
+  priority: _priority = 'normal',
   height,
   width,
   wrapperStyle,
@@ -41,7 +40,8 @@ const ImagePreview: React.FC<Properties> = ({
     }
 
     // Handle object case
-    const imageCopy = { ...source };
+    const imageSource = source as { uri?: string; require?: number };
+    const imageCopy = { ...imageSource };
 
     // Parse URI if needed
     if (!isEmpty(imageCopy) && !isEmpty(imageCopy.uri)) {
@@ -66,29 +66,27 @@ const ImagePreview: React.FC<Properties> = ({
   // Check if we have a valid image source
   const hasValidSource = useMemo(() => {
     if (typeof processedSource === 'number') return true;
-    return !isEmpty(processedSource?.uri);
+    const sourceObj = processedSource as { uri?: string };
+    return !isEmpty(sourceObj?.uri);
   }, [processedSource]);
 
   // Handle image load events
   const handleLoadStart = useCallback(() => setIsLoading(false), []);
   const handleLoadEnd = useCallback(() => setIsLoading(false), []);
 
-  // Prepare FastImage source configuration
-  const fastImageSource = useMemo(() => {
+  // Prepare ExpoImage source configuration
+  const expoImageSource = useMemo(() => {
     if (typeof processedSource === 'number') {
       return processedSource;
     }
 
-    if (processedSource?.uri) {
-      return {
-        ...processedSource,
-        priority: FastImage.priority[priority],
-        cache: FastImage.cacheControl[cacheControl],
-      };
+    const sourceObj = processedSource as { uri?: string };
+    if (sourceObj?.uri) {
+      return sourceObj.uri;
     }
 
     return undefined;
-  }, [processedSource, priority, cacheControl]);
+  }, [processedSource]);
   return isLoading ? (
     <View style={[styles.loaderContainer, { borderRadius, height, width }]}>
       <Skeleton
@@ -97,12 +95,12 @@ const ImagePreview: React.FC<Properties> = ({
         borderRadius={borderRadius}
       />
     </View>
-  ) : hasValidSource && fastImageSource ? (
+  ) : hasValidSource && expoImageSource ? (
     <View style={[wrapperStyle, { height, width }]}>
-      <FastImage
-        source={fastImageSource}
+      <ExpoImage
+        source={expoImageSource}
         style={[styles.image, { height, width, borderRadius }]}
-        resizeMode={resizeMode}
+        contentFit={resizeMode}
         onLoadStart={handleLoadStart}
         onLoadEnd={handleLoadEnd}
         testID="image-preview"
