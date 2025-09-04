@@ -1,6 +1,6 @@
 {
   "name": "@sohantalukder/react-native-boilerplate",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "A comprehensive React Native template with modern tools and best practices including TypeScript, Navigation, State Management, and UI components",
   "private": false,
   "publishConfig": {
