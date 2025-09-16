@@ -825,7 +825,7 @@ export const tokenStorage = {
                     </div>
                     
                     <div className="p-4 bg-red-50 dark:bg-red-950/20 rounded-lg border border-red-200 dark:border-red-800">
-                      <h5 className="font-medium text-red-800 dark:text-red-200 mb-2">❌ Don't</h5>
+                      <h5 className="font-medium text-red-800 dark:text-red-200 mb-2">❌ Don&apos;t</h5>
                       <ul className="space-y-1 text-sm text-red-700 dark:text-red-300">
                         <li>• Store sensitive data in unencrypted storage</li>
                         <li>• Make API calls directly in components</li>

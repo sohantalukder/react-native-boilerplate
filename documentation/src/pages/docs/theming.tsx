@@ -21,7 +21,7 @@ export default function Theming() {
               </Link>
               <div>
                 <h1 className="text-2xl font-bold">Theming Guide</h1>
-                <p className="text-muted-foreground">Customize your app's appearance and implement theme switching</p>
+                <p className="text-muted-foreground">Customize your app&apos;s appearance and implement theme switching</p>
               </div>
             </div>
           </div>
@@ -389,7 +389,7 @@ export const Button: React.FC<ButtonProps> = ({
                     </div>
                     
                     <div className="p-4 bg-red-50 dark:bg-red-950/20 rounded-lg border border-red-200 dark:border-red-800">
-                      <h5 className="font-medium text-red-800 dark:text-red-200 mb-2">❌ Don't</h5>
+                      <h5 className="font-medium text-red-800 dark:text-red-200 mb-2">❌ Don&apos;t</h5>
                       <ul className="space-y-1 text-sm text-red-700 dark:text-red-300">
                         <li>• Hardcode colors in components</li>
                         <li>• Use arbitrary spacing values</li>

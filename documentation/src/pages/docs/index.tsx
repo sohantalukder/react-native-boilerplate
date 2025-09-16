@@ -153,7 +153,7 @@ export default function DocsIndex() {
 
             {/* Features Overview */}
             <div className="mb-12">
-              <h2 className="text-2xl font-bold mb-6">What's Included</h2>
+              <h2 className="text-2xl font-bold mb-6">What&apos;s Included</h2>
               <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
                 {features.map((feature, index) => (
                   <FeatureOverview key={index} {...feature} />
@@ -165,7 +165,7 @@ export default function DocsIndex() {
             <div className="text-center p-8 bg-gradient-to-r from-primary/5 to-primary/10 rounded-lg border">
               <h2 className="text-2xl font-semibold mb-4">Need Help?</h2>
               <p className="text-muted-foreground mb-6 max-w-2xl mx-auto">
-                Can't find what you're looking for? Check out our community resources or contribute to the documentation.
+                Can&apos;t find what you&apos;re looking for? Check out our community resources or contribute to the documentation.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <Link

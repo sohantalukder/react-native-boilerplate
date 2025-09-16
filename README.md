@@ -18,6 +18,7 @@ The documentation includes:
 - 🎨 **Theming System** - Customizing colors, typography, and styles
 - 🔧 **Configuration** - API setup, environment variables, and more
 - 📱 **Component Library** - Pre-built components and usage examples
+- 🎨 **Style Guide** - Design system, colors, typography, and best practices
 - 🧪 **Testing Guide** - Unit testing and best practices
 - 🚀 **Deployment** - Build and release your app
 
@@ -43,10 +44,11 @@ The documentation includes:
 - **Axios** - HTTP client with interceptors
 
 ### 🎨 **Styling & Theme**
-- **Custom Theme System** - Centralized theming
-- **Responsive Design** - Screen size adaptation
-- **Dark/Light Mode** - Theme switching support
-- **Custom Components** - Pre-built UI components
+- **Custom Theme System** - Centralized theming with light/dark mode
+- **Responsive Design** - Screen size adaptation and responsive utilities
+- **Design System** - Comprehensive color palette and typography scale
+- **Component Library** - 20+ pre-built, accessible UI components
+- **Style Guide** - Complete design system documentation
 
 ### 🌍 **Internationalization**
 - **i18next** - Multi-language support
@@ -103,6 +105,56 @@ npm run android
 yarn android
 ```
 
+## 🧩 Component Library
+
+Our comprehensive component library follows atomic design principles and provides 20+ pre-built, accessible components:
+
+### 🔸 Atoms (Basic Components)
+- **Button** - Interactive button with multiple variants and loading states
+- **IconButton** - Icon-only button component
+- **Text** - Typography component with theme integration
+- **TextInput** - Form input with validation and animation support
+- **Card** - Container component with elevation and variants
+- **Image** - Optimized image component with caching
+- **Badge** - Status indicator component
+- **Checkbox** - Selection input component
+- **Radio** - Single selection input
+- **Switch** - Toggle switch component
+- **Slider** - Range input component
+- **Divider** - Visual separator component
+- **Loader** - Loading indicator component
+- **Skeleton** - Content placeholder component
+- **StatusBar** - Status bar configuration
+- **Toast** - Notification component
+- **Dialog** - Modal dialog component
+- **BottomSheet** - Bottom sheet modal
+
+### 🔹 Molecules (Composite Components)
+- **Avatar** - User profile image with fallback
+- **PasswordInput** - Secure text input with toggle
+- **PhotoCarousel** - Image gallery component
+- **EmptyContent** - Empty state component
+- **DefaultError** - Error state component
+- **ClickableText** - Interactive text component
+- **TopTabBar** - Tab navigation component
+
+### 🔶 Organisms (Complex Components)
+- **ErrorBoundary** - Error handling wrapper
+- **SlideModal** - Animated modal component
+- **WebView** - Web content component
+
+### 🔷 Templates (Layout Components)
+- **SafeScreen** - Safe area screen wrapper
+- **SafeSplashScreen** - Splash screen wrapper
+- **ScreenContainer** - Standard screen container
+
+### 🎨 Style Guide Features
+- **Color System** - Comprehensive palette with light/dark mode support
+- **Typography** - Harmonious font scale with responsive sizing
+- **Spacing** - Consistent 8px-based spacing system
+- **Accessibility** - WCAG 2.1 AA compliant design
+- **Responsive Design** - Adaptive layouts for all screen sizes
+
 ## 📁 Project Structure
 
 ```
@@ -116,6 +168,7 @@ src/
 │   ├── components/   # Reusable UI components
 │   │   ├── atoms/    # Basic components (Button, Input, etc.)
 │   │   ├── molecules/# Composite components
+│   │   ├── organisms/# Complex components
 │   │   └── templates/# Layout components
 │   ├── contexts/     # React contexts
 │   ├── hooks/        # Custom hooks
@@ -124,6 +177,63 @@ src/
 ├── theme/            # Theme configuration and styles
 ├── translations/     # Internationalization files
 └── types/            # TypeScript type definitions
+```
+
+## 🚀 Quick Component Examples
+
+### Basic Usage
+```typescript
+import React from 'react';
+import { View } from 'react-native';
+import { Button, Text, Card } from '@/shared/components/atoms';
+import { Avatar } from '@/shared/components/molecules';
+import { SafeScreen } from '@/shared/components/templates';
+
+const ExampleScreen = () => {
+  return (
+    <SafeScreen>
+      <View style={{ flex: 1, padding: 16 }}>
+        <Text variant="heading1" weight="bold">
+          Welcome to React Native Boilerplate
+        </Text>
+        
+        <Card variant="elevated" padding={20} margin={10}>
+          <Avatar imageUrl="https://example.com/avatar.jpg" width={60} height={60} />
+          <Text variant="body1" style={{ marginTop: 12 }}>
+            This is a sample card with an avatar and text.
+          </Text>
+          
+          <Button
+            text="Get Started"
+            variant="primary"
+            onPress={() => console.log('Button pressed!')}
+            style={{ marginTop: 16 }}
+          />
+        </Card>
+      </View>
+    </SafeScreen>
+  );
+};
+```
+
+### Theme Integration
+```typescript
+import { useTheme } from '@/theme';
+
+const ThemedComponent = () => {
+  const { colors, fonts, typographies } = useTheme();
+  
+  return (
+    <View style={{ backgroundColor: colors.background }}>
+      <Text style={[typographies.heading2, { color: colors.text }]}>
+        Theme-aware heading
+      </Text>
+      <Text style={{ color: colors.primary }}>
+        Primary colored text
+      </Text>
+    </View>
+  );
+};
 ```
 
 ## 🛠️ Available Scripts
@@ -204,6 +314,8 @@ Update `src/config/` files for:
 - 🏗️ **[Project Structure](https://sohantalukder.github.io/react-native-boilerplate/docs/project-structure)** - Understanding the codebase
 - ⚙️ **[Configuration](https://sohantalukder.github.io/react-native-boilerplate/docs/configuration)** - Customization options
 - 🛠️ **[Development](https://sohantalukder.github.io/react-native-boilerplate/docs/development)** - Development workflow
+- 🧩 **[Component Library](https://sohantalukder.github.io/react-native-boilerplate/docs/components)** - Complete component reference
+- 🎨 **[Style Guide](https://sohantalukder.github.io/react-native-boilerplate/docs/style-guide)** - Design system and guidelines
 
 ## 🤝 Contributing
 

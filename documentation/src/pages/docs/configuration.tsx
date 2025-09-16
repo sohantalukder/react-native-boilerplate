@@ -325,7 +325,7 @@ export const secureStorage = {
             <div className="mt-16 text-center p-8 bg-gradient-to-r from-primary/5 to-primary/10 rounded-lg border">
               <h2 className="text-2xl font-semibold mb-4">Next Steps</h2>
               <p className="text-muted-foreground mb-6 max-w-2xl mx-auto">
-                With your configuration set up, you're ready to start developing your app. Learn about the development workflow and best practices.
+                With your configuration set up, you&apos;re ready to start developing your app. Learn about the development workflow and best practices.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <Link href="/docs/development" className="inline-flex items-center justify-center px-6 py-3 border border-transparent text-base font-medium rounded-md text-primary-foreground bg-primary hover:bg-primary/90 transition-colors">

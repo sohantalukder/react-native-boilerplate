@@ -170,7 +170,7 @@ export default function GettingStarted() {
             {/* What's included */}
             <Card className="mb-8">
               <CardHeader>
-                <CardTitle>What's Included</CardTitle>
+                <CardTitle>What&apos;s Included</CardTitle>
                 <CardDescription>
                   This boilerplate comes with everything you need to start building your React Native app
                 </CardDescription>
