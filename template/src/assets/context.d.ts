@@ -53,6 +53,9 @@ declare namespace NodeJS {
 }
 declare let process: NodeJS.Process;
 
+// React Native global declarations
+declare const __DEV__: boolean;
+
 declare module '*.png';
 
 declare module '*.svg' {

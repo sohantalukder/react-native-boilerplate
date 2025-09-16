@@ -1,5 +1,4 @@
 {
-  "extends": "@react-native/typescript-config/tsconfig.json",
   "compilerOptions": {
     "strict": true,
     "noUnusedLocals": true,
@@ -8,6 +7,13 @@
     "noImplicitReturns": true,
     "noFallthroughCasesInSwitch": true,
     "noUncheckedIndexedAccess": true,
+    "lib": ["es2017", "es2018", "es2019", "es2020", "dom"],
+    "target": "es2017",
+    "jsx": "react-jsx",
+    "moduleResolution": "node",
+    "allowSyntheticDefaultImports": true,
+    "esModuleInterop": true,
+    "skipLibCheck": true,
     "types": ["react-native", "jest", "node"],
     "paths": {
       "@/*": ["./src/*"]

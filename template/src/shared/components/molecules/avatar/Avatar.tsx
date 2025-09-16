@@ -1,5 +1,6 @@
-import type { StyleProp, DimensionValue, ImageStyle } from 'react-native';
+import { type StyleProp, type DimensionValue, View } from 'react-native';
 import Image from '@/shared/components/atoms/image/Image';
+import type { ImageStyle } from '@d11/react-native-fast-image';
 import { IconByVariant } from '@/shared/components/atoms';
 
 interface AvatarProps {
@@ -12,20 +13,27 @@ interface AvatarProps {
 
 const Avatar: React.FC<AvatarProps> = ({
   imageUrl,
-  height,
-  width,
+  height = 20,
+  width = 20,
   style,
   borderRadius = 0,
 }) => {
-  const externalPhoto = imageUrl?.match(/https/gi);
-  return externalPhoto ? (
-    <Image
-      source={{ uri: externalPhoto ? imageUrl : '' }}
-      height={height ?? 20}
-      width={width ?? 20}
-      style={style}
-      borderRadius={borderRadius}
-    />
+  // Check if imageUrl is a valid string and contains http/https
+  const isValidUrl =
+    imageUrl &&
+    typeof imageUrl === 'string' &&
+    (imageUrl.startsWith('http://') || imageUrl.startsWith('https://'));
+
+  return isValidUrl ? (
+    <View style={{ height, width }}>
+      <Image
+        source={{ uri: imageUrl }}
+        height={height}
+        width={width}
+        wrapperStyle={style}
+        borderRadius={borderRadius}
+      />
+    </View>
   ) : (
     <IconByVariant
       path={'profile'}

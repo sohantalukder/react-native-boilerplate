@@ -1,33 +1,41 @@
 import React, { useState, useMemo, useCallback } from 'react';
 import type { ViewStyle, StyleProp, DimensionValue } from 'react-native';
 import { StyleSheet, View } from 'react-native';
-import { Image as ExpoImage, type ImageProps as ExpoImageProps, type ImageContentFit } from 'expo-image';
+import FastImage, { type ImageStyle as FastImageStyle, type ResizeMode } from '@d11/react-native-fast-image';
 import PlaceholderImage from '@/assets/icons/Placeholder.icon';
 import isEmpty from '@/shared/utilities/isEmpty';
 import Skeleton from '../skeleton/Skeleton';
 
 type ImageSource = { uri?: string; require?: number } | number;
 
-type Properties = Omit<ExpoImageProps, 'source' | 'contentFit'> & {
+type Properties = {
   source: ImageSource;
   borderRadius?: number;
-  resizeMode?: ImageContentFit;
-  cacheControl?: 'immutable' | 'web' | 'cacheOnly';
+  resizeMode?: ResizeMode;
   priority?: 'low' | 'normal' | 'high';
+  cache?: 'immutable' | 'web' | 'cacheOnly';
   height?: DimensionValue;
   width?: DimensionValue;
   wrapperStyle?: StyleProp<ViewStyle>;
+  style?: StyleProp<FastImageStyle>;
+  onLoadStart?: () => void;
+  onLoadEnd?: () => void;
+  testID?: string;
 };
 
 const ImagePreview: React.FC<Properties> = ({
   source,
   resizeMode = 'cover',
   borderRadius = 0,
-  cacheControl: _cacheControl = 'immutable',
+  cache: _cache = 'immutable',
   priority: _priority = 'normal',
   height,
   width,
   wrapperStyle,
+  style,
+  onLoadStart,
+  onLoadEnd,
+  testID,
   ...props
 }) => {
   const [isLoading, setIsLoading] = useState(false);
@@ -71,22 +79,33 @@ const ImagePreview: React.FC<Properties> = ({
   }, [processedSource]);
 
   // Handle image load events
-  const handleLoadStart = useCallback(() => setIsLoading(false), []);
-  const handleLoadEnd = useCallback(() => setIsLoading(false), []);
+  const handleLoadStart = useCallback(() => {
+    setIsLoading(true);
+    onLoadStart?.();
+  }, [onLoadStart]);
+  
+  const handleLoadEnd = useCallback(() => {
+    setIsLoading(false);
+    onLoadEnd?.();
+  }, [onLoadEnd]);
 
-  // Prepare ExpoImage source configuration
-  const expoImageSource = useMemo(() => {
+  // Prepare FastImage source configuration
+  const fastImageSource = useMemo(() => {
     if (typeof processedSource === 'number') {
       return processedSource;
     }
 
     const sourceObj = processedSource as { uri?: string };
     if (sourceObj?.uri) {
-      return sourceObj.uri;
+      return {
+        uri: sourceObj.uri,
+        priority: _priority === 'high' ? FastImage.priority.high : _priority === 'low' ? FastImage.priority.low : FastImage.priority.normal,
+        cache: _cache === 'web' ? FastImage.cacheControl.web : _cache === 'cacheOnly' ? FastImage.cacheControl.cacheOnly : FastImage.cacheControl.immutable,
+      };
     }
 
     return undefined;
-  }, [processedSource]);
+  }, [processedSource, _priority, _cache]);
   return isLoading ? (
     <View style={[styles.loaderContainer, { borderRadius, height, width }]}>
       <Skeleton
@@ -95,21 +114,21 @@ const ImagePreview: React.FC<Properties> = ({
         borderRadius={borderRadius}
       />
     </View>
-  ) : hasValidSource && expoImageSource ? (
+  ) : hasValidSource && fastImageSource ? (
     <View style={[wrapperStyle, { height, width }]}>
-      <ExpoImage
-        source={expoImageSource}
-        style={[styles.image, { height, width, borderRadius }]}
-        contentFit={resizeMode}
+      <FastImage
+        source={fastImageSource}
+        style={[styles.image, { height, width, borderRadius }, style]}
+        resizeMode={resizeMode}
         onLoadStart={handleLoadStart}
         onLoadEnd={handleLoadEnd}
-        testID="image-preview"
+        testID={testID || 'image-preview'}
         {...props}
       />
     </View>
   ) : (
     <PlaceholderImage
-      style={[styles.image, { borderRadius, height, width }, props.style]}
+      style={[styles.image, { borderRadius, height, width }, style]}
     />
   );
 };

@@ -12,6 +12,9 @@ import type {
 } from 'axios';
 import axios from 'axios';
 import localStore from '@/services/storage/localStore.service';
+import NetInfo from '@react-native-community/netinfo';
+import { NETWORK_ERROR } from '@/assets/constants/network.constant';
+import { logger } from '@/ignoreWarnings';
 
 export const CONTENT_TYPE = {
   formUrlEncoded: 'application/x-www-form-urlencoded',
@@ -58,7 +61,7 @@ export class Http {
   private setupInterceptors(): void {
     // Add request interceptors
     this.axiosInstance.interceptors.request.use(
-      (config: InternalAxiosRequestConfig) => {
+     async (config: InternalAxiosRequestConfig) => {
         // Log request
         if (__DEV__) {
           console.warn('🚀 Request:', {
@@ -70,6 +73,11 @@ export class Http {
           });
         }
 
+
+        const isNetwork = await NetInfo.fetch();
+        if (!isNetwork.isConnected) {
+          return Promise.reject(new Error(NETWORK_ERROR.noInternet));
+        }
         // Add authentication token
         const token = localStore.getApiToken();
 
@@ -86,8 +94,7 @@ export class Http {
     this.axiosInstance.interceptors.response.use(
       (response: AxiosResponse) => {
         // Log response
-        if (__DEV__) {
-          console.warn('✅ Response:', {
+       logger.warn('✅ Response:', {
             status: response.status,
             statusText: response.statusText,
             url:
@@ -97,14 +104,14 @@ export class Http {
             headers: response.headers,
             data: response.data,
           });
-        }
+        
         return response;
       },
       async (error: AxiosError) => {
         // Log error
-        if (__DEV__) {
+      
           if (axios.isAxiosError(error)) {
-            console.warn('❌ Error:', {
+            logger.warn('❌ Error:', {
               status: error.response?.status,
               statusText: error.response?.statusText,
               url:
@@ -116,16 +123,16 @@ export class Http {
               message: error.message,
             });
           } else {
-            console.warn('❌ Error:', error);
+            logger.warn('❌ Error:', error);
           }
-        }
+        
 
         const originalRequest = error.config as InternalAxiosRequestConfig & {
           _retryCount?: number;
         };
 
         // Handle timeout errors with retry mechanism (production only)
-        if (!__DEV__ && error.code === 'ECONNABORTED') {
+          if (!__DEV__ && error.code === 'ECONNABORTED') {
           originalRequest._retryCount = originalRequest._retryCount || 0;
           if (originalRequest._retryCount < Http.RETRY_LIMIT) {
             originalRequest._retryCount += 1;

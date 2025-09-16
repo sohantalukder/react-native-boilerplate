@@ -7,6 +7,17 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Changed
+- **BREAKING CHANGE**: Replaced `expo-image` with `@d11/react-native-fast-image` for better performance and React Native compatibility
+- Updated Image component API to use FastImage props instead of ExpoImage props
+- Changed `cacheControl` prop to `cache` to match FastImage API
+- Updated image loading and caching behavior to use FastImage's priority and cache control systems
+
+### Migration Guide
+- Replace any direct usage of `expo-image` with `@d11/react-native-fast-image`
+- Update `cacheControl` prop usage to `cache` in Image components
+- Review image loading behavior as FastImage has different performance characteristics than expo-image
+
 ## [1.0.5] - 2025-09-04
 
 ### Fixed
