@@ -176,6 +176,7 @@ const AnimatedTextInput: React.FC<AnimatedSearchProps> = ({ onExpandChange, onSe
           onSubmitEditing={handleTextInputSubmit}
           onBlur={handleBlur}
           editable={isExpanded}
+          defaultValue={value}
           autoCorrect={false}
           autoCapitalize="none"
           spellCheck={false}
