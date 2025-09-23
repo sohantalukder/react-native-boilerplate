@@ -6,3 +6,5 @@ export { default as EmptyContent } from './empty-content/EmptyContent';
 export { default as Avatar } from './avatar/Avatar';
 export { default as NoInternet } from './no-internet/NoInternet';
 export { default as TopTabBar } from './top-tab/TopTabBar';
+export { default as MultiSelect } from './multi-select';
+export { default as SelectList } from './select-list/SelectList';

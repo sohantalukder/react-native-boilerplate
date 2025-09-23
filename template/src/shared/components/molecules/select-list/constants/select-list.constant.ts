@@ -1,0 +1,20 @@
+/**
+ * Constants for the SelectList component
+ */
+const SELECT_LIST_CONSTANTS = {
+  DROPDOWN_TOP_OFFSET: 48,
+  SEARCH_INPUT_HEIGHT: 20,
+  ITEM_HEIGHT: 40,
+  ANIMATION_DURATION: {
+    SLIDE_DOWN: 220,
+    SLIDE_UP: 200,
+  },
+  Z_INDEX: 1000,
+  BORDER_RADIUS: 8,
+  SHADOW_OFFSET: { width: 0, height: 2 },
+  SHADOW_OPACITY: 0.1,
+  SHADOW_RADIUS: 8,
+  ELEVATION: 5,
+} as const;
+
+export { SELECT_LIST_CONSTANTS };
