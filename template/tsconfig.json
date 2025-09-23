@@ -14,7 +14,7 @@
     "allowSyntheticDefaultImports": true,
     "esModuleInterop": true,
     "skipLibCheck": true,
-    "types": ["react-native", "jest", "node"],
+    "types": ["react", "react-native", "jest", "node"],
     "paths": {
       "@/*": ["./src/*"]
     }
