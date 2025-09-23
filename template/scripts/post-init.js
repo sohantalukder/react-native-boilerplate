@@ -13,6 +13,108 @@ console.log('🚀 Running post-initialization script...');
 // Get the project root directory (where the template was initialized)
 const projectRoot = process.cwd();
 
+// Ensure .gitignore exists
+const gitignorePath = path.join(projectRoot, '.gitignore');
+if (!fs.existsSync(gitignorePath)) {
+  console.log('⚠️  .gitignore file not found, creating one...');
+  const defaultGitignore = `# OSX
+#
+.DS_Store
+
+# Xcode
+#
+build/
+*.pbxuser
+!default.pbxuser
+*.mode1v3
+!default.mode1v3
+*.mode2v3
+!default.mode2v3
+*.perspectivev3
+!default.perspectivev3
+xcuserdata
+*.xccheckout
+*.moved-aside
+DerivedData
+*.hmap
+*.ipa
+*.xcuserstate
+**/.xcode.env.local
+
+# Android/IntelliJ
+#
+build/
+.idea
+.gradle
+local.properties
+*.iml
+*.hprof
+.cxx/
+*.keystore
+!debug.keystore
+.kotlin/
+
+# fastlane
+#
+**/fastlane/report.xml
+**/fastlane/Preview.html
+**/fastlane/screenshots
+**/fastlane/test_output
+
+# Bundle artifact
+*.jsbundle
+
+# Ruby / CocoaPods
+**/Pods/
+/vendor/bundle/
+
+# Temporary files created by Metro to check the health of the file watcher
+.metro-health-check*
+
+# testing
+/coverage
+
+# Yarn
+.yarn/*
+!.yarn/patches
+!.yarn/plugins
+!.yarn/releases
+!.yarn/sdks
+!.yarn/versions
+
+# eslint
+.eslintcache
+
+# vscode
+.vscode/*
+
+# node.js
+#
+node_modules/
+npm-debug.log
+yarn-error.log
+yarn.lock
+
+# testing
+/coverage
+Gemfile.lock
+Podfile.lock
+debug.keystore
+
+# react-native-config codegen
+ios/Config.xcconfig
+android/app/src/main/assets/env.txt
+ios/tmp.xcconfig
+
+# Build logs
+build-logs/
+`;
+  fs.writeFileSync(gitignorePath, defaultGitignore);
+  console.log('✅ Created .gitignore file');
+} else {
+  console.log('✅ .gitignore file already exists');
+}
+
 // Clean up any template-specific files that shouldn't be in the final project
 const filesToRemove = [
   'template.config.js',
