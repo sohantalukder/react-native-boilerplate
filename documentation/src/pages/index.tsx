@@ -29,9 +29,6 @@ export default function Home() {
                 <Link href="/docs" className="text-muted-foreground hover:text-foreground transition-colors">
                   Documentation
                 </Link>
-                <Link href="/docs/getting-started" className="text-muted-foreground hover:text-foreground transition-colors">
-                  Get Started
-                </Link>
                 <Link href="https://github.com/sohantalukder/react-native-boilerplate" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-foreground transition-colors">
                   GitHub
                 </Link>
@@ -64,7 +61,7 @@ export default function Home() {
 
               <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12">
                 <Link
-                  href="/docs/getting-started"
+                  href="/docs"
                   className="inline-flex items-center justify-center px-8 py-4 border border-transparent text-base font-medium rounded-lg text-primary-foreground bg-primary hover:bg-primary/90 transition-all duration-200 shadow-lg hover:shadow-xl"
                 >
                   Get Started
