@@ -154,9 +154,14 @@ if (fs.existsSync(scriptsDir)) {
 try {
   const androidAppPath = path.join(projectRoot, 'android', 'app');
   const debugKeystorePath = path.join(androidAppPath, 'debug.keystore');
+  const homeDir = process.env.HOME || require('os').homedir();
+  const globalDebugKeystorePath = path.join(homeDir, '.android', 'debug.keystore');
 
   if (fs.existsSync(androidAppPath)) {
-    if (!fs.existsSync(debugKeystorePath)) {
+    const hasGlobal = fs.existsSync(globalDebugKeystorePath);
+    const hasLocal = fs.existsSync(debugKeystorePath);
+
+    if (!hasGlobal && !hasLocal) {
       console.log('🔐 Generating Android debug.keystore...');
       // Generate a PKCS12 debug keystore compatible with AGP 8+
       execSync(
@@ -164,7 +169,9 @@ try {
         { stdio: 'ignore', cwd: androidAppPath }
       );
       console.log('✅ Created android/app/debug.keystore');
-    } else {
+    } else if (hasGlobal) {
+      console.log('✅ Using global ~/.android/debug.keystore; local generation not required');
+    } else if (hasLocal) {
       console.log('✅ android/app/debug.keystore already exists');
     }
   } else {
