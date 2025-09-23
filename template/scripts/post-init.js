@@ -7,6 +7,7 @@
 
 const fs = require('fs');
 const path = require('path');
+const { execSync } = require('child_process');
 
 console.log('🚀 Running post-initialization script...');
 
@@ -147,6 +148,32 @@ if (fs.existsSync(scriptsDir)) {
   } catch (error) {
     console.warn(`⚠️  Could not remove scripts directory: ${error.message}`);
   }
+}
+
+// Ensure Android debug.keystore exists to prevent :app:validateSigningDebug failures
+try {
+  const androidAppPath = path.join(projectRoot, 'android', 'app');
+  const debugKeystorePath = path.join(androidAppPath, 'debug.keystore');
+
+  if (fs.existsSync(androidAppPath)) {
+    if (!fs.existsSync(debugKeystorePath)) {
+      console.log('🔐 Generating Android debug.keystore...');
+      // Generate a PKCS12 debug keystore compatible with AGP 8+
+      execSync(
+        'keytool -genkeypair -v -storetype PKCS12 -keystore debug.keystore -alias androiddebugkey -storepass android -keypass android -validity 10000 -keyalg RSA -keysize 2048 -dname "CN=Android Debug,O=Android,C=US"',
+        { stdio: 'ignore', cwd: androidAppPath }
+      );
+      console.log('✅ Created android/app/debug.keystore');
+    } else {
+      console.log('✅ android/app/debug.keystore already exists');
+    }
+  } else {
+    console.log('ℹ️  Android project not found; skipping keystore generation');
+  }
+} catch (error) {
+  console.warn(`⚠️  Could not generate debug.keystore automatically: ${error.message}`);
+  console.warn('   You can create it manually by running:');
+  console.warn('   cd android/app && keytool -genkeypair -v -storetype PKCS12 -keystore debug.keystore -alias androiddebugkey -storepass android -keypass android -validity 10000 -keyalg RSA -keysize 2048 -dname "CN=Android Debug,O=Android,C=US"');
 }
 
 // Update package.json to remove template-specific scripts

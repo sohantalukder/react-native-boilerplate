@@ -185,12 +185,9 @@ function ThemeProvider({ children }: Properties) {
   // Memoized logo selection
   const logos = useMemo(
     (): { logo: number } => ({
-      logo:
-        variant === 'dark'
-          ? (images('./whiteLogo.png') as number)
-          : (images('./blackLogo.png') as number),
+      logo: images('./logo.png') as number,
     }),
-    [variant, images]
+    [images]
   );
 
   // Main theme object
