@@ -1,7 +1,4 @@
-import { Loader } from '@/shared/components/atoms';
-import { SafeSplashScreen } from '@/shared/components/templates';
-
-import { useTheme } from '@/theme';
+import { Loader, ScreenContainer, useTheme } from '@sohantalukder/rn-kit';
 
 import AnimatedLogo from './components/AnimatedLogo';
 import useSplash from './hooks/useSplash';
@@ -9,10 +6,10 @@ const SplashIndex = () => {
   const { gutters } = useTheme();
   const { isLoading } = useSplash();
   return (
-    <SafeSplashScreen>
+    <ScreenContainer>
       <AnimatedLogo />
       {isLoading ? <Loader style={gutters.marginBottom_40} /> : null}
-    </SafeSplashScreen>
+    </ScreenContainer>
   );
 };
 

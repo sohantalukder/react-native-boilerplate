@@ -1,10 +1,13 @@
 import { useNavigation } from '@react-navigation/native';
 import React, { useLayoutEffect, useRef, useCallback, useMemo } from 'react';
 import { Animated, Platform, Text } from 'react-native';
-import { IconButton } from '@/shared/components/atoms';
 import type { StackNavigationOptions } from '@react-navigation/stack';
-import { useTheme } from '@/theme';
-import { fontWeight } from '@/theme/fonts';
+import { IconButton, useTheme } from '@sohantalukder/rn-kit';
+
+const fontWeight = {
+  medium: '500',
+  semibold: '600',
+} as const;
 
 // Utility function to sanitize text and prevent character encoding issues
 const sanitizeText = (text: string): string => {

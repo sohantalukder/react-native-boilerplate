@@ -6,7 +6,7 @@ export interface IContact {
   avatar?: string;
   isOnline?: boolean;
   lastSeen?: Date;
-  status?: "active" | "inactive" | "away";
+  status?: 'active' | 'inactive' | 'away';
 }
 
 export interface IContactGroup {

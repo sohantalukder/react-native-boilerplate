@@ -2,20 +2,21 @@ import { useTranslation } from 'react-i18next';
 import { ScrollView, View, Alert } from 'react-native';
 import { useState } from 'react';
 
-import { useTheme } from '@/theme';
 import { useI18n } from '@/shared/hooks/language/useI18n';
 import { apiInstances } from '@/config/http/apiInstance.config';
 
 import {
+  ScreenContainer,
+  useTheme,
   IconByVariant,
   Image,
   Text,
   Button,
   Card,
   Divider,
-} from '@/shared/components/atoms';
-import { SafeScreen } from '@/shared/components/templates';
+} from '@sohantalukder/rn-kit';
 import rs from '@/shared/utilities/responsiveSize';
+import defaultLogo from '@/assets/images/logo.png';
 
 interface User {
   id: number;
@@ -48,7 +49,7 @@ function Example() {
     try {
       setIsLoading(true);
       // Using the configured API instance to fetch a random user
-      const response = await apiInstances.businessService.get<{
+      const response = await apiInstances.service.get<{
         users: User[];
       }>('users?limit=1');
       if (response.users && response.users.length > 0) {
@@ -121,7 +122,7 @@ function Example() {
   ];
 
   return (
-    <SafeScreen>
+    <ScreenContainer>
       <ScrollView showsVerticalScrollIndicator={false}>
         {/* Header Section */}
         <View style={[layout.itemsCenter, gutters.marginTop_40]}>
@@ -139,7 +140,7 @@ function Example() {
             ]}
           >
             <Image
-              source={logo}
+              source={logo ?? defaultLogo}
               resizeMode="contain"
               style={{
                 height: rs(120),
@@ -379,7 +380,7 @@ function Example() {
         {/* Bottom Spacing */}
         <View style={gutters.marginBottom_40} />
       </ScrollView>
-    </SafeScreen>
+    </ScreenContainer>
   );
 }
 

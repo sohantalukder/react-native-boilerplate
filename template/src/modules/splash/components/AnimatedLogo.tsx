@@ -1,4 +1,4 @@
-import React, { useEffect, useMemo } from 'react';
+import { useEffect, useMemo } from 'react';
 import { View, StyleSheet } from 'react-native';
 import Animated, {
   useSharedValue,
@@ -8,9 +8,8 @@ import Animated, {
   withDelay,
   Easing,
 } from 'react-native-reanimated';
-import { useTheme } from '@/theme';
-import { Image } from '@/shared/components/atoms';
-import type { Colors } from '@/theme/types/colors';
+import { Image, useTheme } from '@sohantalukder/rn-kit';
+import defaultLogo from '@/assets/images/logo.png';
 
 const AnimatedLogo = () => {
   const { logo, gutters, layout, colors } = useTheme();
@@ -70,7 +69,7 @@ const AnimatedLogo = () => {
     >
       <Animated.View style={[animatedStyle, styles.logoContainer]}>
         <Image
-          source={logo}
+          source={logo ?? defaultLogo}
           style={styles.logo}
           resizeMode="contain"
         />
@@ -81,7 +80,7 @@ const AnimatedLogo = () => {
 
 export default AnimatedLogo;
 
-const animatedLogoStyles = (colors: Colors) =>
+const animatedLogoStyles = (colors: { gray9: string }) =>
   StyleSheet.create({
     logo: {
       height: 200,

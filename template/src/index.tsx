@@ -1,24 +1,52 @@
-import React from 'react';
+import { StyleSheet } from 'react-native';
 import { GestureHandlerRootView } from 'react-native-gesture-handler';
 import { QueryClientProvider } from '@tanstack/react-query';
+import {
+  ThemeProvider,
+  UiPortalProvider,
+  type ThemeStorageAdapter,
+} from '@sohantalukder/rn-kit';
 
-import { ThemeProvider } from '@/theme';
 import { queryClient } from '@/config/queryClient';
 import Navigation from '@/navigation';
 import '@/config/i18n.config';
-import UiComponentsWrapper from '@/shared/contexts/UiComponentsWrapper';
-import layout from './theme/layout';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
+import localStore from '@/services/storage/localStore.service';
+import logo from '@/assets/images/logo.png';
+
+const styles = StyleSheet.create({
+  root: {
+    flex: 1,
+  },
+});
+
+const isThemeValue = (
+  value: string | null | undefined
+): value is ReturnType<ThemeStorageAdapter['getTheme']> =>
+  value === 'default' || value === 'dark' || value === 'system';
+
+const themeStorageAdapter: ThemeStorageAdapter = {
+  getTheme: () => {
+    const storedTheme = localStore.getTheme();
+    return isThemeValue(storedTheme) ? storedTheme : 'system';
+  },
+  setTheme: value => {
+    localStore.setTheme(value);
+  },
+};
 
 const MainIndex = () => {
   return (
     <SafeAreaProvider>
-      <GestureHandlerRootView style={layout.flex_1}>
+      <GestureHandlerRootView style={styles.root}>
         <QueryClientProvider client={queryClient}>
-          <ThemeProvider>
-            <UiComponentsWrapper>
+          <ThemeProvider
+            logo={logo}
+            storageAdapter={themeStorageAdapter}
+          >
+            <UiPortalProvider>
               <Navigation />
-            </UiComponentsWrapper>
+            </UiPortalProvider>
           </ThemeProvider>
         </QueryClientProvider>
       </GestureHandlerRootView>

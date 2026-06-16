@@ -1,6 +1,6 @@
 import { createStackNavigator } from '@react-navigation/stack';
 import { NavigationContainer } from '@react-navigation/native';
-import { useTheme } from '@/theme';
+import { useTheme } from '@sohantalukder/rn-kit';
 import type { RootStackParamList } from './types';
 import routes from './routes';
 import { screenOptions } from './screenOptions';
