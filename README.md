@@ -6,56 +6,64 @@
 [![NPM](https://img.shields.io/badge/📦-NPM_Package-red?style=for-the-badge)](https://www.npmjs.com/package/@sohantalukder/react-native-boilerplate)
 [![GitHub](https://img.shields.io/badge/⭐-Star_on_GitHub-black?style=for-the-badge)](https://github.com/sohantalukder/react-native-boilerplate)
 
-A modern, comprehensive React Native template with best practices, modern tools, and a clean architecture. This template provides everything you need to kickstart your React Native project with TypeScript, navigation, state management, and more.
+A modern, comprehensive React Native template with best practices, modern tools, and a clean architecture. This template provides everything you need to kickstart your React Native project with TypeScript, navigation, state management, TanStack Query, and a polished UI layer powered mostly by [`@sohantalukder/rn-kit`](https://www.npmjs.com/package/@sohantalukder/rn-kit).
 
 ## 📖 Complete Documentation
 
 🌟 **[Visit our comprehensive documentation website](https://sohantalukder.github.io/react-native-boilerplate/)** for detailed guides, examples, and best practices.
 
 The documentation includes:
+
 - 📚 **Setup Guides** - Step-by-step installation and configuration
 - 🏗️ **Architecture Guide** - Understanding the project structure
 - 🎨 **Theming System** - Customizing colors, typography, and styles
 - 🔧 **Configuration** - API setup, environment variables, and more
-- 📱 **Component Library** - Pre-built components and usage examples
-- 🎨 **Style Guide** - Design system, colors, typography, and best practices
+- 📱 **RN Kit UI** - Pre-built components, providers, and usage examples
+- 🎨 **Style Guide** - Design tokens, colors, typography, and best practices
 - 🧪 **Testing Guide** - Unit testing and best practices
 - 🚀 **Deployment** - Build and release your app
 
 ## ✨ Features
 
 ### 🏗️ **Architecture & Structure**
+
 - **TypeScript** - Full type safety with latest TypeScript
 - **Modular Architecture** - Well-organized folder structure
 - **Atomic Design** - Component structure following atomic design principles
 - **Barrel Exports** - Clean and organized imports
 
 ### 📱 **Navigation & UI**
+
 - **React Navigation v7** - Stack navigation with type safety
+- **@sohantalukder/rn-kit** - Shared UI kit for screens, typography, buttons, cards, images, overlays, and theming
 - **React Native Screens** - Native screen optimization
 - **React Native Safe Area Context** - Safe area handling
 - **React Native Gesture Handler** - Smooth gesture handling
 - **React Native Reanimated v3** - Performant animations
 
 ### 🔄 **State Management & Data**
+
 - **Zustand** - Lightweight state management
 - **TanStack Query (React Query)** - Server state management
 - **MMKV Storage** - Fast key-value storage
 - **Axios** - HTTP client with interceptors
 
 ### 🎨 **Styling & Theme**
-- **Custom Theme System** - Centralized theming with light/dark mode
+
+- **RN Kit Theme System** - Centralized theming with light/dark mode through `@sohantalukder/rn-kit`
 - **Responsive Design** - Screen size adaptation and responsive utilities
-- **Design System** - Comprehensive color palette and typography scale
-- **Component Library** - 20+ pre-built, accessible UI components
+- **Design System** - Shared color palette, typography, spacing, and layout helpers
+- **Component Library** - Pre-built, accessible UI components from `@sohantalukder/rn-kit`
 - **Style Guide** - Complete design system documentation
 
 ### 🌍 **Internationalization**
+
 - **i18next** - Multi-language support
 - **React i18next** - React Native integration
 - **Fallback Languages** - Graceful language fallbacks
 
 ### 🧪 **Developer Experience**
+
 - **ESLint** - Code linting with React Native rules
 - **Prettier** - Code formatting
 - **Husky** - Git hooks for code quality
@@ -63,6 +71,7 @@ The documentation includes:
 - **React Native Testing Library** - Component testing
 
 ### 📦 **Additional Libraries**
+
 - **React Native SVG** - SVG support
 - **React Native Fast Image** - Optimized image loading
 - **React Native WebView** - Web content embedding
@@ -86,6 +95,7 @@ cd MyAwesomeApp
 ```
 
 The post-init script will automatically:
+
 - Install all dependencies
 - Set up iOS CocoaPods (if on macOS)
 - Configure Git hooks
@@ -105,11 +115,12 @@ npm run android
 yarn android
 ```
 
-## 🧩 Component Library
+## 🧩 UI Kit
 
-Our comprehensive component library follows atomic design principles and provides 20+ pre-built, accessible components:
+Most reusable UI in this template comes from [`@sohantalukder/rn-kit`](https://www.npmjs.com/package/@sohantalukder/rn-kit). Prefer importing shared UI primitives from the kit, then keep feature-specific layouts inside each module.
 
-### 🔸 Atoms (Basic Components)
+### Common Components
+
 - **Button** - Interactive button with multiple variants and loading states
 - **IconButton** - Icon-only button component
 - **Text** - Typography component with theme integration
@@ -129,26 +140,20 @@ Our comprehensive component library follows atomic design principles and provide
 - **Dialog** - Modal dialog component
 - **BottomSheet** - Bottom sheet modal
 
-### 🔹 Molecules (Composite Components)
-- **Avatar** - User profile image with fallback
-- **PasswordInput** - Secure text input with toggle
-- **PhotoCarousel** - Image gallery component
+### Composite Components
+
 - **EmptyContent** - Empty state component
 - **DefaultError** - Error state component
-- **ClickableText** - Interactive text component
 - **TopTabBar** - Tab navigation component
-
-### 🔶 Organisms (Complex Components)
 - **ErrorBoundary** - Error handling wrapper
-- **SlideModal** - Animated modal component
 - **WebView** - Web content component
 
-### 🔷 Templates (Layout Components)
-- **SafeScreen** - Safe area screen wrapper
-- **SafeSplashScreen** - Splash screen wrapper
+### Layout Components
+
 - **ScreenContainer** - Standard screen container
 
 ### 🎨 Style Guide Features
+
 - **Color System** - Comprehensive palette with light/dark mode support
 - **Typography** - Harmonious font scale with responsive sizing
 - **Spacing** - Consistent 8px-based spacing system
@@ -163,46 +168,41 @@ src/
 ├── config/           # App configuration (API, storage, etc.)
 ├── modules/          # Feature modules
 ├── navigation/       # Navigation configuration
-├── services/         # API services and external integrations
-├── shared/           # Shared components and utilities
-│   ├── components/   # Reusable UI components
-│   │   ├── atoms/    # Basic components (Button, Input, etc.)
-│   │   ├── molecules/# Composite components
-│   │   ├── organisms/# Complex components
-│   │   └── templates/# Layout components
-│   ├── contexts/     # React contexts
-│   ├── hooks/        # Custom hooks
-│   └── utils/        # Utility functions
+├── services/         # Storage, app info, and external integrations
+├── shared/           # Shared hooks and utilities
+│   ├── hooks/        # Reusable hooks
+│   └── utilities/    # Utility functions
 ├── state/            # Global state management
-├── theme/            # Theme configuration and styles
 ├── translations/     # Internationalization files
 └── types/            # TypeScript type definitions
 ```
 
-## 🚀 Quick Component Examples
+## 🚀 Quick UI Examples
 
 ### Basic Usage
+
 ```typescript
 import React from 'react';
 import { View } from 'react-native';
-import { Button, Text, Card } from '@/shared/components/atoms';
-import { Avatar } from '@/shared/components/molecules';
-import { SafeScreen } from '@/shared/components/templates';
+import { Button, Card, Image, ScreenContainer, Text } from '@sohantalukder/rn-kit';
 
 const ExampleScreen = () => {
   return (
-    <SafeScreen>
+    <ScreenContainer>
       <View style={{ flex: 1, padding: 16 }}>
         <Text variant="heading1" weight="bold">
           Welcome to React Native Boilerplate
         </Text>
-        
+
         <Card variant="elevated" padding={20} margin={10}>
-          <Avatar imageUrl="https://example.com/avatar.jpg" width={60} height={60} />
+          <Image
+            source={{ uri: 'https://example.com/avatar.jpg' }}
+            style={{ width: 60, height: 60, borderRadius: 30 }}
+          />
           <Text variant="body1" style={{ marginTop: 12 }}>
-            This is a sample card with an avatar and text.
+            This is a sample card with an image and text.
           </Text>
-          
+
           <Button
             text="Get Started"
             variant="primary"
@@ -211,18 +211,19 @@ const ExampleScreen = () => {
           />
         </Card>
       </View>
-    </SafeScreen>
+    </ScreenContainer>
   );
 };
 ```
 
 ### Theme Integration
+
 ```typescript
-import { useTheme } from '@/theme';
+import { useTheme } from '@sohantalukder/rn-kit';
 
 const ThemedComponent = () => {
-  const { colors, fonts, typographies } = useTheme();
-  
+  const { colors, typographies } = useTheme();
+
   return (
     <View style={{ backgroundColor: colors.background }}>
       <Text style={[typographies.heading2, { color: colors.text }]}>
@@ -261,21 +262,23 @@ npm run test          # Run tests
 1. **Development Environment**: Follow the [React Native environment setup guide](https://reactnative.dev/docs/environment-setup)
 
 2. **iOS Setup** (macOS only):
+
    ```bash
    # Install Ruby dependencies
    bundle install
-   
+
    # Install CocoaPods
    cd ios && bundle exec pod install
    ```
 
-3. **Android Setup**: 
+3. **Android Setup**:
    - Set `ANDROID_HOME` environment variable
    - Install Android SDK and required build tools
 
 ### Theme Customization
 
-Edit `src/theme/` files to customize:
+Configure the `ThemeProvider` from `@sohantalukder/rn-kit` to customize:
+
 - Colors
 - Typography
 - Spacing
@@ -284,6 +287,7 @@ Edit `src/theme/` files to customize:
 ### API Configuration
 
 Update `src/config/` files for:
+
 - API endpoints
 - Environment variables
 - App configuration
@@ -294,7 +298,8 @@ Update `src/config/` files for:
 
 ### Key Concepts
 
-- **Atomic Design**: Components are organized as atoms → molecules → organisms → templates
+- **RN Kit First**: Use `@sohantalukder/rn-kit` for shared UI primitives, theme helpers, and overlay APIs
+- **Feature Components**: Keep module-specific UI inside the feature module
 - **Barrel Exports**: Use index files for clean imports
 - **Type Safety**: Leverage TypeScript for better development experience
 - **State Management**: Use Zustand for global state, React Query for server state
@@ -343,4 +348,4 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ---
 
-**Happy coding! 🎉** 
+**Happy coding! 🎉**

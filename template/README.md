@@ -2,6 +2,8 @@
 
 This is a new [**React Native**](https://reactnative.dev) project, bootstrapped using [`@react-native-community/cli`](https://github.com/react-native-community/cli).
 
+This template uses [`@sohantalukder/rn-kit`](https://www.npmjs.com/package/@sohantalukder/rn-kit) for most shared UI, including `ScreenContainer`, `Text`, `Button`, `Card`, `Image`, `toast`, and `useTheme`. Prefer the UI kit for common components, then create small module-level components for feature-specific layouts.
+
 # Getting Started
 
 > **Note**: Make sure you have completed the [Set Up Your Environment](https://reactnative.dev/docs/set-up-your-environment) guide before proceeding.
